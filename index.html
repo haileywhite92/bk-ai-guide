@@ -461,7 +461,7 @@
               <td class="tool-name">Claude Code<span class="tool-sub">Terminal / CLI</span></td>
               <td>Writing, debugging &amp; refactoring code; developer workflows</td>
               <td><span class="tag">Reads codebase</span><span class="tag">Runs commands</span><span class="tag">Edits files</span></td>
-              <td>Requires developer setup; not for non-coders</td>
+              <td>Requires developer setup; not for non-coders. As of June 15 2026, agent/automated usage is metered separately from chat subscriptions.</td>
               <td><span class="tier-dot dot-power">🚀 Power User</span></td>
               <td>API usage-based</td>
             </tr>
@@ -481,13 +481,13 @@
               <td><span class="tag">Huge ecosystem</span><span class="tag">GPTs / plugins</span><span class="tag">Image gen</span></td>
               <td>Quality varies; hallucinations; Pro needed for best models</td>
               <td><span class="tier-dot dot-beginner">🌱 Beginner</span></td>
-              <td>Free / Plus $20/mo</td>
+              <td>Free / Go $8/mo / Plus $20/mo</td>
             </tr>
             <tr onclick="openModal('gpt4o-api')">
-              <td class="tool-name">GPT-4o / API<span class="tool-sub">platform.openai.com</span></td>
+              <td class="tool-name">OpenAI API / GPT-5<span class="tool-sub">platform.openai.com</span></td>
               <td>Building apps, custom chatbots, real-time voice integrations</td>
               <td><span class="tag">Voice mode</span><span class="tag">Vision</span><span class="tag">API ecosystem</span></td>
-              <td>Requires development knowledge; cost adds up at scale</td>
+              <td>Requires development knowledge; cost adds up at scale. Note: GPT-4o retired April 2026.</td>
               <td><span class="tier-dot dot-power">🚀 Power User</span></td>
               <td>Usage-based API</td>
             </tr>
@@ -849,7 +849,7 @@ const TOOLS = {
     subtitle: 'Terminal / Command Line (CLI)',
     bestFor: 'Writing, debugging, and refactoring actual code files. Claude Code reads your entire codebase, runs terminal commands, edits files, and completes developer tasks autonomously. Best for software engineers and technical builders.',
     strengths: ['Reads your full codebase','Runs terminal commands','Edits and creates files','Long multi-file tasks','Git-aware'],
-    limitations: 'Requires developer setup via terminal. Not suitable for non-coders. API usage can add up fast on large codebases. Requires an Anthropic API key.',
+    limitations: 'Requires developer setup via terminal. Not suitable for non-coders. API usage can add up fast on large codebases. As of June 15, 2026, automated/agent usage is billed separately from your Claude chat subscription — check your plan settings.',
     level: '🚀 Power User / Developer',
     cost: 'Anthropic API — usage-based pricing',
     url: 'claude.ai/code',
@@ -877,18 +877,18 @@ const TOOLS = {
     strengths: ['Massive user ecosystem','Custom GPTs & plugins','DALL·E image generation','Web browsing (Plus)','Voice mode'],
     limitations: 'Quality varies by model tier. Known for "hallucinating" (making things up) with confidence. Best features require the Plus plan. Claude generally outperforms on nuanced reasoning and long documents.',
     level: '🌱 Beginner — Extremely accessible',
-    cost: 'Free · Plus $20/mo · Pro $200/mo',
+    cost: 'Free · Go $8/mo · Plus $20/mo · Pro $200/mo',
     url: 'chat.openai.com',
     affiliateNote: 'Affiliate link placeholder — swap URL above when ready'
   },
   'gpt4o-api': {
     emoji: '🔧',
     family: 'OpenAI · API / Developer Tools',
-    title: 'GPT-4o / OpenAI API',
+    title: 'OpenAI API / GPT-5',
     subtitle: 'platform.openai.com',
-    bestFor: 'Building custom AI-powered applications, chatbots, and integrations. Accessing GPT-4o directly for real-time voice, vision, and text through code. Best for developers building products on top of OpenAI models.',
+    bestFor: 'Building custom AI-powered applications, chatbots, and integrations. Access to OpenAI\'s latest models (GPT-5 series) for real-time voice, vision, and text through code. Best for developers building products on top of OpenAI models. Note: GPT-4o was fully retired in April 2026.',
     strengths: ['Real-time voice & vision','Large developer ecosystem','Fine-tuning support','Function calling / tools','Assistants API'],
-    limitations: 'Requires coding or a technical integration layer. Costs scale with usage and can get expensive for high-volume applications. Needs API key management.',
+    limitations: 'Requires coding or a technical integration layer. Costs scale with usage and can get expensive for high-volume applications. Needs API key management. GPT-4o retired April 2026 — existing integrations may need updating.',
     level: '🚀 Power User / Developer',
     cost: 'Usage-based API pricing',
     url: 'platform.openai.com',
