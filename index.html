@@ -1,0 +1,1133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Be Known: AI Comparison</title>
+<link href="https://fonts.googleapis.com/css2?family=Oxygen:wght@300;400;700&family=Nunito:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --green-light:  #1BBB68;
+    --green-mid:    #159251;
+    --green-dark:   #0F6F3C;
+    --black:        #161616;
+    --white:        #FFFFFF;
+    --off-white:    #F4F7F4;
+    --gray-light:   #E8EDE8;
+    --gray-mid:     #8A9E8A;
+    --shadow:       0 4px 24px rgba(15,111,60,0.10);
+    --shadow-lg:    0 12px 48px rgba(15,111,60,0.15);
+    --radius:       12px;
+    --radius-lg:    20px;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body { font-family: 'Nunito', sans-serif; background: var(--off-white); color: var(--black); line-height: 1.6; overflow-x: hidden; }
+
+  /* ─── HEADER ─── */
+  header { background: var(--green-dark); padding: 0; position: relative; overflow: hidden; }
+  .header-pattern { position: absolute; right: -60px; top: -60px; width: 420px; height: 420px; opacity: 0.08; pointer-events: none; }
+  .header-inner { max-width: 1200px; margin: 0 auto; padding: 48px 40px 52px; position: relative; z-index: 1; display: flex; align-items: center; gap: 40px; }
+  .logo-mark { flex-shrink: 0; width: 64px; height: 52px; }
+  .header-text { flex: 1; }
+  .brand-tag { font-family: 'Oxygen', sans-serif; font-weight: 700; font-size: 11px; letter-spacing: 3px; text-transform: uppercase; color: var(--green-light); margin-bottom: 8px; }
+  header h1 { font-family: 'Oxygen', sans-serif; font-weight: 700; font-size: clamp(26px, 4vw, 42px); color: var(--white); line-height: 1.15; margin-bottom: 12px; }
+  header h1 span { color: var(--green-light); }
+  .header-sub { font-size: 15px; color: rgba(255,255,255,0.72); max-width: 560px; font-weight: 400; }
+  .header-pill { display: inline-block; margin-top: 20px; background: rgba(27,187,104,0.18); border: 1px solid rgba(27,187,104,0.35); color: var(--green-light); font-size: 12px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; padding: 5px 14px; border-radius: 100px; }
+
+  /* ─── NAV ─── */
+  .nav-tabs { background: var(--green-dark); border-top: 1px solid rgba(255,255,255,0.08); }
+  .nav-tabs-inner { max-width: 1200px; margin: 0 auto; padding: 0 40px; display: flex; gap: 4px; }
+  .nav-tab { padding: 14px 24px; font-family: 'Oxygen', sans-serif; font-size: 13px; font-weight: 700; letter-spacing: 0.5px; color: rgba(255,255,255,0.55); cursor: pointer; border-bottom: 3px solid transparent; transition: all 0.2s; background: none; border-top: none; border-left: none; border-right: none; white-space: nowrap; }
+  .nav-tab:hover { color: var(--white); }
+  .nav-tab.active { color: var(--green-light); border-bottom-color: var(--green-light); }
+
+  /* ─── MAIN ─── */
+  main { max-width: 1200px; margin: 0 auto; padding: 48px 40px 80px; }
+  section { margin-bottom: 72px; }
+  .section-label { display: flex; align-items: center; gap: 12px; margin-bottom: 28px; }
+  .section-label-bar { width: 4px; height: 32px; background: linear-gradient(to bottom, var(--green-light), var(--green-dark)); border-radius: 2px; flex-shrink: 0; }
+  .section-label h2 { font-family: 'Oxygen', sans-serif; font-size: 22px; font-weight: 700; color: var(--green-dark); }
+  .section-label p { font-size: 13px; color: var(--gray-mid); margin-top: 2px; font-weight: 400; }
+
+  /* ─── INTRO CALLOUT ─── */
+  .intro-callout { background: var(--white); border: 1px solid var(--gray-light); border-left: 4px solid var(--green-light); border-radius: var(--radius); padding: 24px 28px; margin-bottom: 48px; display: flex; gap: 16px; align-items: flex-start; }
+  .intro-callout-icon { font-size: 24px; flex-shrink: 0; margin-top: 2px; }
+  .intro-callout p { font-size: 15px; color: #3a3a3a; line-height: 1.7; }
+  .intro-callout strong { color: var(--green-dark); }
+
+  /* ─── CLICKABLE HINT ─── */
+  .click-hint { display: inline-flex; align-items: center; gap: 6px; font-size: 12px; color: var(--gray-mid); font-weight: 600; margin-bottom: 16px; }
+  .click-hint::before { content: '👆'; font-size: 14px; }
+
+  /* ─── TIER CARDS ─── */
+  .tier-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+  .tier-card { border-radius: var(--radius-lg); overflow: hidden; box-shadow: var(--shadow); position: relative; transition: transform 0.2s, box-shadow 0.2s; }
+  .tier-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-lg); }
+  .tier-header { padding: 24px 24px 20px; display: flex; align-items: flex-start; gap: 14px; }
+  .tier-badge { width: 44px; height: 44px; border-radius: 10px; display: flex; align-items: center; justify-content: center; font-size: 20px; flex-shrink: 0; }
+  .tier-title-wrap { flex: 1; }
+  .tier-level { font-family: 'Oxygen', sans-serif; font-size: 10px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 3px; }
+  .tier-title { font-family: 'Oxygen', sans-serif; font-size: 18px; font-weight: 700; line-height: 1.2; }
+  .tier-desc { font-size: 12.5px; line-height: 1.55; padding: 0 24px; margin-bottom: 20px; opacity: 0.85; }
+  .tier-tools { padding: 0 24px 24px; display: flex; flex-direction: column; gap: 10px; }
+
+  .tier-tool-chip { display: flex; align-items: center; gap: 10px; padding: 10px 14px; border-radius: 10px; font-size: 13px; font-weight: 600; cursor: pointer; transition: filter 0.15s, transform 0.15s; }
+  .tier-tool-chip:hover { filter: brightness(0.92); transform: translateX(3px); }
+  .tier-tool-chip span:first-child { font-size: 16px; }
+
+  .tier-1 { background: var(--white); }
+  .tier-1 .tier-header { background: linear-gradient(135deg, #E8F8F0, #D0F0E0); }
+  .tier-1 .tier-badge { background: #C5EDD8; }
+  .tier-1 .tier-level { color: var(--green-mid); }
+  .tier-1 .tier-title { color: var(--green-dark); }
+  .tier-1 .tier-desc { color: #3a5a3a; }
+  .tier-1 .tier-tool-chip { background: #F0FAF4; color: var(--green-dark); }
+
+  .tier-2 { background: var(--white); }
+  .tier-2 .tier-header { background: linear-gradient(135deg, #1BBB68, #159251); }
+  .tier-2 .tier-badge { background: rgba(255,255,255,0.25); }
+  .tier-2 .tier-level { color: rgba(255,255,255,0.75); }
+  .tier-2 .tier-title { color: var(--white); }
+  .tier-2 .tier-desc { color: #3a5a3a; }
+  .tier-2 .tier-tool-chip { background: #E8F8F0; color: var(--green-dark); }
+
+  .tier-3 { background: var(--white); }
+  .tier-3 .tier-header { background: linear-gradient(135deg, #0F6F3C, #161616); }
+  .tier-3 .tier-badge { background: rgba(27,187,104,0.2); }
+  .tier-3 .tier-level { color: var(--green-light); }
+  .tier-3 .tier-title { color: var(--white); }
+  .tier-3 .tier-desc { color: #3a3a3a; }
+  .tier-3 .tier-tool-chip { background: #F0FAF4; color: var(--green-dark); }
+
+  /* ─── TABLE ─── */
+  .table-wrapper { background: var(--white); border-radius: var(--radius-lg); box-shadow: var(--shadow); overflow: hidden; border: 1px solid var(--gray-light); }
+  .table-scroll { overflow-x: auto; }
+  table { width: 100%; border-collapse: collapse; font-size: 13.5px; min-width: 900px; }
+  thead tr { background: var(--green-dark); }
+  thead th { padding: 16px 18px; text-align: left; font-family: 'Oxygen', sans-serif; font-size: 11px; font-weight: 700; letter-spacing: 1.2px; text-transform: uppercase; color: rgba(255,255,255,0.80); white-space: nowrap; }
+  thead th:first-child { color: var(--white); }
+  .group-row td { background: linear-gradient(to right, #E8F8F0, #F4FAF6); padding: 8px 18px; font-family: 'Oxygen', sans-serif; font-size: 10px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: var(--green-mid); border-top: 2px solid var(--gray-light); }
+  tbody tr:not(.group-row) { border-bottom: 1px solid var(--gray-light); transition: background 0.15s; cursor: pointer; }
+  tbody tr:not(.group-row):hover { background: #EEF9F2; }
+  tbody td { padding: 15px 18px; vertical-align: top; color: #3a3a3a; line-height: 1.5; }
+  td.tool-name { font-weight: 700; color: var(--green-dark); font-family: 'Oxygen', sans-serif; font-size: 13px; white-space: nowrap; }
+  td.tool-name .tool-sub { display: block; font-family: 'Nunito', sans-serif; font-weight: 400; font-size: 11px; color: var(--gray-mid); margin-top: 2px; }
+  .tier-dot { display: inline-block; padding: 3px 10px; border-radius: 100px; font-size: 11px; font-weight: 700; white-space: nowrap; }
+  .dot-beginner { background: #D0F0E0; color: var(--green-dark); }
+  .dot-intermediate { background: #A8DFC0; color: var(--green-dark); }
+  .dot-power { background: var(--green-dark); color: var(--white); }
+  .tag { display: inline-block; margin: 2px 2px 2px 0; padding: 2px 8px; background: #F0FAF4; border: 1px solid #C5EDD8; border-radius: 6px; font-size: 11px; font-weight: 600; color: var(--green-dark); }
+
+  /* ─── QUADRANT ─── */
+  .quadrant-wrap { background: var(--white); border-radius: var(--radius-lg); box-shadow: var(--shadow); border: 1px solid var(--gray-light); padding: 40px; position: relative; overflow: hidden; }
+  .quadrant-container { position: relative; width: 100%; padding-bottom: 62%; margin-top: 16px; }
+  .quadrant-svg { position: absolute; top: 0; left: 0; width: 100%; height: 100%; }
+  .quadrant-dot { cursor: pointer; transition: opacity 0.15s; }
+  .quadrant-dot:hover circle { opacity: 1 !important; filter: brightness(1.15); }
+  .quadrant-dot:hover { filter: drop-shadow(0 4px 12px rgba(15,111,60,0.4)); }
+
+  /* ─── GLOSSARY ─── */
+  .glossary-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 16px; }
+  .glossary-card { background: var(--white); border: 1px solid var(--gray-light); border-radius: var(--radius); padding: 20px 22px; transition: border-color 0.2s, box-shadow 0.2s; }
+  .glossary-card:hover { border-color: var(--green-light); box-shadow: 0 4px 16px rgba(27,187,104,0.10); }
+  .glossary-term { font-family: 'Oxygen', sans-serif; font-size: 14px; font-weight: 700; color: var(--green-dark); margin-bottom: 6px; display: flex; align-items: center; gap: 8px; }
+  .glossary-term .gterm-icon { font-size: 16px; }
+  .glossary-def { font-size: 13px; color: #555; line-height: 1.6; }
+
+  /* ─── FOOTER ─── */
+  footer { background: var(--green-dark); padding: 36px 40px; }
+  .footer-inner { max-width: 1200px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; gap: 24px; flex-wrap: wrap; }
+  .footer-brand { display: flex; align-items: center; gap: 14px; }
+  .footer-brand-text { font-family: 'Oxygen', sans-serif; font-weight: 700; font-size: 16px; color: var(--white); letter-spacing: 0.5px; }
+  .footer-note { font-size: 12px; color: rgba(255,255,255,0.45); }
+
+  /* ─── MODAL ─── */
+  .modal-overlay {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(15, 40, 25, 0.65);
+    backdrop-filter: blur(4px);
+    z-index: 1000;
+    align-items: center;
+    justify-content: center;
+    padding: 24px;
+    animation: fadeIn 0.18s ease;
+  }
+  .modal-overlay.open { display: flex; }
+
+  @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+  @keyframes slideUp { from { opacity: 0; transform: translateY(24px); } to { opacity: 1; transform: translateY(0); } }
+
+  .modal {
+    background: var(--white);
+    border-radius: var(--radius-lg);
+    max-width: 580px;
+    width: 100%;
+    max-height: 90vh;
+    overflow-y: auto;
+    box-shadow: 0 24px 80px rgba(15,111,60,0.25);
+    animation: slideUp 0.22s ease;
+    position: relative;
+  }
+
+  .modal-header {
+    background: linear-gradient(135deg, var(--green-dark), #0a4a28);
+    padding: 28px 32px 24px;
+    border-radius: var(--radius-lg) var(--radius-lg) 0 0;
+    position: relative;
+  }
+
+  .modal-close {
+    position: absolute;
+    top: 16px;
+    right: 16px;
+    width: 32px;
+    height: 32px;
+    background: rgba(255,255,255,0.15);
+    border: none;
+    border-radius: 50%;
+    color: white;
+    font-size: 18px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background 0.15s;
+    line-height: 1;
+  }
+  .modal-close:hover { background: rgba(255,255,255,0.28); }
+
+  .modal-emoji { font-size: 32px; margin-bottom: 10px; display: block; }
+  .modal-family { font-family: 'Oxygen', sans-serif; font-size: 10px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: var(--green-light); margin-bottom: 6px; }
+  .modal-title { font-family: 'Oxygen', sans-serif; font-size: 22px; font-weight: 700; color: var(--white); margin-bottom: 4px; }
+  .modal-subtitle { font-size: 13px; color: rgba(255,255,255,0.60); }
+
+  .modal-body { padding: 28px 32px 32px; }
+
+  .modal-section { margin-bottom: 22px; }
+  .modal-section:last-child { margin-bottom: 0; }
+  .modal-section-title { font-family: 'Oxygen', sans-serif; font-size: 11px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; color: var(--green-mid); margin-bottom: 8px; }
+  .modal-section p { font-size: 14px; color: #3a3a3a; line-height: 1.65; }
+
+  .modal-tags { display: flex; flex-wrap: wrap; gap: 6px; }
+  .modal-tag { padding: 4px 12px; background: #F0FAF4; border: 1px solid #C5EDD8; border-radius: 100px; font-size: 12px; font-weight: 700; color: var(--green-dark); }
+  .modal-tag.red { background: #FFF0F0; border-color: #FFCDD2; color: #B71C1C; }
+
+  .modal-meta-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+  .modal-meta-item { background: var(--off-white); border-radius: 10px; padding: 12px 14px; }
+  .modal-meta-label { font-size: 10px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; color: var(--gray-mid); margin-bottom: 4px; }
+  .modal-meta-value { font-size: 13px; font-weight: 700; color: var(--green-dark); }
+
+  .modal-url-block {
+    background: #F8FBF8;
+    border: 1px dashed #C5EDD8;
+    border-radius: 10px;
+    padding: 14px 16px;
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+  }
+  .modal-url-icon { font-size: 18px; flex-shrink: 0; margin-top: 1px; }
+  .modal-url-text { flex: 1; }
+  .modal-url-label { font-size: 10px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; color: var(--gray-mid); margin-bottom: 4px; }
+  .modal-url-value { font-size: 13px; font-weight: 600; color: var(--green-dark); font-family: 'Oxygen', monospace; word-break: break-all; }
+  /* AFFILIATE PLACEHOLDER comment is in the JS data — the <span> below carries it */
+  .modal-url-affiliate { font-size: 11px; color: var(--gray-mid); margin-top: 6px; font-style: italic; }
+
+  /* ─── RESPONSIVE ─── */
+  @media (max-width: 860px) {
+    .header-inner { padding: 36px 24px 40px; gap: 20px; }
+    main { padding: 32px 24px 60px; }
+    .nav-tabs-inner { padding: 0 24px; }
+    .tier-grid { grid-template-columns: 1fr; }
+    .footer-inner { flex-direction: column; align-items: flex-start; }
+    .nav-tab { padding: 12px 16px; font-size: 12px; }
+    .modal-meta-grid { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ═══ MODAL ═══ -->
+<div class="modal-overlay" id="modalOverlay" onclick="handleOverlayClick(event)">
+  <div class="modal" id="modal">
+    <div class="modal-header">
+      <button class="modal-close" onclick="closeModal()" title="Close">✕</button>
+      <span class="modal-emoji" id="mEmoji"></span>
+      <div class="modal-family" id="mFamily"></div>
+      <div class="modal-title" id="mTitle"></div>
+      <div class="modal-subtitle" id="mSubtitle"></div>
+    </div>
+    <div class="modal-body">
+      <div class="modal-section">
+        <div class="modal-section-title">What It's Best For</div>
+        <p id="mBestFor"></p>
+      </div>
+      <div class="modal-section">
+        <div class="modal-section-title">Key Strengths</div>
+        <div class="modal-tags" id="mStrengths"></div>
+      </div>
+      <div class="modal-section">
+        <div class="modal-section-title">Limitations</div>
+        <p id="mLimitations"></p>
+      </div>
+      <div class="modal-section">
+        <div class="modal-meta-grid">
+          <div class="modal-meta-item">
+            <div class="modal-meta-label">Skill Level</div>
+            <div class="modal-meta-value" id="mLevel"></div>
+          </div>
+          <div class="modal-meta-item">
+            <div class="modal-meta-label">Pricing</div>
+            <div class="modal-meta-value" id="mCost"></div>
+          </div>
+        </div>
+      </div>
+      <div class="modal-section">
+        <div class="modal-url-block">
+          <span class="modal-url-icon">🔗</span>
+          <div class="modal-url-text">
+            <div class="modal-url-label">Visit Tool</div>
+            <div class="modal-url-value" id="mUrl"></div>
+            <!-- AFFILIATE LINK PLACEHOLDER — replace the URL above with your affiliate link when ready -->
+            <div class="modal-url-affiliate" id="mAffiliate"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══ HEADER ═══ -->
+<header>
+  <svg class="header-pattern" viewBox="0 0 420 420" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <g transform="rotate(-30 210 210)">
+      <rect x="20"  y="0" width="52" height="480" rx="8" fill="white"/>
+      <rect x="90"  y="0" width="52" height="480" rx="8" fill="white"/>
+      <rect x="160" y="0" width="52" height="480" rx="8" fill="white"/>
+      <rect x="230" y="0" width="52" height="480" rx="8" fill="white"/>
+      <rect x="300" y="0" width="52" height="480" rx="8" fill="white"/>
+      <rect x="370" y="0" width="52" height="480" rx="8" fill="white"/>
+    </g>
+  </svg>
+  <div class="header-inner">
+    <svg class="logo-mark" viewBox="0 0 64 52" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <rect x="0"  y="14" width="16" height="38" rx="3" transform="rotate(-30 0 14)"  fill="#1BBB68"/>
+      <rect x="22" y="6"  width="16" height="44" rx="3" transform="rotate(-30 22 6)"  fill="#159251"/>
+      <rect x="44" y="0"  width="16" height="48" rx="3" transform="rotate(-30 44 0)"  fill="rgba(255,255,255,0.6)"/>
+    </svg>
+    <div class="header-text">
+      <div class="brand-tag">Be Known, LLC</div>
+      <h1>AI Tools <span>&amp; LLM</span><br>Field Guide</h1>
+      <p class="header-sub">Your plain-English reference for navigating the AI landscape — which tool does what, and when to reach for it.</p>
+      <span class="header-pill">2026 Edition</span>
+    </div>
+  </div>
+  <nav class="nav-tabs">
+    <div class="nav-tabs-inner">
+      <button class="nav-tab active" onclick="navTo('#intro')">Overview</button>
+      <button class="nav-tab" onclick="navTo('#tiers')">Skill Tiers</button>
+      <button class="nav-tab" onclick="navTo('#table')">Comparison Table</button>
+      <button class="nav-tab" onclick="navTo('#quadrant')">Use-Case Quadrant</button>
+      <button class="nav-tab" onclick="navTo('#glossary')">Glossary</button>
+    </div>
+  </nav>
+</header>
+
+<!-- ═══ MAIN ═══ -->
+<main>
+
+  <div id="intro" class="intro-callout">
+    <div class="intro-callout-icon">💡</div>
+    <p>
+      The AI space moves fast — and the tool names alone can cause confusion.
+      <strong>Claude vs. Claude Code vs. Claude Cowork. Perplexity vs. Perplexity Computer Use. Gemini vs. Google AI Studio vs. NotebookLM.</strong>
+      This guide cuts through the noise. Whether you're brand new to AI or already a daily user, use this as your go-to reference for picking the right tool for the job.
+      <br><br>
+      <strong>👆 Click any tool</strong> anywhere in this guide to see full details.
+    </p>
+  </div>
+
+  <!-- ══ TIERS ══ -->
+  <section id="tiers">
+    <div class="section-label">
+      <div class="section-label-bar"></div>
+      <div>
+        <h2>Which Tier Are You?</h2>
+        <p>Find your level, then click any tool to learn more.</p>
+      </div>
+    </div>
+    <div class="tier-grid">
+
+      <div class="tier-card tier-1">
+        <div class="tier-header">
+          <div class="tier-badge">🌱</div>
+          <div class="tier-title-wrap">
+            <div class="tier-level">Tier 1</div>
+            <div class="tier-title">Just Getting<br>Started</div>
+          </div>
+        </div>
+        <p class="tier-desc">You're exploring AI for the first time, or you use it occasionally for simple tasks. You want something that just works — no setup, no tech knowledge required.</p>
+        <div class="tier-tools">
+          <div class="tier-tool-chip" onclick="openModal('claude-chat')"><span>💬</span><span>Claude.ai Chat</span></div>
+          <div class="tier-tool-chip" onclick="openModal('perplexity')"><span>🔍</span><span>Perplexity</span></div>
+          <div class="tier-tool-chip" onclick="openModal('chatgpt')"><span>💬</span><span>ChatGPT</span></div>
+          <div class="tier-tool-chip" onclick="openModal('gemini')"><span>✨</span><span>Gemini</span></div>
+          <div class="tier-tool-chip" onclick="openModal('grok')"><span>⚡</span><span>Grok</span></div>
+        </div>
+      </div>
+
+      <div class="tier-card tier-2">
+        <div class="tier-header">
+          <div class="tier-badge">⚡</div>
+          <div class="tier-title-wrap">
+            <div class="tier-level">Tier 2</div>
+            <div class="tier-title">Daily User &amp;<br>Experimenter</div>
+          </div>
+        </div>
+        <p class="tier-desc">You use AI regularly and want to go deeper — running research workflows, automating tasks, testing prompts, or building things without writing code.</p>
+        <div class="tier-tools">
+          <div class="tier-tool-chip" onclick="openModal('perplexity')"><span>🌐</span><span>Perplexity Pro</span></div>
+          <div class="tier-tool-chip" onclick="openModal('ai-studio')"><span>🧪</span><span>Google AI Studio</span></div>
+          <div class="tier-tool-chip" onclick="openModal('notebooklm')"><span>📓</span><span>NotebookLM</span></div>
+          <div class="tier-tool-chip" onclick="openModal('manus')"><span>🤖</span><span>Manus AI</span></div>
+          <div class="tier-tool-chip" onclick="openModal('lovable')"><span>🏗️</span><span>Lovable</span></div>
+          <div class="tier-tool-chip" onclick="openModal('claude-cowork')"><span>🖥️</span><span>Claude Cowork</span></div>
+        </div>
+      </div>
+
+      <div class="tier-card tier-3">
+        <div class="tier-header">
+          <div class="tier-badge">🚀</div>
+          <div class="tier-title-wrap">
+            <div class="tier-level">Tier 3</div>
+            <div class="tier-title">Power User &amp;<br>Builder</div>
+          </div>
+        </div>
+        <p class="tier-desc">You build systems, write prompts like a developer thinks in code, automate complex workflows, and want full control over model behavior and integrations.</p>
+        <div class="tier-tools">
+          <div class="tier-tool-chip" onclick="openModal('claude-code')"><span>💻</span><span>Claude Code</span></div>
+          <div class="tier-tool-chip" onclick="openModal('perplexity-computer')"><span>🌐</span><span>Perplexity Computer Use</span></div>
+          <div class="tier-tool-chip" onclick="openModal('gpt4o-api')"><span>🔧</span><span>OpenAI API / GPT-4o</span></div>
+          <div class="tier-tool-chip" onclick="openModal('grok-api')"><span>🔧</span><span>xAI API / Grok</span></div>
+          <div class="tier-tool-chip" onclick="openModal('replit')"><span>⚙️</span><span>Replit</span></div>
+          <div class="tier-tool-chip" onclick="openModal('base44')"><span>⚙️</span><span>Base44</span></div>
+          <div class="tier-tool-chip" onclick="openModal('zapier')"><span>🔗</span><span>Zapier AI</span></div>
+          <div class="tier-tool-chip" onclick="openModal('make')"><span>🔗</span><span>Make AI</span></div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ══ TABLE ══ -->
+  <section id="table">
+    <div class="section-label">
+      <div class="section-label-bar"></div>
+      <div>
+        <h2>Full Tool Comparison</h2>
+        <p>Click any row for full details on that tool.</p>
+      </div>
+    </div>
+    <div class="table-wrapper">
+      <div class="table-scroll">
+        <table>
+          <thead>
+            <tr>
+              <th>Tool</th>
+              <th>Best For</th>
+              <th>Key Strengths</th>
+              <th>Limitations</th>
+              <th>Skill Level</th>
+              <th>Cost</th>
+            </tr>
+          </thead>
+          <tbody>
+
+            <tr class="group-row"><td colspan="6">🟢 Anthropic · Claude Family</td></tr>
+            <tr onclick="openModal('claude-chat')">
+              <td class="tool-name">Claude.ai Chat<span class="tool-sub">claude.ai</span></td>
+              <td>Writing, strategy, copy editing, long documents</td>
+              <td><span class="tag">Best reasoning</span><span class="tag">Long context</span><span class="tag">Nuanced writing</span></td>
+              <td>No internet by default; can't act on your computer</td>
+              <td><span class="tier-dot dot-beginner">🌱 Beginner</span></td>
+              <td>Free / Pro $20/mo</td>
+            </tr>
+            <tr onclick="openModal('claude-code')">
+              <td class="tool-name">Claude Code<span class="tool-sub">Terminal / CLI</span></td>
+              <td>Writing, debugging &amp; refactoring code; developer workflows</td>
+              <td><span class="tag">Reads codebase</span><span class="tag">Runs commands</span><span class="tag">Edits files</span></td>
+              <td>Requires developer setup; not for non-coders</td>
+              <td><span class="tier-dot dot-power">🚀 Power User</span></td>
+              <td>API usage-based</td>
+            </tr>
+            <tr onclick="openModal('claude-cowork')">
+              <td class="tool-name">Claude Cowork<span class="tool-sub">Desktop Agent</span></td>
+              <td>Letting Claude operate your computer on your behalf</td>
+              <td><span class="tag">Sees your screen</span><span class="tag">Takes actions</span><span class="tag">Background agent</span></td>
+              <td>Memory &amp; CPU intensive; system must stay open</td>
+              <td><span class="tier-dot dot-intermediate">⚡ Intermediate</span></td>
+              <td>Claude Pro / Teams</td>
+            </tr>
+
+            <tr class="group-row"><td colspan="6">🔵 OpenAI · ChatGPT Family</td></tr>
+            <tr onclick="openModal('chatgpt')">
+              <td class="tool-name">ChatGPT<span class="tool-sub">chat.openai.com</span></td>
+              <td>General chat, brainstorming, image generation, code help</td>
+              <td><span class="tag">Huge ecosystem</span><span class="tag">GPTs / plugins</span><span class="tag">Image gen</span></td>
+              <td>Quality varies; hallucinations; Pro needed for best models</td>
+              <td><span class="tier-dot dot-beginner">🌱 Beginner</span></td>
+              <td>Free / Plus $20/mo</td>
+            </tr>
+            <tr onclick="openModal('gpt4o-api')">
+              <td class="tool-name">GPT-4o / API<span class="tool-sub">platform.openai.com</span></td>
+              <td>Building apps, custom chatbots, real-time voice integrations</td>
+              <td><span class="tag">Voice mode</span><span class="tag">Vision</span><span class="tag">API ecosystem</span></td>
+              <td>Requires development knowledge; cost adds up at scale</td>
+              <td><span class="tier-dot dot-power">🚀 Power User</span></td>
+              <td>Usage-based API</td>
+            </tr>
+
+            <tr class="group-row"><td colspan="6">⚫ xAI · Grok Family</td></tr>
+            <tr onclick="openModal('grok')">
+              <td class="tool-name">Grok<span class="tool-sub">x.ai / X (Twitter)</span></td>
+              <td>Real-time chat with live X/Twitter data, unfiltered Q&amp;A, current events, image generation</td>
+              <td><span class="tag">Real-time X data</span><span class="tag">Less restricted</span><span class="tag">Image gen (Aurora)</span></td>
+              <td>Requires X Premium; can be less careful/accurate; smaller ecosystem than OpenAI or Anthropic</td>
+              <td><span class="tier-dot dot-beginner">🌱 Beginner</span></td>
+              <td>X Premium $8–$16/mo</td>
+            </tr>
+            <tr onclick="openModal('grok-api')">
+              <td class="tool-name">xAI API / Grok<span class="tool-sub">console.x.ai</span></td>
+              <td>Building apps with Grok models; accessing real-time X data programmatically; large context tasks</td>
+              <td><span class="tag">128K context</span><span class="tag">Real-time X feed</span><span class="tag">Function calling</span></td>
+              <td>Smaller developer ecosystem; less mature tooling than OpenAI or Anthropic APIs</td>
+              <td><span class="tier-dot dot-power">🚀 Power User</span></td>
+              <td>Usage-based API pricing</td>
+            </tr>
+
+            <tr class="group-row"><td colspan="6">🟣 Perplexity Family</td></tr>
+            <tr onclick="openModal('perplexity')">
+              <td class="tool-name">Perplexity<span class="tool-sub">perplexity.ai</span></td>
+              <td>Real-time research, cited answers, fact-checking</td>
+              <td><span class="tag">Live web search</span><span class="tag">Cited sources</span><span class="tag">Fast research</span></td>
+              <td>Less suited for creative writing or long-form generation</td>
+              <td><span class="tier-dot dot-beginner">🌱 Beginner</span></td>
+              <td>Free / Pro $20/mo</td>
+            </tr>
+            <tr onclick="openModal('perplexity-computer')">
+              <td class="tool-name">Perplexity Computer Use<span class="tool-sub">Pro feature</span></td>
+              <td>Autonomous web browsing, multi-step research tasks</td>
+              <td><span class="tag">Browses the web</span><span class="tag">Multi-step tasks</span><span class="tag">Research agent</span></td>
+              <td>Still maturing; limited to browser actions</td>
+              <td><span class="tier-dot dot-power">🚀 Power User</span></td>
+              <td>Perplexity Pro</td>
+            </tr>
+
+            <tr class="group-row"><td colspan="6">🔴 Google AI Family</td></tr>
+            <tr onclick="openModal('gemini')">
+              <td class="tool-name">Gemini<span class="tool-sub">gemini.google.com</span></td>
+              <td>Everyday AI chat, Google Workspace integration</td>
+              <td><span class="tag">Google integration</span><span class="tag">1M token context</span><span class="tag">Multimodal</span></td>
+              <td>Less nuanced reasoning than Claude; ecosystem lock-in</td>
+              <td><span class="tier-dot dot-beginner">🌱 Beginner</span></td>
+              <td>Free / Advanced $19.99/mo</td>
+            </tr>
+            <tr onclick="openModal('ai-studio')">
+              <td class="tool-name">Google AI Studio<span class="tool-sub">aistudio.google.com</span></td>
+              <td>Testing prompts for free, prototyping, saving workflows</td>
+              <td><span class="tag">Free sandbox</span><span class="tag">1M tokens</span><span class="tag">Prompt testing</span></td>
+              <td>Developer-oriented UI; Gemini models only</td>
+              <td><span class="tier-dot dot-intermediate">⚡ Intermediate</span></td>
+              <td>Free (generous limits)</td>
+            </tr>
+            <tr onclick="openModal('notebooklm')">
+              <td class="tool-name">NotebookLM<span class="tool-sub">notebooklm.google.com</span></td>
+              <td>Uploading documents and asking questions about them</td>
+              <td><span class="tag">Document Q&amp;A</span><span class="tag">Audio summaries</span><span class="tag">Source-grounded</span></td>
+              <td>Limited to your uploaded sources; not general-purpose</td>
+              <td><span class="tier-dot dot-intermediate">⚡ Intermediate</span></td>
+              <td>Free</td>
+            </tr>
+
+            <tr class="group-row"><td colspan="6">🟠 AI App &amp; Web Builders</td></tr>
+            <tr onclick="openModal('lovable')">
+              <td class="tool-name">Lovable<span class="tool-sub">lovable.dev</span></td>
+              <td>Building full web apps from a prompt — no coding required</td>
+              <td><span class="tag">Full apps from text</span><span class="tag">Supabase integration</span><span class="tag">Fast iteration</span></td>
+              <td>Less control than coding from scratch; best for MVPs</td>
+              <td><span class="tier-dot dot-intermediate">⚡ Intermediate</span></td>
+              <td>Free tier / Paid plans</td>
+            </tr>
+            <tr onclick="openModal('replit')">
+              <td class="tool-name">Replit<span class="tool-sub">replit.com</span></td>
+              <td>Running, editing, deploying code in the browser</td>
+              <td><span class="tag">Cloud IDE</span><span class="tag">Deploy instantly</span><span class="tag">AI autocomplete</span></td>
+              <td>Slower than local dev for large projects; needs some coding knowledge</td>
+              <td><span class="tier-dot dot-power">🚀 Power User</span></td>
+              <td>Free / From $20/mo</td>
+            </tr>
+            <tr onclick="openModal('base44')">
+              <td class="tool-name">Base44<span class="tool-sub">base44.com</span></td>
+              <td>AI-powered business app builder with built-in database &amp; auth</td>
+              <td><span class="tag">Built-in DB</span><span class="tag">No backend needed</span><span class="tag">Business apps</span></td>
+              <td>Newer platform; smaller ecosystem</td>
+              <td><span class="tier-dot dot-intermediate">⚡ Intermediate</span></td>
+              <td>Paid plans</td>
+            </tr>
+
+            <tr class="group-row"><td colspan="6">🤖 Autonomous AI Agents</td></tr>
+            <tr onclick="openModal('manus')">
+              <td class="tool-name">Manus AI<span class="tool-sub">manus.im</span></td>
+              <td>Fully autonomous research and multi-step task execution</td>
+              <td><span class="tag">Autonomous agent</span><span class="tag">Multi-step tasks</span><span class="tag">MCP integrations</span></td>
+              <td>Slower; results need review; some account restrictions</td>
+              <td><span class="tier-dot dot-intermediate">⚡ Intermediate</span></td>
+              <td>Waitlist / Invite</td>
+            </tr>
+
+            <tr class="group-row"><td colspan="6">⚙️ AI-Powered Automation</td></tr>
+            <tr onclick="openModal('zapier')">
+              <td class="tool-name">Zapier AI<span class="tool-sub">zapier.com</span></td>
+              <td>Connecting apps and using AI to make decisions in automations</td>
+              <td><span class="tag">6,000+ integrations</span><span class="tag">AI steps</span><span class="tag">No-code</span></td>
+              <td>Cost scales with volume; AI steps can be inconsistent</td>
+              <td><span class="tier-dot dot-intermediate">⚡ Intermediate</span></td>
+              <td>Free tier / From $19.99/mo</td>
+            </tr>
+            <tr onclick="openModal('make')">
+              <td class="tool-name">Make<span class="tool-sub">make.com</span></td>
+              <td>Visual automation with more control and lower cost than Zapier</td>
+              <td><span class="tag">Visual flow builder</span><span class="tag">Cheaper at scale</span><span class="tag">More flexibility</span></td>
+              <td>Steeper learning curve; fewer native integrations</td>
+              <td><span class="tier-dot dot-intermediate">⚡ Intermediate</span></td>
+              <td>Free / From $9/mo</td>
+            </tr>
+
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══ QUADRANT ══ -->
+  <section id="quadrant">
+    <div class="section-label">
+      <div class="section-label-bar"></div>
+      <div>
+        <h2>Use-Case Quadrant</h2>
+        <p>Click any dot to learn more about that tool.</p>
+      </div>
+    </div>
+    <div class="quadrant-wrap">
+      <p style="font-size:13px; color: var(--gray-mid); margin-bottom:8px;">
+        <strong style="color:var(--green-dark)">X-axis:</strong> Task Type &nbsp;·&nbsp;
+        <strong style="color:var(--green-dark)">Y-axis:</strong> How much the AI acts on its own vs. you staying in control
+      </p>
+      <div class="quadrant-container">
+        <svg class="quadrant-svg" viewBox="0 0 900 560" xmlns="http://www.w3.org/2000/svg">
+
+          <!-- Background quadrants -->
+          <rect x="60"  y="30"  width="390" height="245" rx="4" fill="#F0FAF4" opacity="0.6"/>
+          <rect x="450" y="30"  width="420" height="245" rx="4" fill="#E8F8F0" opacity="0.6"/>
+          <rect x="60"  y="275" width="390" height="255" rx="4" fill="#FAFFF6" opacity="0.4"/>
+          <rect x="450" y="275" width="420" height="255" rx="4" fill="#F0FAF4" opacity="0.4"/>
+
+          <!-- Quadrant labels -->
+          <text x="80"  y="55"  font-family="Oxygen,sans-serif" font-size="11" font-weight="700" fill="#0F6F3C" letter-spacing="1.5" opacity="0.7">AUTONOMOUS + CREATIVE</text>
+          <text x="470" y="55"  font-family="Oxygen,sans-serif" font-size="11" font-weight="700" fill="#0F6F3C" letter-spacing="1.5" opacity="0.7">AUTONOMOUS + TECHNICAL</text>
+          <text x="80"  y="298" font-family="Oxygen,sans-serif" font-size="11" font-weight="700" fill="#0F6F3C" letter-spacing="1.5" opacity="0.7">ASSISTED + CREATIVE</text>
+          <text x="470" y="298" font-family="Oxygen,sans-serif" font-size="11" font-weight="700" fill="#0F6F3C" letter-spacing="1.5" opacity="0.7">ASSISTED + TECHNICAL</text>
+
+          <!-- Axes -->
+          <line x1="50"  y1="280" x2="880" y2="280" stroke="#1BBB68" stroke-width="2.5" opacity="0.4"/>
+          <line x1="450" y1="540" x2="450" y2="20"  stroke="#1BBB68" stroke-width="2.5" opacity="0.4"/>
+          <polygon points="880,273 895,280 880,287" fill="#1BBB68" opacity="0.5"/>
+          <polygon points="443,20 450,5 457,20" fill="#1BBB68" opacity="0.5"/>
+
+          <!-- Axis labels -->
+          <text x="90"  y="272" font-family="Nunito,sans-serif" font-size="12" fill="#555" font-weight="700" opacity="0.8">◀ Creative / Content</text>
+          <text x="640" y="272" font-family="Nunito,sans-serif" font-size="12" fill="#555" font-weight="700" opacity="0.8">Technical / Dev ▶</text>
+          <text x="458" y="26"  font-family="Nunito,sans-serif" font-size="12" fill="#555" font-weight="700" opacity="0.8">▲ More Autonomous</text>
+          <text x="458" y="550" font-family="Nunito,sans-serif" font-size="12" fill="#555" font-weight="700" opacity="0.8">▼ You Stay in Control</text>
+
+          <!-- ── CLICKABLE TOOL DOTS ── -->
+          <g class="quadrant-dot" onclick="openModal('manus')" style="cursor:pointer">
+            <circle cx="440" cy="90" r="30" fill="#0F6F3C" opacity="0.9"/>
+            <text x="440" y="84"  font-family="Nunito,sans-serif" font-size="10" font-weight="800" fill="white" text-anchor="middle" dominant-baseline="middle">Manus</text>
+            <text x="440" y="97"  font-family="Nunito,sans-serif" font-size="9"  font-weight="700" fill="white" text-anchor="middle" dominant-baseline="middle">AI</text>
+          </g>
+
+          <g class="quadrant-dot" onclick="openModal('perplexity-computer')" style="cursor:pointer">
+            <circle cx="640" cy="120" r="30" fill="#159251" opacity="0.9"/>
+            <text x="640" y="114" font-family="Nunito,sans-serif" font-size="10" font-weight="800" fill="white" text-anchor="middle" dominant-baseline="middle">Perplexity</text>
+            <text x="640" y="127" font-family="Nunito,sans-serif" font-size="9"  font-weight="700" fill="white" text-anchor="middle" dominant-baseline="middle">Computer Use</text>
+          </g>
+
+          <g class="quadrant-dot" onclick="openModal('claude-cowork')" style="cursor:pointer">
+            <circle cx="200" cy="140" r="30" fill="#1BBB68" opacity="0.9"/>
+            <text x="200" y="134" font-family="Nunito,sans-serif" font-size="10" font-weight="800" fill="white" text-anchor="middle" dominant-baseline="middle">Claude</text>
+            <text x="200" y="147" font-family="Nunito,sans-serif" font-size="9"  font-weight="700" fill="white" text-anchor="middle" dominant-baseline="middle">Cowork</text>
+          </g>
+
+          <g class="quadrant-dot" onclick="openModal('claude-code')" style="cursor:pointer">
+            <circle cx="790" cy="160" r="30" fill="#0F6F3C" opacity="0.9"/>
+            <text x="790" y="154" font-family="Nunito,sans-serif" font-size="10" font-weight="800" fill="white" text-anchor="middle" dominant-baseline="middle">Claude</text>
+            <text x="790" y="167" font-family="Nunito,sans-serif" font-size="9"  font-weight="700" fill="white" text-anchor="middle" dominant-baseline="middle">Code</text>
+          </g>
+
+          <g class="quadrant-dot" onclick="openModal('gpt4o-api')" style="cursor:pointer">
+            <circle cx="760" cy="240" r="30" fill="#0F6F3C" opacity="0.85"/>
+            <text x="760" y="234" font-family="Nunito,sans-serif" font-size="10" font-weight="800" fill="white" text-anchor="middle" dominant-baseline="middle">GPT-4o</text>
+            <text x="760" y="247" font-family="Nunito,sans-serif" font-size="9"  font-weight="700" fill="white" text-anchor="middle" dominant-baseline="middle">API</text>
+          </g>
+
+          <g class="quadrant-dot" onclick="openModal('claude-chat')" style="cursor:pointer">
+            <circle cx="210" cy="370" r="30" fill="#1BBB68" opacity="0.85"/>
+            <text x="210" y="364" font-family="Nunito,sans-serif" font-size="10" font-weight="800" fill="white" text-anchor="middle" dominant-baseline="middle">Claude.ai</text>
+            <text x="210" y="377" font-family="Nunito,sans-serif" font-size="9"  font-weight="700" fill="white" text-anchor="middle" dominant-baseline="middle">Chat</text>
+          </g>
+
+          <g class="quadrant-dot" onclick="openModal('chatgpt')" style="cursor:pointer">
+            <circle cx="360" cy="420" r="30" fill="#159251" opacity="0.85"/>
+            <text x="360" y="420" font-family="Nunito,sans-serif" font-size="10" font-weight="800" fill="white" text-anchor="middle" dominant-baseline="middle">ChatGPT</text>
+          </g>
+
+          <g class="quadrant-dot" onclick="openModal('perplexity')" style="cursor:pointer">
+            <circle cx="430" cy="360" r="30" fill="#0F6F3C" opacity="0.85"/>
+            <text x="430" y="360" font-family="Nunito,sans-serif" font-size="10" font-weight="800" fill="white" text-anchor="middle" dominant-baseline="middle">Perplexity</text>
+          </g>
+
+          <g class="quadrant-dot" onclick="openModal('notebooklm')" style="cursor:pointer">
+            <circle cx="110" cy="450" r="30" fill="#159251" opacity="0.85"/>
+            <text x="110" y="444" font-family="Nunito,sans-serif" font-size="10" font-weight="800" fill="white" text-anchor="middle" dominant-baseline="middle">Notebook</text>
+            <text x="110" y="457" font-family="Nunito,sans-serif" font-size="9"  font-weight="700" fill="white" text-anchor="middle" dominant-baseline="middle">LM</text>
+          </g>
+
+          <g class="quadrant-dot" onclick="openModal('ai-studio')" style="cursor:pointer">
+            <circle cx="560" cy="400" r="30" fill="#1BBB68" opacity="0.85"/>
+            <text x="560" y="394" font-family="Nunito,sans-serif" font-size="10" font-weight="800" fill="white" text-anchor="middle" dominant-baseline="middle">Google AI</text>
+            <text x="560" y="407" font-family="Nunito,sans-serif" font-size="9"  font-weight="700" fill="white" text-anchor="middle" dominant-baseline="middle">Studio</text>
+          </g>
+
+          <g class="quadrant-dot" onclick="openModal('gemini')" style="cursor:pointer">
+            <circle cx="475" cy="470" r="30" fill="#0F6F3C" opacity="0.85"/>
+            <text x="475" y="470" font-family="Nunito,sans-serif" font-size="10" font-weight="800" fill="white" text-anchor="middle" dominant-baseline="middle">Gemini</text>
+          </g>
+
+          <g class="quadrant-dot" onclick="openModal('lovable')" style="cursor:pointer">
+            <circle cx="680" cy="350" r="30" fill="#159251" opacity="0.85"/>
+            <text x="680" y="350" font-family="Nunito,sans-serif" font-size="10" font-weight="800" fill="white" text-anchor="middle" dominant-baseline="middle">Lovable</text>
+          </g>
+
+          <g class="quadrant-dot" onclick="openModal('replit')" style="cursor:pointer">
+            <circle cx="800" cy="420" r="30" fill="#0F6F3C" opacity="0.85"/>
+            <text x="800" y="420" font-family="Nunito,sans-serif" font-size="10" font-weight="800" fill="white" text-anchor="middle" dominant-baseline="middle">Replit</text>
+          </g>
+
+          <g class="quadrant-dot" onclick="openModal('zapier')" style="cursor:pointer">
+            <circle cx="700" cy="490" r="30" fill="#1BBB68" opacity="0.85"/>
+            <text x="700" y="484" font-family="Nunito,sans-serif" font-size="10" font-weight="800" fill="white" text-anchor="middle" dominant-baseline="middle">Zapier</text>
+            <text x="700" y="497" font-family="Nunito,sans-serif" font-size="9"  font-weight="700" fill="white" text-anchor="middle" dominant-baseline="middle">AI</text>
+          </g>
+
+          <g class="quadrant-dot" onclick="openModal('make')" style="cursor:pointer">
+            <circle cx="830" cy="510" r="30" fill="#159251" opacity="0.85"/>
+            <text x="830" y="510" font-family="Nunito,sans-serif" font-size="10" font-weight="800" fill="white" text-anchor="middle" dominant-baseline="middle">Make</text>
+          </g>
+
+          <g class="quadrant-dot" onclick="openModal('base44')" style="cursor:pointer">
+            <circle cx="620" cy="460" r="30" fill="#0F6F3C" opacity="0.85"/>
+            <text x="620" y="460" font-family="Nunito,sans-serif" font-size="10" font-weight="800" fill="white" text-anchor="middle" dominant-baseline="middle">Base44</text>
+          </g>
+
+          <g class="quadrant-dot" onclick="openModal('grok')" style="cursor:pointer">
+            <circle cx="310" cy="335" r="30" fill="#159251" opacity="0.85"/>
+            <text x="310" y="335" font-family="Nunito,sans-serif" font-size="10" font-weight="800" fill="white" text-anchor="middle" dominant-baseline="middle">Grok</text>
+          </g>
+
+          <g class="quadrant-dot" onclick="openModal('grok-api')" style="cursor:pointer">
+            <circle cx="870" cy="330" r="30" fill="#0F6F3C" opacity="0.85"/>
+            <text x="870" y="324" font-family="Nunito,sans-serif" font-size="10" font-weight="800" fill="white" text-anchor="middle" dominant-baseline="middle">Grok</text>
+            <text x="870" y="337" font-family="Nunito,sans-serif" font-size="9"  font-weight="700" fill="white" text-anchor="middle" dominant-baseline="middle">API</text>
+          </g>
+
+        </svg>
+      </div>
+
+      <div style="display:flex; flex-wrap:wrap; gap:16px; margin-top:20px; padding-top:20px; border-top: 1px solid var(--gray-light);">
+        <div style="display:flex; align-items:center; gap:8px; font-size:13px; color:#3a3a3a;">
+          <div style="width:12px;height:12px;border-radius:50%;background:var(--green-dark);"></div>
+          <span><strong>Dark green</strong> = Most autonomous / technical</span>
+        </div>
+        <div style="display:flex; align-items:center; gap:8px; font-size:13px; color:#3a3a3a;">
+          <div style="width:12px;height:12px;border-radius:50%;background:var(--green-mid);"></div>
+          <span><strong>Mid green</strong> = Intermediate</span>
+        </div>
+        <div style="display:flex; align-items:center; gap:8px; font-size:13px; color:#3a3a3a;">
+          <div style="width:12px;height:12px;border-radius:50%;background:var(--green-light);"></div>
+          <span><strong>Bright green</strong> = Accessible / assisted</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══ GLOSSARY ══ -->
+  <section id="glossary">
+    <div class="section-label">
+      <div class="section-label-bar"></div>
+      <div>
+        <h2>Glossary: Key Terms Explained</h2>
+        <p>Plain-English definitions for the jargon you'll encounter.</p>
+      </div>
+    </div>
+    <div class="glossary-grid">
+      <div class="glossary-card"><div class="glossary-term"><span class="gterm-icon">🤖</span> LLM</div><div class="glossary-def">Large Language Model. The AI "brain" behind most chat tools. Examples: GPT-4, Claude 3, Gemini. They predict and generate text based on your input.</div></div>
+      <div class="glossary-card"><div class="glossary-term"><span class="gterm-icon">🎛️</span> Model</div><div class="glossary-def">The specific version of an AI. Claude Sonnet vs. Opus, GPT-4o vs. GPT-3.5. Bigger models = more capable but slower and costlier.</div></div>
+      <div class="glossary-card"><div class="glossary-term"><span class="gterm-icon">📝</span> Prompt</div><div class="glossary-def">The instruction or question you type to the AI. Better prompts = better results. Think of it as how you talk to the tool.</div></div>
+      <div class="glossary-card"><div class="glossary-term"><span class="gterm-icon">🔑</span> API</div><div class="glossary-def">Application Programming Interface. A way for developers to connect AI models directly into their own apps or workflows. Requires coding or automation tools.</div></div>
+      <div class="glossary-card"><div class="glossary-term"><span class="gterm-icon">🪙</span> Token</div><div class="glossary-def">How AI measures text. Roughly 1 token = 1 word (or part of a word). API costs are often charged per token used. More tokens = more cost.</div></div>
+      <div class="glossary-card"><div class="glossary-term"><span class="gterm-icon">📏</span> Context Window</div><div class="glossary-def">How much text the AI can "see" and remember at once in one conversation. Claude and Gemini lead here with 100K–1M token windows.</div></div>
+      <div class="glossary-card"><div class="glossary-term"><span class="gterm-icon">🤝</span> MCP</div><div class="glossary-def">Model Context Protocol. A standard that lets AI connect to external tools and services — like your Google Drive, Slack, or ad accounts — so it can read and act on real data.</div></div>
+      <div class="glossary-card"><div class="glossary-term"><span class="gterm-icon">🕵️</span> Agent / Agentic AI</div><div class="glossary-def">An AI that doesn't just answer questions — it takes actions. Agents can browse the web, write files, click buttons, or complete multi-step tasks on your behalf.</div></div>
+      <div class="glossary-card"><div class="glossary-term"><span class="gterm-icon">🖥️</span> Computer Use</div><div class="glossary-def">A capability that lets an AI see and control a computer screen — clicking, typing, navigating — as if it were a human at the keyboard.</div></div>
+      <div class="glossary-card"><div class="glossary-term"><span class="gterm-icon">🛠️</span> Skill / System Prompt</div><div class="glossary-def">Hidden instructions that tell an AI how to behave before you ever type a message. Used to give AI a role, set rules, or load context automatically.</div></div>
+      <div class="glossary-card"><div class="glossary-term"><span class="gterm-icon">🌡️</span> Temperature</div><div class="glossary-def">A setting that controls how "creative" vs. "precise" the AI is. Low temperature = consistent, factual. High temperature = more surprising, varied output.</div></div>
+      <div class="glossary-card"><div class="glossary-term"><span class="gterm-icon">🔮</span> Hallucination</div><div class="glossary-def">When an AI makes up something that sounds plausible but isn't true. All LLMs do this. Always verify important facts, especially with ChatGPT and older models.</div></div>
+      <div class="glossary-card"><div class="glossary-term"><span class="gterm-icon">🔓</span> RAG</div><div class="glossary-def">Retrieval-Augmented Generation. A technique where AI pulls from your own documents or database before answering — reducing hallucinations. NotebookLM uses this.</div></div>
+      <div class="glossary-card"><div class="glossary-term"><span class="gterm-icon">⚡</span> Fine-tuning</div><div class="glossary-def">Training an existing AI model on your own data to make it better at your specific tasks. Requires technical setup. Usually done via API.</div></div>
+      <div class="glossary-card"><div class="glossary-term"><span class="gterm-icon">🔄</span> Multimodal</div><div class="glossary-def">An AI that can work with more than just text — images, audio, video, documents. ChatGPT, Claude, and Gemini are all multimodal.</div></div>
+    </div>
+  </section>
+
+</main>
+
+<!-- ═══ FOOTER ═══ -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <svg width="36" height="30" viewBox="0 0 64 52" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <rect x="0"  y="14" width="16" height="38" rx="3" transform="rotate(-30 0 14)"  fill="#1BBB68"/>
+        <rect x="22" y="6"  width="16" height="44" rx="3" transform="rotate(-30 22 6)"  fill="#159251"/>
+        <rect x="44" y="0"  width="16" height="48" rx="3" transform="rotate(-30 44 0)"  fill="rgba(255,255,255,0.55)"/>
+      </svg>
+      <span class="footer-brand-text">BE KNOWN</span>
+    </div>
+    <div class="footer-note">AI Tools Field Guide · 2026 Edition · <a href="https://www.beknownonline.com" target="_blank" style="color: var(--green-light); text-decoration: none; font-weight: 700;">www.beknownonline.com</a></div>
+  </div>
+</footer>
+
+<script>
+// ═══════════════════════════════════════════════════════
+// TOOL DATA — one source of truth for all modals
+// To add an affiliate link: replace the URL in the
+// "url" field below with your affiliate URL.
+// ═══════════════════════════════════════════════════════
+const TOOLS = {
+  'claude-chat': {
+    emoji: '💬',
+    family: 'Anthropic · Claude Family',
+    title: 'Claude.ai Chat',
+    subtitle: 'claude.ai',
+    bestFor: 'Writing, strategic thinking, copy editing, summarizing long documents, and nuanced Q&A. Claude is the gold standard for reading comprehension, tone-matching, and working through complex ideas in conversation.',
+    strengths: ['Best-in-class reasoning','Long context window (200K tokens)','Nuanced, human-like writing','Excellent instruction following','Image & document understanding'],
+    limitations: 'No live internet access by default. Cannot click, navigate, or take actions on your computer. Not ideal for real-time data like stock prices or breaking news.',
+    level: '🌱 Beginner — Great starting point',
+    cost: 'Free · Pro $20/mo · Teams $25/user/mo',
+    url: 'claude.ai',
+    // AFFILIATE LINK PLACEHOLDER — replace URL above with your affiliate link when ready
+    affiliateNote: 'Affiliate link placeholder — swap URL above when ready'
+  },
+  'claude-code': {
+    emoji: '💻',
+    family: 'Anthropic · Claude Family',
+    title: 'Claude Code',
+    subtitle: 'Terminal / Command Line (CLI)',
+    bestFor: 'Writing, debugging, and refactoring actual code files. Claude Code reads your entire codebase, runs terminal commands, edits files, and completes developer tasks autonomously. Best for software engineers and technical builders.',
+    strengths: ['Reads your full codebase','Runs terminal commands','Edits and creates files','Long multi-file tasks','Git-aware'],
+    limitations: 'Requires developer setup via terminal. Not suitable for non-coders. API usage can add up fast on large codebases. Requires an Anthropic API key.',
+    level: '🚀 Power User / Developer',
+    cost: 'Anthropic API — usage-based pricing',
+    url: 'claude.ai/code',
+    affiliateNote: 'Affiliate link placeholder — swap URL above when ready'
+  },
+  'claude-cowork': {
+    emoji: '🖥️',
+    family: 'Anthropic · Claude Family',
+    title: 'Claude Cowork',
+    subtitle: 'Desktop Agent (Claude in Chrome / Desktop)',
+    bestFor: 'Delegating computer tasks to Claude while you focus on other things. Claude Cowork can see your screen, click buttons, fill forms, browse websites, send messages, and manage files — operating your computer as if it were sitting at your keyboard.',
+    strengths: ['Sees and controls your screen','Takes real actions on your behalf','Works in the background','Handles repetitive computer tasks','Phone-instructable'],
+    limitations: 'Memory and CPU intensive — can slow down your computer during use. Your system must stay open and running. Best for longer delegated tasks, not quick one-off questions. Still maturing as a product.',
+    level: '⚡ Intermediate',
+    cost: 'Claude Pro / Teams plan required',
+    url: 'claude.ai',
+    affiliateNote: 'Affiliate link placeholder — swap URL above when ready'
+  },
+  'chatgpt': {
+    emoji: '💬',
+    family: 'OpenAI · ChatGPT Family',
+    title: 'ChatGPT',
+    subtitle: 'chat.openai.com',
+    bestFor: 'General-purpose AI chat, brainstorming, code help, image generation (via DALL·E), and browsing the web. The most widely used AI tool in the world with a large ecosystem of custom GPTs and plugins.',
+    strengths: ['Massive user ecosystem','Custom GPTs & plugins','DALL·E image generation','Web browsing (Plus)','Voice mode'],
+    limitations: 'Quality varies by model tier. Known for "hallucinating" (making things up) with confidence. Best features require the Plus plan. Claude generally outperforms on nuanced reasoning and long documents.',
+    level: '🌱 Beginner — Extremely accessible',
+    cost: 'Free · Plus $20/mo · Pro $200/mo',
+    url: 'chat.openai.com',
+    affiliateNote: 'Affiliate link placeholder — swap URL above when ready'
+  },
+  'gpt4o-api': {
+    emoji: '🔧',
+    family: 'OpenAI · API / Developer Tools',
+    title: 'GPT-4o / OpenAI API',
+    subtitle: 'platform.openai.com',
+    bestFor: 'Building custom AI-powered applications, chatbots, and integrations. Accessing GPT-4o directly for real-time voice, vision, and text through code. Best for developers building products on top of OpenAI models.',
+    strengths: ['Real-time voice & vision','Large developer ecosystem','Fine-tuning support','Function calling / tools','Assistants API'],
+    limitations: 'Requires coding or a technical integration layer. Costs scale with usage and can get expensive for high-volume applications. Needs API key management.',
+    level: '🚀 Power User / Developer',
+    cost: 'Usage-based API pricing',
+    url: 'platform.openai.com',
+    affiliateNote: 'Affiliate link placeholder — swap URL above when ready'
+  },
+  'perplexity': {
+    emoji: '🔍',
+    family: 'Perplexity Family',
+    title: 'Perplexity',
+    subtitle: 'perplexity.ai',
+    bestFor: 'Real-time research and fact-finding with cited sources. Perplexity searches the live web and gives you a concise answer with references — making it the best tool for current events, market research, and quick fact-checks.',
+    strengths: ['Live web search','Cited & sourced answers','Fast research workflows','Follows up questions','Multiple model options'],
+    limitations: 'Less suited for creative writing, long-form content, or nuanced reasoning. Answers can be surface-level on complex topics. Not a replacement for deep writing work.',
+    level: '🌱 Beginner — Excellent for research',
+    cost: 'Free · Pro $20/mo',
+    url: 'perplexity.ai',
+    affiliateNote: 'Affiliate link placeholder — swap URL above when ready'
+  },
+  'perplexity-computer': {
+    emoji: '🌐',
+    family: 'Perplexity Family',
+    title: 'Perplexity Computer Use',
+    subtitle: 'Pro Feature',
+    bestFor: 'Autonomous multi-step web research. Rather than just answering a question, Perplexity Computer Use can browse multiple websites, click through pages, gather data from multiple sources, and compile findings — all without you doing the browsing yourself.',
+    strengths: ['Autonomous web browsing','Multi-step research tasks','Scrapes multiple sources','Synthesizes findings','No browser needed'],
+    limitations: 'Still maturing — results need human review before acting on them. Limited to browser-based actions (can\'t operate other apps). Less reliable than manual research on highly complex tasks.',
+    level: '🚀 Power User',
+    cost: 'Perplexity Pro required ($20/mo)',
+    url: 'perplexity.ai',
+    affiliateNote: 'Affiliate link placeholder — swap URL above when ready'
+  },
+  'gemini': {
+    emoji: '✨',
+    family: 'Google AI Family',
+    title: 'Gemini',
+    subtitle: 'gemini.google.com',
+    bestFor: 'Everyday AI tasks with deep Google Workspace integration. Gemini works inside Gmail, Google Docs, Slides, and Sheets — making it a natural fit if your team lives in Google. Also great for multimodal tasks (images, documents, audio).',
+    strengths: ['Built into Google Workspace','1 million token context','Multimodal (text, image, audio)','Google ecosystem deep integration','Free tier is generous'],
+    limitations: 'Reasoning depth is generally below Claude and GPT-4o for complex tasks. Heavily tied to the Google ecosystem. Feels less "conversational" than Claude.',
+    level: '🌱 Beginner — Ideal for Google users',
+    cost: 'Free · Gemini Advanced $19.99/mo',
+    url: 'gemini.google.com',
+    affiliateNote: 'Affiliate link placeholder — swap URL above when ready'
+  },
+  'ai-studio': {
+    emoji: '🧪',
+    family: 'Google AI Family',
+    title: 'Google AI Studio',
+    subtitle: 'aistudio.google.com',
+    bestFor: 'Testing prompts for free before paying for them elsewhere. Google AI Studio gives you a full playground to experiment with Gemini models — including 1 million token context — with extremely generous free limits. Great for prompt engineers and anyone who wants a free sandbox.',
+    strengths: ['Free prompt sandbox','1M token context window','Save prompt templates','Test structured prompts','API key integration'],
+    limitations: 'Developer-oriented interface — not as polished or beginner-friendly as Claude or ChatGPT. Limited to Gemini family models. Some features require technical knowledge.',
+    level: '⚡ Intermediate',
+    cost: 'Free (very generous limits on Flash model)',
+    url: 'aistudio.google.com',
+    affiliateNote: 'Affiliate link placeholder — swap URL above when ready'
+  },
+  'notebooklm': {
+    emoji: '📓',
+    family: 'Google AI Family',
+    title: 'NotebookLM',
+    subtitle: 'notebooklm.google.com',
+    bestFor: 'Uploading your own documents, PDFs, or research and asking questions about them. NotebookLM keeps all answers grounded in your source material — no hallucinating facts from outside. Also generates audio podcast-style summaries of your documents.',
+    strengths: ['Source-grounded answers (no hallucination)','Document Q&A','Audio overview generation','Upload PDFs, Docs, URLs','Great for research synthesis'],
+    limitations: 'Limited strictly to your uploaded sources — it won\'t go beyond them. Not a general-purpose AI. Does not browse the web or write long-form content independently.',
+    level: '⚡ Intermediate',
+    cost: 'Free',
+    url: 'notebooklm.google.com',
+    affiliateNote: 'Affiliate link placeholder — swap URL above when ready'
+  },
+  'lovable': {
+    emoji: '🏗️',
+    family: 'AI App Builders',
+    title: 'Lovable',
+    subtitle: 'lovable.dev',
+    bestFor: 'Building full web applications and SaaS tools from a plain-English prompt — with no coding required. Describe what you want to build and Lovable generates the frontend and backend. Rapidly growing in popularity in 2025 for MVPs and internal tools.',
+    strengths: ['Full apps from a text prompt','Connects to Supabase (database)','Fast MVP iteration','No coding required','GitHub export available'],
+    limitations: 'Less granular control than writing code from scratch. Best for MVPs and prototypes rather than complex production systems. Requires some understanding of what you\'re building.',
+    level: '⚡ Intermediate — No code needed',
+    cost: 'Free tier available · Paid plans from ~$20/mo',
+    url: 'lovable.dev',
+    affiliateNote: 'Affiliate link placeholder — swap URL above when ready'
+  },
+  'replit': {
+    emoji: '⚙️',
+    family: 'AI App Builders',
+    title: 'Replit',
+    subtitle: 'replit.com',
+    bestFor: 'Running, editing, and deploying code entirely in your browser — no local setup needed. Great for quick app prototypes, collaborative coding, and learning to code. Includes AI coding assistance and one-click deployment.',
+    strengths: ['Cloud-based IDE','Deploy instantly','AI code autocomplete','Collaborative editing','Supports 50+ languages'],
+    limitations: 'Slower than local development for large projects. Free tier has compute limits. Requires at least basic coding knowledge to use effectively.',
+    level: '🚀 Power User / Developer',
+    cost: 'Free · Paid from $20/mo',
+    url: 'replit.com',
+    affiliateNote: 'Affiliate link placeholder — swap URL above when ready'
+  },
+  'base44': {
+    emoji: '⚙️',
+    family: 'AI App Builders',
+    title: 'Base44',
+    subtitle: 'base44.com',
+    bestFor: 'Building AI-powered business apps and internal dashboards with a built-in database and authentication — no backend setup required. Good alternative to Lovable for data-heavy business tools.',
+    strengths: ['Built-in database & auth','No backend setup','Business app focus','Internal tools','AI-assisted building'],
+    limitations: 'Newer platform with a smaller community and ecosystem compared to Lovable and Replit. Less documentation and templates available.',
+    level: '⚡ Intermediate',
+    cost: 'Paid plans',
+    url: 'base44.com',
+    affiliateNote: 'Affiliate link placeholder — swap URL above when ready'
+  },
+  'manus': {
+    emoji: '🤖',
+    family: 'Autonomous AI Agents',
+    title: 'Manus AI',
+    subtitle: 'manus.im',
+    bestFor: 'Giving a goal to an AI and having it plan and execute the full task autonomously — browsing the web, writing files, running code, and more. Best for complex multi-step research or task execution where you want to delegate the entire process.',
+    strengths: ['Fully autonomous agent','Multi-step task planning','MCP tool integrations','Web browsing & code execution','Hands-off delegation'],
+    limitations: 'Can be slower than doing tasks manually. Outputs need human review before acting on them. Some platform accounts have integration restrictions. Currently invite/waitlist based.',
+    level: '⚡ Intermediate — powerful but needs review',
+    cost: 'Waitlist / Invite access',
+    url: 'manus.im',
+    affiliateNote: 'Affiliate link placeholder — swap URL above when ready'
+  },
+  'zapier': {
+    emoji: '🔗',
+    family: 'AI-Powered Automation',
+    title: 'Zapier AI',
+    subtitle: 'zapier.com',
+    bestFor: 'Connecting your apps together and using AI to make smart decisions inside automated workflows — all without code. Best for automating repetitive tasks between tools like Gmail, Slack, GoHighLevel, Airtable, and 6,000+ others.',
+    strengths: ['6,000+ app integrations','AI decision steps in Zaps','No-code visual builder','Large template library','Reliable & mature platform'],
+    limitations: 'Cost scales with task volume — can get expensive at high use. AI steps can be inconsistent for complex logic. Complex workflows become hard to manage over time.',
+    level: '⚡ Intermediate',
+    cost: 'Free tier · Paid from $19.99/mo',
+    url: 'zapier.com',
+    affiliateNote: 'Affiliate link placeholder — swap URL above when ready'
+  },
+  'make': {
+    emoji: '🔗',
+    family: 'AI-Powered Automation',
+    title: 'Make (formerly Integromat)',
+    subtitle: 'make.com',
+    bestFor: 'Visual automation with more control, flexibility, and lower cost than Zapier. Great for webhook-heavy workflows, complex conditional logic, and teams who want more power over how their automations behave.',
+    strengths: ['Visual drag-and-drop flow builder','Lower cost than Zapier at scale','More granular control','Webhooks & HTTP modules','Better error handling'],
+    limitations: 'Steeper learning curve than Zapier. Fewer native app integrations. Less beginner-friendly UI. Some tools only available via HTTP/API rather than a native connector.',
+    level: '⚡ Intermediate',
+    cost: 'Free tier · Paid from $9/mo',
+    url: 'make.com',
+    affiliateNote: 'Affiliate link placeholder — swap URL above when ready'
+  },
+  'grok': {
+    emoji: '⚡',
+    family: 'xAI · Grok Family',
+    title: 'Grok',
+    subtitle: 'x.ai / Built into X (formerly Twitter)',
+    bestFor: 'Real-time chat powered by live data from X (Twitter). Grok is the go-to for current events, trending topics, and questions where fresh social data matters. Also known for being less filtered than other AI tools — it will engage with edgier questions others refuse. Includes Aurora image generation.',
+    strengths: ['Real-time X/Twitter data feed','Less restricted responses','Aurora image generation','Current events & trends','Built into X app (no extra login)'],
+    limitations: 'Requires an X Premium subscription to access. Can be less careful and accurate than Claude or ChatGPT. Smaller app ecosystem. Quality and consistency are still maturing compared to more established tools.',
+    level: '🌱 Beginner — accessible via X app',
+    cost: 'X Premium $8/mo (Basic) · $16/mo (Premium+)',
+    url: 'x.ai/grok',
+    affiliateNote: 'Affiliate link placeholder — swap URL above when ready'
+  },
+  'grok-api': {
+    emoji: '🔧',
+    family: 'xAI · Grok Family',
+    title: 'xAI API / Grok',
+    subtitle: 'console.x.ai',
+    bestFor: 'Building applications that need real-time X/Twitter data baked in, or access to Grok\'s large context window for document processing. A developer-facing API for those who want to use Grok models programmatically — similar to using the OpenAI or Anthropic APIs.',
+    strengths: ['128K token context window','Real-time X data access via API','Function calling support','Competitive pricing','Multiple Grok model tiers'],
+    limitations: 'Smaller developer community and fewer integrations compared to OpenAI or Anthropic. Less mature documentation and tooling. API ecosystem is still growing.',
+    level: '🚀 Power User / Developer',
+    cost: 'Usage-based API pricing (console.x.ai)',
+    url: 'console.x.ai',
+    affiliateNote: 'Affiliate link placeholder — swap URL above when ready'
+  }
+};
+
+// ═══════════════════════════════════════════
+// MODAL FUNCTIONS
+// ═══════════════════════════════════════════
+function openModal(toolId) {
+  const tool = TOOLS[toolId];
+  if (!tool) return;
+
+  document.getElementById('mEmoji').textContent    = tool.emoji;
+  document.getElementById('mFamily').textContent   = tool.family;
+  document.getElementById('mTitle').textContent    = tool.title;
+  document.getElementById('mSubtitle').textContent = tool.subtitle;
+  document.getElementById('mBestFor').textContent  = tool.bestFor;
+  document.getElementById('mLimitations').textContent = tool.limitations;
+  document.getElementById('mLevel').textContent    = tool.level;
+  document.getElementById('mCost').textContent     = tool.cost;
+  document.getElementById('mUrl').textContent      = tool.url;
+  document.getElementById('mAffiliate').textContent = tool.affiliateNote;
+
+  const strengthsEl = document.getElementById('mStrengths');
+  strengthsEl.innerHTML = '';
+  tool.strengths.forEach(s => {
+    const span = document.createElement('span');
+    span.className = 'modal-tag';
+    span.textContent = s;
+    strengthsEl.appendChild(span);
+  });
+
+  document.getElementById('modalOverlay').classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+
+function closeModal() {
+  document.getElementById('modalOverlay').classList.remove('open');
+  document.body.style.overflow = '';
+}
+
+function handleOverlayClick(e) {
+  if (e.target === document.getElementById('modalOverlay')) closeModal();
+}
+
+document.addEventListener('keydown', e => {
+  if (e.key === 'Escape') closeModal();
+});
+
+// ─── Nav scroll & active tab ───
+function navTo(id) {
+  const el = document.querySelector(id);
+  if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+}
+
+const tabs = document.querySelectorAll('.nav-tab');
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      const id = '#' + entry.target.id;
+      const map = ['#intro','#tiers','#table','#quadrant','#glossary'];
+      tabs.forEach((tab, i) => tab.classList.toggle('active', map[i] === id));
+    }
+  });
+}, { threshold: 0.25 });
+
+document.querySelectorAll('section[id], div[id="intro"]').forEach(s => observer.observe(s));
+</script>
+
+</body>
+</html>
