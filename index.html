@@ -293,8 +293,6 @@
           <div class="modal-url-text">
             <div class="modal-url-label">Visit Tool</div>
             <div class="modal-url-value" id="mUrl"></div>
-            <!-- AFFILIATE LINK PLACEHOLDER — replace the URL above with your affiliate link when ready -->
-            <div class="modal-url-affiliate" id="mAffiliate"></div>
           </div>
         </div>
       </div>
@@ -838,9 +836,7 @@ const TOOLS = {
     limitations: 'No live internet access by default. Cannot click, navigate, or take actions on your computer. Not ideal for real-time data like stock prices or breaking news. After June 22, Fable 5 requires credits beyond your base plan.',
     level: '🌱 Beginner — Great starting point',
     cost: 'Free · Pro $20/mo · Teams $25/user/mo (Fable 5 free on Pro/Max through June 22)',
-    url: 'claude.ai',
-    // AFFILIATE LINK PLACEHOLDER — replace URL above with your affiliate link when ready
-    affiliateNote: 'Affiliate link placeholder — swap URL above when ready'
+    url: 'https://claude.ai',
   },
   'claude-code': {
     emoji: '💻',
@@ -852,8 +848,7 @@ const TOOLS = {
     limitations: 'Requires developer setup via terminal. Not suitable for non-coders. API usage can add up fast on large codebases. As of June 15, 2026, automated/agent usage is billed separately from your Claude chat subscription — check your plan settings.',
     level: '🚀 Power User / Developer',
     cost: 'Anthropic API — usage-based pricing',
-    url: 'claude.ai/code',
-    affiliateNote: 'Affiliate link placeholder — swap URL above when ready'
+    url: 'https://claude.ai/code',
   },
   'claude-cowork': {
     emoji: '🖥️',
@@ -865,8 +860,7 @@ const TOOLS = {
     limitations: 'Memory and CPU intensive — can slow down your computer during use. Your system must stay open and running. Best for longer delegated tasks, not quick one-off questions. Still maturing as a product.',
     level: '⚡ Intermediate',
     cost: 'Claude Pro / Teams plan required',
-    url: 'claude.ai',
-    affiliateNote: 'Affiliate link placeholder — swap URL above when ready'
+    url: 'https://claude.ai',
   },
   'chatgpt': {
     emoji: '💬',
@@ -878,8 +872,7 @@ const TOOLS = {
     limitations: 'Quality varies by model tier. Known for "hallucinating" (making things up) with confidence. Best features require the Plus plan. Claude generally outperforms on nuanced reasoning and long documents.',
     level: '🌱 Beginner — Extremely accessible',
     cost: 'Free · Go $8/mo · Plus $20/mo · Pro $100/mo · Pro $200/mo',
-    url: 'chat.openai.com',
-    affiliateNote: 'Affiliate link placeholder — swap URL above when ready'
+    url: 'https://chat.openai.com',
   },
   'gpt4o-api': {
     emoji: '🔧',
@@ -891,8 +884,7 @@ const TOOLS = {
     limitations: 'Requires coding or a technical integration layer. Costs scale with usage and can get expensive for high-volume applications. Needs API key management. GPT-4o retired April 2026 — existing integrations may need updating.',
     level: '🚀 Power User / Developer',
     cost: 'Usage-based API pricing',
-    url: 'platform.openai.com',
-    affiliateNote: 'Affiliate link placeholder — swap URL above when ready'
+    url: 'https://platform.openai.com',
   },
   'perplexity': {
     emoji: '🔍',
@@ -904,8 +896,7 @@ const TOOLS = {
     limitations: 'Less suited for creative writing, long-form content, or nuanced reasoning. Answers can be surface-level on complex topics. Not a replacement for deep writing work.',
     level: '🌱 Beginner — Excellent for research',
     cost: 'Free · Pro $20/mo',
-    url: 'perplexity.ai',
-    affiliateNote: 'Affiliate link placeholder — swap URL above when ready'
+    url: 'https://www.perplexity.ai',
   },
   'perplexity-computer': {
     emoji: '🌐',
@@ -917,8 +908,7 @@ const TOOLS = {
     limitations: 'Still maturing — results need human review before acting on them. Limited to browser-based actions (can\'t operate other apps). Less reliable than manual research on highly complex tasks.',
     level: '🚀 Power User',
     cost: 'Perplexity Pro required ($20/mo)',
-    url: 'perplexity.ai',
-    affiliateNote: 'Affiliate link placeholder — swap URL above when ready'
+    url: 'https://www.perplexity.ai',
   },
   'gemini': {
     emoji: '✨',
@@ -930,8 +920,7 @@ const TOOLS = {
     limitations: 'Reasoning depth is generally below Claude and GPT-5 for complex tasks. Heavily tied to the Google ecosystem. Feels less "conversational" than Claude.',
     level: '🌱 Beginner — Ideal for Google users',
     cost: 'Free · AI Plus $7.99/mo · AI Pro $19.99/mo · AI Ultra $99.99/mo',
-    url: 'gemini.google.com',
-    affiliateNote: 'Affiliate link placeholder — swap URL above when ready'
+    url: 'https://gemini.google.com',
   },
   'ai-studio': {
     emoji: '🧪',
@@ -943,8 +932,7 @@ const TOOLS = {
     limitations: 'Developer-oriented interface — not as polished or beginner-friendly as Claude or ChatGPT. Limited to Gemini family models. Some features require technical knowledge.',
     level: '⚡ Intermediate',
     cost: 'Free (very generous limits on Flash model)',
-    url: 'aistudio.google.com',
-    affiliateNote: 'Affiliate link placeholder — swap URL above when ready'
+    url: 'https://aistudio.google.com',
   },
   'notebooklm': {
     emoji: '📓',
@@ -956,8 +944,7 @@ const TOOLS = {
     limitations: 'Limited strictly to your uploaded sources — it won\'t go beyond them. Not a general-purpose AI. Does not browse the web or write long-form content independently.',
     level: '⚡ Intermediate',
     cost: 'Free',
-    url: 'notebooklm.google.com',
-    affiliateNote: 'Affiliate link placeholder — swap URL above when ready'
+    url: 'https://notebooklm.google.com',
   },
   'lovable': {
     emoji: '🏗️',
@@ -969,8 +956,7 @@ const TOOLS = {
     limitations: 'Less granular control than writing code from scratch. Best for MVPs and prototypes rather than complex production systems. Requires some understanding of what you\'re building.',
     level: '⚡ Intermediate — No code needed',
     cost: 'Free (5 daily credits) · Pro $25/mo · Business $50/mo',
-    url: 'lovable.dev',
-    affiliateNote: 'Affiliate link placeholder — swap URL above when ready'
+    url: 'https://lovable.dev',
   },
   'replit': {
     emoji: '⚙️',
@@ -982,8 +968,7 @@ const TOOLS = {
     limitations: 'Effort-based credit system (since Feb 2026) — complex AI tasks burn credits faster than expected. Slower than local development for large projects. Requires at least basic coding knowledge.',
     level: '🚀 Power User / Developer',
     cost: 'Free · Core $25/mo · Pro $100/mo (teams up to 15)',
-    url: 'replit.com',
-    affiliateNote: 'Affiliate link placeholder — swap URL above when ready'
+    url: 'https://replit.com',
   },
   'base44': {
     emoji: '⚙️',
@@ -995,8 +980,7 @@ const TOOLS = {
     limitations: 'Acquired by Wix (2025) — product leans toward rapid prototyping over enterprise-grade apps. Credits don\'t roll over month to month. Smaller community than Lovable or Replit.',
     level: '⚡ Intermediate',
     cost: 'Free · Starter $16/mo · Builder $40/mo · Pro $80/mo',
-    url: 'base44.com',
-    affiliateNote: 'Affiliate link placeholder — swap URL above when ready'
+    url: 'https://base44.com',
   },
   'manus': {
     emoji: '🤖',
@@ -1008,8 +992,7 @@ const TOOLS = {
     limitations: 'Can be slower than doing tasks manually. Outputs need human review before acting on them. Some platform accounts have integration restrictions. Currently invite/waitlist based.',
     level: '⚡ Intermediate — powerful but needs review',
     cost: 'Waitlist / Invite access',
-    url: 'manus.im',
-    affiliateNote: 'Affiliate link placeholder — swap URL above when ready'
+    url: 'https://manus.im',
   },
   'zapier': {
     emoji: '🔗',
@@ -1021,8 +1004,7 @@ const TOOLS = {
     limitations: 'Cost scales with task volume — can get expensive at high use. AI steps can be inconsistent for complex logic. Complex workflows become hard to manage over time.',
     level: '⚡ Intermediate',
     cost: 'Free tier · Paid from $19.99/mo',
-    url: 'zapier.com',
-    affiliateNote: 'Affiliate link placeholder — swap URL above when ready'
+    url: 'https://zapier.com',
   },
   'make': {
     emoji: '🔗',
@@ -1034,8 +1016,7 @@ const TOOLS = {
     limitations: 'Steeper learning curve than Zapier. Fewer native app integrations. Less beginner-friendly UI. Some tools only available via HTTP/API rather than a native connector.',
     level: '⚡ Intermediate',
     cost: 'Free tier · Paid from $9/mo',
-    url: 'make.com',
-    affiliateNote: 'Affiliate link placeholder — swap URL above when ready'
+    url: 'https://www.make.com',
   },
   'grok': {
     emoji: '⚡',
@@ -1047,8 +1028,7 @@ const TOOLS = {
     limitations: 'SuperGrok subscription required for full features; free tier is very limited (10 prompts / 2 hrs). Can be less careful and accurate than Claude or ChatGPT. Smaller ecosystem than OpenAI or Anthropic.',
     level: '🌱 Beginner — accessible at grok.com or via X app',
     cost: 'Free (limited) · SuperGrok Lite $10/mo · SuperGrok $30/mo · SuperGrok Heavy $300/mo',
-    url: 'x.ai/grok',
-    affiliateNote: 'Affiliate link placeholder — swap URL above when ready'
+    url: 'https://grok.com',
   },
   'grok-api': {
     emoji: '🔧',
@@ -1060,8 +1040,7 @@ const TOOLS = {
     limitations: 'Smaller developer community and fewer integrations compared to OpenAI or Anthropic. Less mature documentation and tooling. API ecosystem is still growing.',
     level: '🚀 Power User / Developer',
     cost: 'Usage-based API pricing (console.x.ai)',
-    url: 'console.x.ai',
-    affiliateNote: 'Affiliate link placeholder — swap URL above when ready'
+    url: 'https://console.x.ai',
   }
 };
 
@@ -1080,8 +1059,8 @@ function openModal(toolId) {
   document.getElementById('mLimitations').textContent = tool.limitations;
   document.getElementById('mLevel').textContent    = tool.level;
   document.getElementById('mCost').textContent     = tool.cost;
-  document.getElementById('mUrl').textContent      = tool.url;
-  document.getElementById('mAffiliate').textContent = tool.affiliateNote;
+  const displayUrl = tool.url.replace(/^https?:\/\/(www\.)?/, '');
+  document.getElementById('mUrl').innerHTML = '<a href="' + tool.url + '" target="_blank" rel="noopener noreferrer" style="color:var(--green-dark);font-weight:700;text-decoration:none;">' + displayUrl + '</a>';
 
   const strengthsEl = document.getElementById('mStrengths');
   strengthsEl.innerHTML = '';
