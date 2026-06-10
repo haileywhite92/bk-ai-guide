@@ -147,8 +147,9 @@
   /* ─── MODAL ─── */
   .modal-overlay {
     display: none;
-    position: fixed;
-    inset: 0;
+    position: absolute;
+    left: 0;
+    width: 100%;
     background: rgba(15, 40, 25, 0.65);
     backdrop-filter: blur(4px);
     z-index: 1000;
@@ -1071,12 +1072,31 @@ function openModal(toolId) {
     strengthsEl.appendChild(span);
   });
 
-  document.getElementById('modalOverlay').classList.add('open');
+  // In an iframe, position:fixed anchors to the full document, not the visible viewport.
+  // We calculate the actual visible area and position the overlay over it.
+  const overlay = document.getElementById('modalOverlay');
+  const ownScroll = window.scrollY || 0;
+  // If window.innerHeight equals the full document (iframe doesn't scroll), fall back to screen height
+  const viewH = window.innerHeight <= window.screen.availHeight
+                ? window.innerHeight
+                : window.screen.availHeight;
+  overlay.style.top    = ownScroll + 'px';
+  overlay.style.height = viewH + 'px';
+
+  overlay.classList.add('open');
   document.body.style.overflow = 'hidden';
+
+  // If the iframe itself scrolls, jump to top so modal is visible
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+  // Ask parent (GHL) to scroll the page so iframe top is in view
+  try { window.parent.postMessage({ iframeScrollTop: 0 }, '*'); } catch(e) {}
 }
 
 function closeModal() {
-  document.getElementById('modalOverlay').classList.remove('open');
+  const overlay = document.getElementById('modalOverlay');
+  overlay.classList.remove('open');
+  overlay.style.top    = '';
+  overlay.style.height = '';
   document.body.style.overflow = '';
 }
 
