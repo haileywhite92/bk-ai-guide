@@ -452,8 +452,8 @@
             <tr onclick="openModal('claude-chat')">
               <td class="tool-name">Claude.ai Chat<span class="tool-sub">claude.ai</span></td>
               <td>Writing, strategy, copy editing, long documents</td>
-              <td><span class="tag">Best reasoning</span><span class="tag">Long context</span><span class="tag">Nuanced writing</span></td>
-              <td>No internet by default; can't act on your computer</td>
+              <td><span class="tag">Best reasoning</span><span class="tag">1M context (Fable 5)</span><span class="tag">Nuanced writing</span></td>
+              <td>No internet by default; can't act on your computer. Fable 5 requires credits after June 22.</td>
               <td><span class="tier-dot dot-beginner">🌱 Beginner</span></td>
               <td>Free / Pro $20/mo</td>
             </tr>
@@ -479,9 +479,9 @@
               <td class="tool-name">ChatGPT<span class="tool-sub">chat.openai.com</span></td>
               <td>General chat, brainstorming, image generation, code help</td>
               <td><span class="tag">Huge ecosystem</span><span class="tag">GPTs / plugins</span><span class="tag">Image gen</span></td>
-              <td>Quality varies; hallucinations; Pro needed for best models</td>
+              <td>Quality varies; hallucinations; Pro needed for best models. GPT-5.2 Thinking retired June 5 2026.</td>
               <td><span class="tier-dot dot-beginner">🌱 Beginner</span></td>
-              <td>Free / Go $8/mo / Plus $20/mo</td>
+              <td>Free / Plus $20/mo / Pro $100–200/mo</td>
             </tr>
             <tr onclick="openModal('gpt4o-api')">
               <td class="tool-name">OpenAI API / GPT-5<span class="tool-sub">platform.openai.com</span></td>
@@ -497,14 +497,14 @@
               <td class="tool-name">Grok<span class="tool-sub">x.ai / X (Twitter)</span></td>
               <td>Real-time chat with live X/Twitter data, unfiltered Q&amp;A, current events, image generation</td>
               <td><span class="tag">Real-time X data</span><span class="tag">Less restricted</span><span class="tag">Image gen (Aurora)</span></td>
-              <td>Requires X Premium; can be less careful/accurate; smaller ecosystem than OpenAI or Anthropic</td>
+              <td>Free tier very limited (10 prompts/2 hrs); SuperGrok required for full features. Can be less careful/accurate than Claude or ChatGPT.</td>
               <td><span class="tier-dot dot-beginner">🌱 Beginner</span></td>
-              <td>X Premium $8–$16/mo</td>
+              <td>Free / SuperGrok $30/mo</td>
             </tr>
             <tr onclick="openModal('grok-api')">
               <td class="tool-name">xAI API / Grok<span class="tool-sub">console.x.ai</span></td>
               <td>Building apps with Grok models; accessing real-time X data programmatically; large context tasks</td>
-              <td><span class="tag">128K context</span><span class="tag">Real-time X feed</span><span class="tag">Function calling</span></td>
+              <td><span class="tag">1M context</span><span class="tag">Real-time X feed</span><span class="tag">Function calling</span></td>
               <td>Smaller developer ecosystem; less mature tooling than OpenAI or Anthropic APIs</td>
               <td><span class="tier-dot dot-power">🚀 Power User</span></td>
               <td>Usage-based API pricing</td>
@@ -535,7 +535,7 @@
               <td><span class="tag">Google integration</span><span class="tag">1M token context</span><span class="tag">Multimodal</span></td>
               <td>Less nuanced reasoning than Claude; ecosystem lock-in</td>
               <td><span class="tier-dot dot-beginner">🌱 Beginner</span></td>
-              <td>Free / Advanced $19.99/mo</td>
+              <td>Free / AI Pro $19.99/mo</td>
             </tr>
             <tr onclick="openModal('ai-studio')">
               <td class="tool-name">Google AI Studio<span class="tool-sub">aistudio.google.com</span></td>
@@ -548,7 +548,7 @@
             <tr onclick="openModal('notebooklm')">
               <td class="tool-name">NotebookLM<span class="tool-sub">notebooklm.google.com</span></td>
               <td>Uploading documents and asking questions about them</td>
-              <td><span class="tag">Document Q&amp;A</span><span class="tag">Audio summaries</span><span class="tag">Source-grounded</span></td>
+              <td><span class="tag">Document Q&amp;A</span><span class="tag">Audio summaries</span><span class="tag">Source-grounded</span><span class="tag">Drive auto-sync</span></td>
               <td>Limited to your uploaded sources; not general-purpose</td>
               <td><span class="tier-dot dot-intermediate">⚡ Intermediate</span></td>
               <td>Free</td>
@@ -559,25 +559,25 @@
               <td class="tool-name">Lovable<span class="tool-sub">lovable.dev</span></td>
               <td>Building full web apps from a prompt — no coding required</td>
               <td><span class="tag">Full apps from text</span><span class="tag">Supabase integration</span><span class="tag">Fast iteration</span></td>
-              <td>Less control than coding from scratch; best for MVPs</td>
+              <td>Less control than coding from scratch; best for MVPs. Credit-based — complex features cost more than simple edits.</td>
               <td><span class="tier-dot dot-intermediate">⚡ Intermediate</span></td>
-              <td>Free tier / Paid plans</td>
+              <td>Free / Pro $25/mo</td>
             </tr>
             <tr onclick="openModal('replit')">
               <td class="tool-name">Replit<span class="tool-sub">replit.com</span></td>
               <td>Running, editing, deploying code in the browser</td>
               <td><span class="tag">Cloud IDE</span><span class="tag">Deploy instantly</span><span class="tag">AI autocomplete</span></td>
-              <td>Slower than local dev for large projects; needs some coding knowledge</td>
+              <td>Effort-based credits (since Feb 2026) — complex tasks burn fast. Slower than local dev for large projects.</td>
               <td><span class="tier-dot dot-power">🚀 Power User</span></td>
-              <td>Free / From $20/mo</td>
+              <td>Free / From $25/mo</td>
             </tr>
             <tr onclick="openModal('base44')">
               <td class="tool-name">Base44<span class="tool-sub">base44.com</span></td>
               <td>AI-powered business app builder with built-in database &amp; auth</td>
               <td><span class="tag">Built-in DB</span><span class="tag">No backend needed</span><span class="tag">Business apps</span></td>
-              <td>Newer platform; smaller ecosystem</td>
+              <td>Acquired by Wix (2025); credits don't roll over; smaller community than Lovable or Replit.</td>
               <td><span class="tier-dot dot-intermediate">⚡ Intermediate</span></td>
-              <td>Paid plans</td>
+              <td>Free / From $16/mo</td>
             </tr>
 
             <tr class="group-row"><td colspan="6">🤖 Autonomous AI Agents</td></tr>
@@ -833,11 +833,11 @@ const TOOLS = {
     family: 'Anthropic · Claude Family',
     title: 'Claude.ai Chat',
     subtitle: 'claude.ai',
-    bestFor: 'Writing, strategic thinking, copy editing, summarizing long documents, and nuanced Q&A. Claude is the gold standard for reading comprehension, tone-matching, and working through complex ideas in conversation.',
-    strengths: ['Best-in-class reasoning','Long context window (200K tokens)','Nuanced, human-like writing','Excellent instruction following','Image & document understanding'],
-    limitations: 'No live internet access by default. Cannot click, navigate, or take actions on your computer. Not ideal for real-time data like stock prices or breaking news.',
+    bestFor: 'Writing, strategic thinking, copy editing, summarizing long documents, and nuanced Q&A. Claude is the gold standard for reading comprehension, tone-matching, and working through complex ideas in conversation. 🆕 June 9, 2026: Claude Fable 5 — Anthropic\'s most powerful model ever (Mythos-class, #1 on SWE-Bench) — is available free on Pro/Max plans through June 22. After that date it requires usage credits.',
+    strengths: ['Best-in-class reasoning','1M token context window (Fable 5)','Nuanced, human-like writing','Excellent instruction following','Image & document understanding'],
+    limitations: 'No live internet access by default. Cannot click, navigate, or take actions on your computer. Not ideal for real-time data like stock prices or breaking news. After June 22, Fable 5 requires credits beyond your base plan.',
     level: '🌱 Beginner — Great starting point',
-    cost: 'Free · Pro $20/mo · Teams $25/user/mo',
+    cost: 'Free · Pro $20/mo · Teams $25/user/mo (Fable 5 free on Pro/Max through June 22)',
     url: 'claude.ai',
     // AFFILIATE LINK PLACEHOLDER — replace URL above with your affiliate link when ready
     affiliateNote: 'Affiliate link placeholder — swap URL above when ready'
@@ -847,7 +847,7 @@ const TOOLS = {
     family: 'Anthropic · Claude Family',
     title: 'Claude Code',
     subtitle: 'Terminal / Command Line (CLI)',
-    bestFor: 'Writing, debugging, and refactoring actual code files. Claude Code reads your entire codebase, runs terminal commands, edits files, and completes developer tasks autonomously. Best for software engineers and technical builders.',
+    bestFor: 'Writing, debugging, and refactoring actual code files. Claude Code reads your entire codebase, runs terminal commands, edits files, and completes developer tasks autonomously. Best for software engineers and technical builders. 🆕 Claude Fable 5 (launched June 9, 2026) is available via API — it scored 80.3% on SWE-Bench Pro, making it the strongest coding model available.',
     strengths: ['Reads your full codebase','Runs terminal commands','Edits and creates files','Long multi-file tasks','Git-aware'],
     limitations: 'Requires developer setup via terminal. Not suitable for non-coders. API usage can add up fast on large codebases. As of June 15, 2026, automated/agent usage is billed separately from your Claude chat subscription — check your plan settings.',
     level: '🚀 Power User / Developer',
@@ -877,7 +877,7 @@ const TOOLS = {
     strengths: ['Massive user ecosystem','Custom GPTs & plugins','DALL·E image generation','Web browsing (Plus)','Voice mode'],
     limitations: 'Quality varies by model tier. Known for "hallucinating" (making things up) with confidence. Best features require the Plus plan. Claude generally outperforms on nuanced reasoning and long documents.',
     level: '🌱 Beginner — Extremely accessible',
-    cost: 'Free · Go $8/mo · Plus $20/mo · Pro $200/mo',
+    cost: 'Free · Go $8/mo · Plus $20/mo · Pro $100/mo · Pro $200/mo',
     url: 'chat.openai.com',
     affiliateNote: 'Affiliate link placeholder — swap URL above when ready'
   },
@@ -925,11 +925,11 @@ const TOOLS = {
     family: 'Google AI Family',
     title: 'Gemini',
     subtitle: 'gemini.google.com',
-    bestFor: 'Everyday AI tasks with deep Google Workspace integration. Gemini works inside Gmail, Google Docs, Slides, and Sheets — making it a natural fit if your team lives in Google. Also great for multimodal tasks (images, documents, audio).',
+    bestFor: 'Everyday AI tasks with deep Google Workspace integration. Gemini works inside Gmail, Google Docs, Slides, and Sheets — making it a natural fit if your team lives in Google. Also great for multimodal tasks (images, documents, audio). Gemini 3.5 Flash (launched May 2026) is now the fastest model in the family, and Gemini 3.5 Pro is rolling out in June.',
     strengths: ['Built into Google Workspace','1 million token context','Multimodal (text, image, audio)','Google ecosystem deep integration','Free tier is generous'],
-    limitations: 'Reasoning depth is generally below Claude and GPT-4o for complex tasks. Heavily tied to the Google ecosystem. Feels less "conversational" than Claude.',
+    limitations: 'Reasoning depth is generally below Claude and GPT-5 for complex tasks. Heavily tied to the Google ecosystem. Feels less "conversational" than Claude.',
     level: '🌱 Beginner — Ideal for Google users',
-    cost: 'Free · Gemini Advanced $19.99/mo',
+    cost: 'Free · AI Plus $7.99/mo · AI Pro $19.99/mo · AI Ultra $99.99/mo',
     url: 'gemini.google.com',
     affiliateNote: 'Affiliate link placeholder — swap URL above when ready'
   },
@@ -951,8 +951,8 @@ const TOOLS = {
     family: 'Google AI Family',
     title: 'NotebookLM',
     subtitle: 'notebooklm.google.com',
-    bestFor: 'Uploading your own documents, PDFs, or research and asking questions about them. NotebookLM keeps all answers grounded in your source material — no hallucinating facts from outside. Also generates audio podcast-style summaries of your documents.',
-    strengths: ['Source-grounded answers (no hallucination)','Document Q&A','Audio overview generation','Upload PDFs, Docs, URLs','Great for research synthesis'],
+    bestFor: 'Uploading your own documents, PDFs, or research and asking questions about them. NotebookLM keeps all answers grounded in your source material — no hallucinating facts from outside. New in 2026: Google Drive auto-sync means notebooks update automatically when your Drive files change — no manual re-uploading required. Also generates audio podcast-style summaries.',
+    strengths: ['Source-grounded answers (no hallucination)','Document Q&A','Audio overview generation','Google Drive auto-sync (new)','Upload PDFs, Docs, URLs','Great for research synthesis'],
     limitations: 'Limited strictly to your uploaded sources — it won\'t go beyond them. Not a general-purpose AI. Does not browse the web or write long-form content independently.',
     level: '⚡ Intermediate',
     cost: 'Free',
@@ -968,7 +968,7 @@ const TOOLS = {
     strengths: ['Full apps from a text prompt','Connects to Supabase (database)','Fast MVP iteration','No coding required','GitHub export available'],
     limitations: 'Less granular control than writing code from scratch. Best for MVPs and prototypes rather than complex production systems. Requires some understanding of what you\'re building.',
     level: '⚡ Intermediate — No code needed',
-    cost: 'Free tier available · Paid plans from ~$20/mo',
+    cost: 'Free (5 daily credits) · Pro $25/mo · Business $50/mo',
     url: 'lovable.dev',
     affiliateNote: 'Affiliate link placeholder — swap URL above when ready'
   },
@@ -979,9 +979,9 @@ const TOOLS = {
     subtitle: 'replit.com',
     bestFor: 'Running, editing, and deploying code entirely in your browser — no local setup needed. Great for quick app prototypes, collaborative coding, and learning to code. Includes AI coding assistance and one-click deployment.',
     strengths: ['Cloud-based IDE','Deploy instantly','AI code autocomplete','Collaborative editing','Supports 50+ languages'],
-    limitations: 'Slower than local development for large projects. Free tier has compute limits. Requires at least basic coding knowledge to use effectively.',
+    limitations: 'Effort-based credit system (since Feb 2026) — complex AI tasks burn credits faster than expected. Slower than local development for large projects. Requires at least basic coding knowledge.',
     level: '🚀 Power User / Developer',
-    cost: 'Free · Paid from $20/mo',
+    cost: 'Free · Core $25/mo · Pro $100/mo (teams up to 15)',
     url: 'replit.com',
     affiliateNote: 'Affiliate link placeholder — swap URL above when ready'
   },
@@ -992,9 +992,9 @@ const TOOLS = {
     subtitle: 'base44.com',
     bestFor: 'Building AI-powered business apps and internal dashboards with a built-in database and authentication — no backend setup required. Good alternative to Lovable for data-heavy business tools.',
     strengths: ['Built-in database & auth','No backend setup','Business app focus','Internal tools','AI-assisted building'],
-    limitations: 'Newer platform with a smaller community and ecosystem compared to Lovable and Replit. Less documentation and templates available.',
+    limitations: 'Acquired by Wix (2025) — product leans toward rapid prototyping over enterprise-grade apps. Credits don\'t roll over month to month. Smaller community than Lovable or Replit.',
     level: '⚡ Intermediate',
-    cost: 'Paid plans',
+    cost: 'Free · Starter $16/mo · Builder $40/mo · Pro $80/mo',
     url: 'base44.com',
     affiliateNote: 'Affiliate link placeholder — swap URL above when ready'
   },
@@ -1043,10 +1043,10 @@ const TOOLS = {
     title: 'Grok',
     subtitle: 'x.ai / Built into X (formerly Twitter)',
     bestFor: 'Real-time chat powered by live data from X (Twitter). Grok is the go-to for current events, trending topics, and questions where fresh social data matters. Also known for being less filtered than other AI tools — it will engage with edgier questions others refuse. Includes Aurora image generation.',
-    strengths: ['Real-time X/Twitter data feed','Less restricted responses','Aurora image generation','Current events & trends','Built into X app (no extra login)'],
-    limitations: 'Requires an X Premium subscription to access. Can be less careful and accurate than Claude or ChatGPT. Smaller app ecosystem. Quality and consistency are still maturing compared to more established tools.',
-    level: '🌱 Beginner — accessible via X app',
-    cost: 'X Premium $8/mo (Basic) · $16/mo (Premium+)',
+    strengths: ['Real-time X/Twitter data feed','Less restricted responses','Aurora image generation','Grok Voice (real-time spoken interaction)','Built into X app & grok.com'],
+    limitations: 'SuperGrok subscription required for full features; free tier is very limited (10 prompts / 2 hrs). Can be less careful and accurate than Claude or ChatGPT. Smaller ecosystem than OpenAI or Anthropic.',
+    level: '🌱 Beginner — accessible at grok.com or via X app',
+    cost: 'Free (limited) · SuperGrok Lite $10/mo · SuperGrok $30/mo · SuperGrok Heavy $300/mo',
     url: 'x.ai/grok',
     affiliateNote: 'Affiliate link placeholder — swap URL above when ready'
   },
@@ -1056,7 +1056,7 @@ const TOOLS = {
     title: 'xAI API / Grok',
     subtitle: 'console.x.ai',
     bestFor: 'Building applications that need real-time X/Twitter data baked in, or access to Grok\'s large context window for document processing. A developer-facing API for those who want to use Grok models programmatically — similar to using the OpenAI or Anthropic APIs.',
-    strengths: ['128K token context window','Real-time X data access via API','Function calling support','Competitive pricing','Multiple Grok model tiers'],
+    strengths: ['1M token context window','Real-time X data access via API','Function calling support','$175/mo free API credits','Multiple Grok model tiers'],
     limitations: 'Smaller developer community and fewer integrations compared to OpenAI or Anthropic. Less mature documentation and tooling. API ecosystem is still growing.',
     level: '🚀 Power User / Developer',
     cost: 'Usage-based API pricing (console.x.ai)',
