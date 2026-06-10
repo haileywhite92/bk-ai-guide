@@ -145,20 +145,26 @@
   .footer-note { font-size: 12px; color: rgba(255,255,255,0.45); }
 
   /* ─── MODAL ─── */
-  .modal-overlay {
-    display: none;
-    position: absolute;
-    left: 0;
-    width: 100%;
+  dialog#modalOverlay {
+    position: fixed;
+    inset: 0;
+    border: none;
+    padding: 24px;
     background: rgba(15, 40, 25, 0.65);
     backdrop-filter: blur(4px);
+    max-width: unset;
+    max-height: unset;
+    width: 100%;
+    height: 100%;
+    outline: none;
     z-index: 1000;
-    align-items: center;
-    justify-content: center;
-    padding: 24px;
     animation: fadeIn 0.18s ease;
   }
-  .modal-overlay.open { display: flex; }
+  dialog#modalOverlay[open] {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
 
   @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
   @keyframes slideUp { from { opacity: 0; transform: translateY(24px); } to { opacity: 1; transform: translateY(0); } }
@@ -254,7 +260,7 @@
 <body>
 
 <!-- ═══ MODAL ═══ -->
-<div class="modal-overlay" id="modalOverlay" onclick="handleOverlayClick(event)">
+<dialog id="modalOverlay">
   <div class="modal" id="modal">
     <div class="modal-header">
       <button class="modal-close" onclick="closeModal()" title="Close">✕</button>
@@ -299,7 +305,7 @@
       </div>
     </div>
   </div>
-</div>
+</dialog>
 
 <!-- ═══ HEADER ═══ -->
 <header>
@@ -1072,40 +1078,25 @@ function openModal(toolId) {
     strengthsEl.appendChild(span);
   });
 
-  // In an iframe, position:fixed anchors to the full document, not the visible viewport.
-  // We calculate the actual visible area and position the overlay over it.
   const overlay = document.getElementById('modalOverlay');
-  const ownScroll = window.scrollY || 0;
-  // If window.innerHeight equals the full document (iframe doesn't scroll), fall back to screen height
-  const viewH = window.innerHeight <= window.screen.availHeight
-                ? window.innerHeight
-                : window.screen.availHeight;
-  overlay.style.top    = ownScroll + 'px';
-  overlay.style.height = viewH + 'px';
-
-  overlay.classList.add('open');
+  overlay.showModal();
   document.body.style.overflow = 'hidden';
-
-  // If the iframe itself scrolls, jump to top so modal is visible
-  window.scrollTo({ top: 0, behavior: 'smooth' });
-  // Ask parent (GHL) to scroll the page so iframe top is in view
-  try { window.parent.postMessage({ iframeScrollTop: 0 }, '*'); } catch(e) {}
 }
 
 function closeModal() {
   const overlay = document.getElementById('modalOverlay');
-  overlay.classList.remove('open');
-  overlay.style.top    = '';
-  overlay.style.height = '';
+  if (overlay.open) overlay.close();
   document.body.style.overflow = '';
 }
 
-function handleOverlayClick(e) {
-  if (e.target === document.getElementById('modalOverlay')) closeModal();
-}
+// Click on the dim background (outside the modal card) to close
+document.getElementById('modalOverlay').addEventListener('click', function(e) {
+  if (e.target === this) closeModal();
+});
 
-document.addEventListener('keydown', e => {
-  if (e.key === 'Escape') closeModal();
+// Reset body overflow when dialog closes (covers native Escape key too)
+document.getElementById('modalOverlay').addEventListener('close', function() {
+  document.body.style.overflow = '';
 });
 
 // ─── Nav scroll & active tab ───
