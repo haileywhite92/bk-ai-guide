@@ -457,8 +457,8 @@
             <tr onclick="openModal('claude-chat')">
               <td class="tool-name">Claude.ai Chat<span class="tool-sub">claude.ai</span></td>
               <td>Writing, strategy, copy editing, long documents</td>
-              <td><span class="tag">Best reasoning</span><span class="tag">1M context (Fable 5)</span><span class="tag">Nuanced writing</span></td>
-              <td>No internet by default; can't act on your computer. Fable 5 requires credits after June 22.</td>
+              <td><span class="tag">Best reasoning</span><span class="tag">1M context (Opus 4.8)</span><span class="tag">Nuanced writing</span></td>
+              <td>No internet by default; can't act on your computer. ⚠️ Fable 5 suspended June 12 (US export-control directive) — Opus 4.8, Sonnet &amp; Haiku unaffected.</td>
               <td><span class="tier-dot dot-beginner">🌱 Beginner</span></td>
               <td>Free / Pro $20/mo</td>
             </tr>
@@ -466,7 +466,7 @@
               <td class="tool-name">Claude Code<span class="tool-sub">Terminal / CLI</span></td>
               <td>Writing, debugging &amp; refactoring code; developer workflows</td>
               <td><span class="tag">Reads codebase</span><span class="tag">Runs commands</span><span class="tag">Edits files</span></td>
-              <td>Requires developer setup; not for non-coders. As of June 15 2026, agent/automated usage is metered separately from chat subscriptions.</td>
+              <td>Requires developer setup; not for non-coders. As of June 15, 2026, agent/automated usage is metered separately from chat subscriptions. Fable 5 suspended (export-control directive) — Opus 4.8 is current flagship.</td>
               <td><span class="tier-dot dot-power">🚀 Power User</span></td>
               <td>API usage-based</td>
             </tr>
@@ -522,7 +522,7 @@
               <td><span class="tag">Live web search</span><span class="tag">Cited sources</span><span class="tag">Fast research</span></td>
               <td>Less suited for creative writing or long-form generation</td>
               <td><span class="tier-dot dot-beginner">🌱 Beginner</span></td>
-              <td>Free / Pro $20/mo</td>
+              <td>Free / Pro $20/mo / Max $200/mo</td>
             </tr>
             <tr onclick="openModal('perplexity-computer')">
               <td class="tool-name">Perplexity Computer Use<span class="tool-sub">Pro feature</span></td>
@@ -553,8 +553,8 @@
             <tr onclick="openModal('notebooklm')">
               <td class="tool-name">NotebookLM<span class="tool-sub">notebooklm.google.com</span></td>
               <td>Uploading documents and asking questions about them</td>
-              <td><span class="tag">Document Q&amp;A</span><span class="tag">Audio summaries</span><span class="tag">Source-grounded</span><span class="tag">Drive auto-sync</span></td>
-              <td>Limited to your uploaded sources; not general-purpose</td>
+              <td><span class="tag">Document Q&amp;A</span><span class="tag">Audio &amp; Video Overviews</span><span class="tag">Source-grounded</span><span class="tag">Charts &amp; slide exports</span></td>
+              <td>Limited to your uploaded sources; not general-purpose. Advanced agentic features require Google AI Ultra.</td>
               <td><span class="tier-dot dot-intermediate">⚡ Intermediate</span></td>
               <td>Free</td>
             </tr>
@@ -590,9 +590,9 @@
               <td class="tool-name">Manus AI<span class="tool-sub">manus.im</span></td>
               <td>Fully autonomous research and multi-step task execution</td>
               <td><span class="tag">Autonomous agent</span><span class="tag">Multi-step tasks</span><span class="tag">MCP integrations</span></td>
-              <td>Slower; results need review; some account restrictions</td>
+              <td>Slower; results need review; no conditional logic or integration triggers like Zapier</td>
               <td><span class="tier-dot dot-intermediate">⚡ Intermediate</span></td>
-              <td>Waitlist / Invite</td>
+              <td>Free tier / From $39/mo</td>
             </tr>
 
             <tr class="group-row"><td colspan="6">⚙️ AI-Powered Automation</td></tr>
@@ -838,11 +838,11 @@ const TOOLS = {
     family: 'Anthropic · Claude Family',
     title: 'Claude.ai Chat',
     subtitle: 'claude.ai',
-    bestFor: 'Writing, strategic thinking, copy editing, summarizing long documents, and nuanced Q&A. Claude is the gold standard for reading comprehension, tone-matching, and working through complex ideas in conversation. 🆕 June 9, 2026: Claude Fable 5 — Anthropic\'s most powerful model ever (Mythos-class, #1 on SWE-Bench) — is available free on Pro/Max plans through June 22. After that date it requires usage credits.',
-    strengths: ['Best-in-class reasoning','1M token context window (Fable 5)','Nuanced, human-like writing','Excellent instruction following','Image & document understanding'],
-    limitations: 'No live internet access by default. Cannot click, navigate, or take actions on your computer. Not ideal for real-time data like stock prices or breaking news. After June 22, Fable 5 requires credits beyond your base plan.',
+    bestFor: 'Writing, strategic thinking, copy editing, summarizing long documents, and nuanced Q&A. Claude is the gold standard for reading comprehension, tone-matching, and working through complex ideas in conversation. Current flagship is Claude Opus 4.8 (launched May 28, 2026) — 1M token context, 4× fewer code errors than previous generation. ⚠️ June 12, 2026: Claude Fable 5 & Mythos 5 suspended by US government export-control directive shortly after launch. All other models (Opus 4.8, Sonnet 4.6, Haiku 4.5) remain fully available.',
+    strengths: ['Best-in-class reasoning','1M token context (Opus 4.8)','Nuanced, human-like writing','Excellent instruction following','Image & document understanding'],
+    limitations: 'No live internet access by default. Cannot click, navigate, or take actions on your computer. Not ideal for real-time data like stock prices or breaking news. Fable 5 currently suspended (US export-control directive as of June 12, 2026) — check anthropic.com for status.',
     level: '🌱 Beginner — Great starting point',
-    cost: 'Free · Pro $20/mo · Teams $25/user/mo (Fable 5 free on Pro/Max through June 22)',
+    cost: 'Free · Pro $20/mo · Teams $25/user/mo · Max $100–200/mo',
     url: 'https://claude.ai',
   },
   'claude-code': {
@@ -898,11 +898,11 @@ const TOOLS = {
     family: 'Perplexity Family',
     title: 'Perplexity',
     subtitle: 'perplexity.ai',
-    bestFor: 'Real-time research and fact-finding with cited sources. Perplexity searches the live web and gives you a concise answer with references — making it the best tool for current events, market research, and quick fact-checks.',
-    strengths: ['Live web search','Cited & sourced answers','Fast research workflows','Follows up questions','Multiple model options'],
+    bestFor: 'Real-time research and fact-finding with cited sources. Perplexity searches the live web and gives you a concise answer with references — making it the best tool for current events, market research, and quick fact-checks. 🆕 Comet, Perplexity\'s AI browser, is now free (dropped the $200/mo paywall in March 2026) — available on iOS, Android, Windows, and Mac. Includes agentic search, deep research, voice mode, and page summarization.',
+    strengths: ['Live web search','Cited & sourced answers','Fast research workflows','Follows up questions','Comet browser (now free)'],
     limitations: 'Less suited for creative writing, long-form content, or nuanced reasoning. Answers can be surface-level on complex topics. Not a replacement for deep writing work.',
     level: '🌱 Beginner — Excellent for research',
-    cost: 'Free · Pro $20/mo',
+    cost: 'Free · Pro $20/mo · Max $200/mo',
     url: 'https://www.perplexity.ai',
   },
   'perplexity-computer': {
@@ -946,8 +946,8 @@ const TOOLS = {
     family: 'Google AI Family',
     title: 'NotebookLM',
     subtitle: 'notebooklm.google.com',
-    bestFor: 'Uploading your own documents, PDFs, or research and asking questions about them. NotebookLM keeps all answers grounded in your source material — no hallucinating facts from outside. New in 2026: Google Drive auto-sync means notebooks update automatically when your Drive files change — no manual re-uploading required. Also generates audio podcast-style summaries.',
-    strengths: ['Source-grounded answers (no hallucination)','Document Q&A','Audio overview generation','Google Drive auto-sync (new)','Upload PDFs, Docs, URLs','Great for research synthesis'],
+    bestFor: 'Uploading your own documents, PDFs, or research and asking questions about them. NotebookLM keeps all answers grounded in your source material — no hallucinating facts from outside. Google Drive auto-sync keeps notebooks current automatically. 🆕 June 2026 (Gemini 3.5 upgrade): NotebookLM now has a built-in secure cloud computer for running code and complex analysis, can generate charts, spreadsheets, slide decks, and CSV/JSON exports, and includes Video Overviews — narrated slide presentations built from your documents. Advanced features require Google AI Ultra or select Workspace plans.',
+    strengths: ['Source-grounded answers (no hallucination)','Document Q&A','Audio & Video Overviews','Google Drive auto-sync','Generates charts, slides & spreadsheets','Cloud computer for code & analysis'],
     limitations: 'Limited strictly to your uploaded sources — it won\'t go beyond them. Not a general-purpose AI. Does not browse the web or write long-form content independently.',
     level: '⚡ Intermediate',
     cost: 'Free',
@@ -996,9 +996,9 @@ const TOOLS = {
     subtitle: 'manus.im',
     bestFor: 'Giving a goal to an AI and having it plan and execute the full task autonomously — browsing the web, writing files, running code, and more. Best for complex multi-step research or task execution where you want to delegate the entire process.',
     strengths: ['Fully autonomous agent','Multi-step task planning','MCP tool integrations','Web browsing & code execution','Hands-off delegation'],
-    limitations: 'Can be slower than doing tasks manually. Outputs need human review before acting on them. Some platform accounts have integration restrictions. Currently invite/waitlist based.',
+    limitations: 'Can be slower than doing tasks manually. Outputs need human review before acting on them. No conditional logic or native integration triggers — combine with Zapier for complex automation chains.',
     level: '⚡ Intermediate — powerful but needs review',
-    cost: 'Waitlist / Invite access',
+    cost: 'Free tier · From $39/mo',
     url: 'https://manus.im',
   },
   'zapier': {
