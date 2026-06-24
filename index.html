@@ -137,6 +137,43 @@
   .glossary-term .gterm-icon { font-size: 16px; }
   .glossary-def { font-size: 13px; color: #555; line-height: 1.6; }
 
+  /* ─── NEWS CARDS ─── */
+  .news-grid { display: flex; flex-direction: column; gap: 16px; }
+  .news-card { background: var(--white); border-radius: var(--radius); border: 1px solid var(--gray-light); border-left-width: 5px; padding: 20px 24px; transition: box-shadow 0.2s, transform 0.2s; }
+  .news-card:hover { box-shadow: var(--shadow); transform: translateX(4px); }
+  .news-card-warn    { border-left-color: #E53935; }
+  .news-card-good    { border-left-color: var(--green-light); }
+  .news-card-feature { border-left-color: var(--green-mid); }
+  .news-meta { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; margin-bottom: 10px; }
+  .news-date { font-size: 11px; font-weight: 700; color: var(--gray-mid); font-family: 'Oxygen', sans-serif; letter-spacing: 0.5px; }
+  .news-tool { font-size: 12px; font-weight: 700; color: var(--green-dark); background: #F0FAF4; border: 1px solid #C5EDD8; border-radius: 6px; padding: 2px 10px; }
+  .news-badge { font-size: 11px; font-weight: 700; border-radius: 100px; padding: 2px 10px; }
+  .news-badge-cost   { background: #FEECEC; color: #B71C1C; }
+  .news-badge-good   { background: #E8F8F0; color: var(--green-dark); }
+  .news-badge-new    { background: linear-gradient(to right, #D0F0E0, #C5EDD8); color: var(--green-dark); }
+  .news-headline { font-family: 'Oxygen', sans-serif; font-size: 15px; font-weight: 700; color: var(--black); margin-bottom: 6px; line-height: 1.3; }
+  .news-body { font-size: 13.5px; color: #444; line-height: 1.65; }
+  .news-updated { display: inline-flex; align-items: center; gap: 6px; background: var(--green-dark); color: white; font-size: 11px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; padding: 5px 14px; border-radius: 100px; margin-bottom: 20px; }
+
+  /* ─── COLLAPSIBLE INDUSTRY SECTION ─── */
+  .news-industry-toggle { margin-top: 28px; border: 1px solid var(--gray-light); border-radius: var(--radius-lg); background: var(--white); overflow: hidden; }
+  .news-industry-summary { display: flex; align-items: center; gap: 14px; padding: 20px 28px; cursor: pointer; list-style: none; user-select: none; transition: background 0.15s; }
+  .news-industry-summary::-webkit-details-marker { display: none; }
+  .news-industry-summary:hover { background: #F4FAF6; }
+  .news-industry-summary h2 { font-family: 'Oxygen', sans-serif; font-size: 22px; font-weight: 700; color: var(--green-dark); }
+  .news-industry-summary p { font-size: 13px; color: var(--gray-mid); margin-top: 2px; font-weight: 400; }
+  .toggle-chevron { font-size: 22px; color: var(--green-mid); font-style: normal; transition: transform 0.25s; flex-shrink: 0; margin-left: auto; line-height: 1; }
+  .news-industry-toggle[open] .toggle-chevron { transform: rotate(90deg); }
+  .news-industry-inner { padding: 0 28px 28px; }
+
+  /* ─── NEWS CTA ─── */
+  .news-cta { background: linear-gradient(135deg, var(--green-dark), #072e18); border-radius: var(--radius-lg); padding: 36px 40px; margin-top: 32px; display: flex; align-items: center; gap: 28px; flex-wrap: wrap; }
+  .news-cta-text { flex: 1; min-width: 200px; }
+  .news-cta-text h3 { font-family: 'Oxygen', sans-serif; font-size: 20px; font-weight: 700; color: var(--white); margin-bottom: 10px; line-height: 1.3; }
+  .news-cta-text p { font-size: 14px; color: rgba(255,255,255,0.75); line-height: 1.65; max-width: 580px; }
+  .news-cta-btn { display: inline-block; background: var(--green-light); color: var(--green-dark); font-family: 'Oxygen', sans-serif; font-weight: 700; font-size: 13px; letter-spacing: 0.5px; padding: 14px 32px; border-radius: 100px; text-decoration: none; white-space: nowrap; transition: filter 0.2s, transform 0.2s; flex-shrink: 0; }
+  .news-cta-btn:hover { filter: brightness(1.1); transform: translateY(-2px); }
+
   /* ─── FOOTER ─── */
   footer { background: var(--green-dark); padding: 36px 40px; }
   .footer-inner { max-width: 1200px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; gap: 24px; flex-wrap: wrap; }
@@ -335,6 +372,7 @@
   <nav class="nav-tabs">
     <div class="nav-tabs-inner">
       <button class="nav-tab active" onclick="navTo('#intro')">Overview</button>
+      <button class="nav-tab" onclick="navTo('#news')">New &amp; Notable</button>
       <button class="nav-tab" onclick="navTo('#tiers')">Skill Tiers</button>
       <button class="nav-tab" onclick="navTo('#table')">Comparison Table</button>
       <button class="nav-tab" onclick="navTo('#quadrant')">Use-Case Quadrant</button>
@@ -356,6 +394,161 @@
       <strong>👆 Click any tool</strong> anywhere in this guide to see full details.
     </p>
   </div>
+
+  <!-- ══ NEW & NOTABLE ══ -->
+  <section id="news">
+    <details class="news-industry-toggle" open>
+      <summary class="news-industry-summary">
+        <div class="section-label-bar"></div>
+        <div>
+          <h2>New &amp; Notable</h2>
+          <p>Changes from the past 7 days that actually affect your work — not just AI hype.</p>
+        </div>
+        <span class="toggle-chevron">›</span>
+      </summary>
+      <div class="news-industry-inner">
+        <span class="news-updated">📅 Updated June 24, 2026</span>
+        <div class="news-grid">
+
+      <div class="news-card news-card-warn">
+        <div class="news-meta">
+          <span class="news-date">June 15, 2026</span>
+          <span class="news-tool">⚙️ Zapier AI</span>
+          <span class="news-badge news-badge-cost">💰 Cost Impact</span>
+        </div>
+        <div class="news-headline">AI steps now cost up to 3–5× more by default</div>
+        <div class="news-body">Zapier switched to model-tier pricing for AI steps: <strong>Standard (1×)</strong>, <strong>Advanced (3× — new default for every AI step)</strong>, <strong>Premium (5×)</strong>. If you use AI steps in Zaps, your task count may have jumped without you changing anything. Log in and check your usage dashboard. Switch to Standard tier where your logic is simple and doesn't need heavy reasoning.</div>
+      </div>
+
+      <div class="news-card news-card-good">
+        <div class="news-meta">
+          <span class="news-date">June 15, 2026</span>
+          <span class="news-tool">💻 Claude / Anthropic</span>
+          <span class="news-badge news-badge-good">✅ Good News</span>
+        </div>
+        <div class="news-headline">Planned billing change paused — Claude usage still covered by your plan</div>
+        <div class="news-body">Anthropic paused the Agent SDK billing change before it took effect. The guide had previously noted this as live — it isn't. If you use Claude Code or any automated Claude workflows, your usage still draws from your subscription as before. No new charges.</div>
+      </div>
+
+      <div class="news-card news-card-feature">
+        <div class="news-meta">
+          <span class="news-date">June 22, 2026</span>
+          <span class="news-tool">📓 NotebookLM</span>
+          <span class="news-badge news-badge-new">🆕 New Feature</span>
+        </div>
+        <div class="news-headline">NotebookLM now remembers between sessions</div>
+        <div class="news-body">Memory retention is live — NotebookLM now tracks past interactions so ongoing research projects maintain continuity across sessions. Data is private to your account and can be disabled anytime. Still free. Useful if you're using NotebookLM as a running research hub for a client, launch, or project.</div>
+      </div>
+
+      <div class="news-card news-card-feature">
+        <div class="news-meta">
+          <span class="news-date">June 1–3, 2026</span>
+          <span class="news-tool">🏗️ Lovable</span>
+          <span class="news-badge news-badge-new">🆕 Major Launch</span>
+        </div>
+        <div class="news-headline">Lovable Cloud: fullstack AI apps with no external services needed</div>
+        <div class="news-body">Lovable Cloud now handles database, authentication, file storage, and AI integrations out of the box — no Supabase setup, no API key juggling. You describe the app, it ships the infrastructure. Also launched: <strong>Reusable Skills</strong> (save your recurring instructions — design systems, SEO rules, tone of voice — and they apply automatically) and a Google Cloud partnership expanding access to Claude + Gemini models inside Lovable.</div>
+      </div>
+
+      <div class="news-card news-card-feature">
+        <div class="news-meta">
+          <span class="news-date">May 29, 2026</span>
+          <span class="news-tool">🌐 Perplexity</span>
+          <span class="news-badge news-badge-new">🆕 New Platform</span>
+        </div>
+        <div class="news-headline">Perplexity Computer is now built into Microsoft 365</div>
+        <div class="news-body">Perplexity's autonomous research tool is now available inside Word, Excel, PowerPoint, Outlook, and Teams. If your clients or team live in Microsoft 365, they can now run deep multi-source research without switching tabs. No separate Perplexity account required for the basic integration.</div>
+      </div>
+
+      <div class="news-card news-card-feature">
+        <div class="news-meta">
+          <span class="news-date">June 2026</span>
+          <span class="news-tool">⚡ Grok / xAI</span>
+          <span class="news-badge news-badge-new">🆕 New Tool</span>
+        </div>
+        <div class="news-headline">Grok for Microsoft Word is free — and covers Excel &amp; PowerPoint too</div>
+        <div class="news-body">xAI launched a free Microsoft 365 add-in that brings Grok directly into Word, PowerPoint, and Excel. It drafts content, rewrites for clarity, pulls in live web research and real-time X data, and connects to SharePoint and email. Add it free from the Microsoft Marketplace — no xAI subscription required.</div>
+      </div>
+
+        </div>
+      </div>
+    </details>
+
+    <details class="news-industry-toggle">
+      <summary class="news-industry-summary">
+        <div class="section-label-bar"></div>
+        <div>
+          <h2>Industry &amp; Platform News</h2>
+          <p>Broader shifts affecting your strategy — beyond the tools in this guide.</p>
+        </div>
+        <span class="toggle-chevron">›</span>
+      </summary>
+      <div class="news-industry-inner">
+        <div class="news-grid">
+
+          <div class="news-card news-card-feature">
+            <div class="news-meta">
+              <span class="news-date">June 2026</span>
+              <span class="news-tool">🔴 Meta Ads</span>
+              <span class="news-badge news-badge-new">🆕 New Integration</span>
+            </div>
+            <div class="news-headline">Claude and ChatGPT can now connect directly to your Meta Ads account</div>
+            <div class="news-body">Meta opened its ad ecosystem to third-party AI tools via MCP connectors. You can now give Claude or ChatGPT access to your Ads Manager data, pull campaign insights, and draft strategy — without leaving the chat interface. Also: the Meta AI Business Assistant is now in open beta for every advertiser and agency worldwide. Advantage+ campaigns are reporting <strong>22% higher ROAS</strong> on average, and 4 million advertisers are now using Meta's generative AI tools.</div>
+          </div>
+
+          <div class="news-card news-card-feature">
+            <div class="news-meta">
+              <span class="news-date">June 2026</span>
+              <span class="news-tool">💬 ChatGPT / OpenAI</span>
+              <span class="news-badge news-badge-new">🆕 New Ad Channel</span>
+            </div>
+            <div class="news-headline">ChatGPT is now an ad platform — open to any US business, no minimum spend</div>
+            <div class="news-body">OpenAI opened self-serve advertising to all US businesses. ChatGPT processes <strong>2.5 billion daily prompts</strong> and hit $100M in annualized ad revenue in its first 6 weeks. For coaches and consultants, this is a new top-of-funnel channel worth monitoring — the audience skews toward early AI adopters actively seeking tools and expertise. OpenAI is also building tools to let advertisers generate, localize, and optimize ad creative with AI.</div>
+          </div>
+
+          <div class="news-card news-card-warn">
+            <div class="news-meta">
+              <span class="news-date">Early 2026 (ongoing)</span>
+              <span class="news-tool">🔍 Google Search</span>
+              <span class="news-badge news-badge-cost">⚠️ Strategy Impact</span>
+            </div>
+            <div class="news-headline">Ranking #1 on Google no longer guarantees an AI Overview citation</div>
+            <div class="news-body">In mid-2025, 76% of Google AI Overview citations went to top-10 ranked pages. By early 2026, that dropped to <strong>38%</strong>. Traditional SEO and AI search visibility have officially decoupled — they now require different strategies. If your content marketing relies on organic Google traffic, this needs attention. Google AI Mode also crossed <strong>1 billion monthly active users</strong>, and AI Overviews are at 2.5 billion — search behavior is shifting fast.</div>
+          </div>
+
+          <div class="news-card news-card-warn">
+            <div class="news-meta">
+              <span class="news-date">Effective August 2, 2026</span>
+              <span class="news-tool">🇪🇺 EU AI Act</span>
+              <span class="news-badge news-badge-cost">⚠️ Regulatory</span>
+            </div>
+            <div class="news-headline">EU AI Act enters full enforcement next month — relevant if you serve EU audiences</div>
+            <div class="news-body">The EU AI Act's main enforcement phase begins August 2, 2026. Tools like Claude, ChatGPT, and Gemini are already required to be transparent about AI-generated content for EU users. Meta is the notable holdout — it refused to sign the GPAI Code of Practice that Anthropic, Google, Microsoft, and OpenAI all signed. No fines have been issued yet. If you have clients or audiences in the EU, this is worth a quick check with your legal or compliance contacts.</div>
+          </div>
+
+          <div class="news-card news-card-warn">
+            <div class="news-meta">
+              <span class="news-date">June 2026</span>
+              <span class="news-tool">💼 Microsoft Copilot</span>
+              <span class="news-badge news-badge-cost">💰 Cost Impact</span>
+            </div>
+            <div class="news-headline">Word, Excel &amp; PowerPoint AI features now require a paid Copilot license</div>
+            <div class="news-body">Microsoft tightened its Copilot licensing: AI features inside Word, Excel, PowerPoint, and OneNote now require a Microsoft 365 Copilot add-on (paid). If your team has been using these features under a standard M365 plan, verify your license status before August — you may hit a paywall. Free Copilot Chat remains available via the web app. On the upside, Copilot now includes GPT-5.5 Instant and Claude Opus 4.7 for those with the paid tier.</div>
+          </div>
+
+        </div>
+      </div>
+    </details>
+
+    <div class="news-cta">
+      <div class="news-cta-text">
+        <h3>The AI landscape changes every week. Your strategy doesn't have to.</h3>
+        <p>Be Known helps coaches, consultants, and expert-driven businesses cut through the noise — building AI-native marketing systems, high-converting funnels, and paid ad strategies that grow with the technology, not against it.</p>
+      </div>
+      <a href="https://www.beknownonline.com" target="_blank" rel="noopener noreferrer" class="news-cta-btn">Work With Be Known →</a>
+    </div>
+
+  </section>
 
   <!-- ══ TIERS ══ -->
   <section id="tiers">
@@ -466,7 +659,7 @@
               <td class="tool-name">Claude Code<span class="tool-sub">Terminal / CLI</span></td>
               <td>Writing, debugging &amp; refactoring code; developer workflows</td>
               <td><span class="tag">Reads codebase</span><span class="tag">Runs commands</span><span class="tag">Edits files</span></td>
-              <td>Requires developer setup; not for non-coders. As of June 15, 2026, agent/automated usage is metered separately from chat subscriptions. Fable 5 suspended (export-control directive) — Opus 4.8 is current flagship.</td>
+              <td>Requires developer setup; not for non-coders. ✅ June 15 billing change for Agent SDK was paused — usage still draws from your subscription. Fable 5 suspended (export-control directive) — Opus 4.8 is current flagship.</td>
               <td><span class="tier-dot dot-power">🚀 Power User</span></td>
               <td>API usage-based</td>
             </tr>
@@ -592,7 +785,7 @@
               <td><span class="tag">Autonomous agent</span><span class="tag">Multi-step tasks</span><span class="tag">MCP integrations</span></td>
               <td>Slower; results need review; no conditional logic or integration triggers like Zapier</td>
               <td><span class="tier-dot dot-intermediate">⚡ Intermediate</span></td>
-              <td>Free tier / From $39/mo</td>
+              <td>Free / From $20/mo</td>
             </tr>
 
             <tr class="group-row"><td colspan="6">⚙️ AI-Powered Automation</td></tr>
@@ -600,7 +793,7 @@
               <td class="tool-name">Zapier AI<span class="tool-sub">zapier.com</span></td>
               <td>Connecting apps and using AI to make decisions in automations</td>
               <td><span class="tag">6,000+ integrations</span><span class="tag">AI steps</span><span class="tag">No-code</span></td>
-              <td>Cost scales with volume; AI steps can be inconsistent</td>
+              <td>AI steps now tiered (Jun 15): Standard 1×, Advanced 3× (default), Premium 5× — watch usage costs</td>
               <td><span class="tier-dot dot-intermediate">⚡ Intermediate</span></td>
               <td>Free tier / From $19.99/mo</td>
             </tr>
@@ -852,7 +1045,7 @@ const TOOLS = {
     subtitle: 'Terminal / Command Line (CLI)',
     bestFor: 'Writing, debugging, and refactoring actual code files. Claude Code reads your entire codebase, runs terminal commands, edits files, and completes developer tasks autonomously. Best for software engineers and technical builders. 🆕 Claude Fable 5 (launched June 9, 2026) is available via API — it scored 80.3% on SWE-Bench Pro, making it the strongest coding model available.',
     strengths: ['Reads your full codebase','Runs terminal commands','Edits and creates files','Long multi-file tasks','Git-aware'],
-    limitations: 'Requires developer setup via terminal. Not suitable for non-coders. API usage can add up fast on large codebases. As of June 15, 2026, automated/agent usage is billed separately from your Claude chat subscription — check your plan settings.',
+    limitations: 'Requires developer setup via terminal. Not suitable for non-coders. API usage can add up fast on large codebases. ✅ Planned June 15 billing change for Agent SDK automated usage was paused before taking effect — usage still draws from your subscription as before.',
     level: '🚀 Power User / Developer',
     cost: 'Anthropic API — usage-based pricing',
     url: 'https://claude.ai/code',
@@ -946,8 +1139,8 @@ const TOOLS = {
     family: 'Google AI Family',
     title: 'NotebookLM',
     subtitle: 'notebooklm.google.com',
-    bestFor: 'Uploading your own documents, PDFs, or research and asking questions about them. NotebookLM keeps all answers grounded in your source material — no hallucinating facts from outside. Google Drive auto-sync keeps notebooks current automatically. 🆕 June 2026 (Gemini 3.5 upgrade): NotebookLM now has a built-in secure cloud computer for running code and complex analysis, can generate charts, spreadsheets, slide decks, and CSV/JSON exports, and includes Video Overviews — narrated slide presentations built from your documents. Advanced features require Google AI Ultra or select Workspace plans.',
-    strengths: ['Source-grounded answers (no hallucination)','Document Q&A','Audio & Video Overviews','Google Drive auto-sync','Generates charts, slides & spreadsheets','Cloud computer for code & analysis'],
+    bestFor: 'Uploading your own documents, PDFs, or research and asking questions about them. NotebookLM keeps all answers grounded in your source material — no hallucinating facts from outside. Google Drive auto-sync keeps notebooks current automatically. 🆕 June 2026 (Gemini 3.5 upgrade): NotebookLM now has a built-in secure cloud computer for running code and complex analysis, can generate charts, spreadsheets, slide decks, and CSV/JSON exports, and includes Video Overviews — narrated slide presentations built from your documents. 🆕 June 22, 2026: Memory retention added — NotebookLM now tracks past interactions for continuity while keeping data private to your account. Advanced features require Google AI Ultra or select Workspace plans.',
+    strengths: ['Source-grounded answers (no hallucination)','Document Q&A','Audio & Video Overviews','Google Drive auto-sync','Generates charts, slides & spreadsheets','Cloud computer for code & analysis','Memory retention (Jun 22, 2026)'],
     limitations: 'Limited strictly to your uploaded sources — it won\'t go beyond them. Not a general-purpose AI. Does not browse the web or write long-form content independently.',
     level: '⚡ Intermediate',
     cost: 'Free',
@@ -958,9 +1151,9 @@ const TOOLS = {
     family: 'AI App Builders',
     title: 'Lovable',
     subtitle: 'lovable.dev',
-    bestFor: 'Building full web applications and SaaS tools from a plain-English prompt — with no coding required. Describe what you want to build and Lovable generates the frontend and backend. Rapidly growing in popularity in 2025 for MVPs and internal tools.',
-    strengths: ['Full apps from a text prompt','Connects to Supabase (database)','Fast MVP iteration','No coding required','GitHub export available'],
-    limitations: 'Less granular control than writing code from scratch. Best for MVPs and prototypes rather than complex production systems. Requires some understanding of what you\'re building.',
+    bestFor: 'Building full web applications and SaaS tools from a plain-English prompt — with no coding required. 🆕 June 2026: Lovable Cloud launched — ship fullstack AI-native apps with built-in database, auth, and AI integrations (no external services required). Reusable Skills (May 2026) let you save repeated instructions (design systems, SEO, accessibility) and apply them automatically. Google Cloud multiyear partnership announced June 3 — expanded access to Claude and Gemini models.',
+    strengths: ['Full apps from a text prompt','Lovable Cloud (built-in AI, DB, auth)','Reusable Skills for consistent builds','Fast MVP iteration','No coding required'],
+    limitations: 'Less granular control than writing code from scratch. Credit-based — complex features cost more than simple edits. Best for MVPs and prototypes rather than complex production systems. Business plan replaced Teams plan in 2026.',
     level: '⚡ Intermediate — No code needed',
     cost: 'Free (5 daily credits) · Pro $25/mo · Business $50/mo',
     url: 'https://lovable.dev',
@@ -998,7 +1191,7 @@ const TOOLS = {
     strengths: ['Fully autonomous agent','Multi-step task planning','MCP tool integrations','Web browsing & code execution','Hands-off delegation'],
     limitations: 'Can be slower than doing tasks manually. Outputs need human review before acting on them. No conditional logic or native integration triggers — combine with Zapier for complex automation chains.',
     level: '⚡ Intermediate — powerful but needs review',
-    cost: 'Free tier · From $39/mo',
+    cost: 'Free · Standard $20/mo · Customizable $40/mo · Extended $200/mo',
     url: 'https://manus.im',
   },
   'zapier': {
@@ -1008,7 +1201,7 @@ const TOOLS = {
     subtitle: 'zapier.com',
     bestFor: 'Connecting your apps together and using AI to make smart decisions inside automated workflows — all without code. Best for automating repetitive tasks between tools like Gmail, Slack, GoHighLevel, Airtable, and 6,000+ others.',
     strengths: ['6,000+ app integrations','AI decision steps in Zaps','No-code visual builder','Large template library','Reliable & mature platform'],
-    limitations: 'Cost scales with task volume — can get expensive at high use. AI steps can be inconsistent for complex logic. Complex workflows become hard to manage over time.',
+    limitations: '🆕 AI steps now tiered by model (June 15, 2026): Standard (1× tasks), Advanced (3× — new default), Premium (5×). Budget carefully — switching to Standard where possible saves significantly. Cost scales with volume. Complex workflows become hard to manage over time.',
     level: '⚡ Intermediate',
     cost: 'Free tier · Paid from $19.99/mo',
     url: 'https://zapier.com',
@@ -1031,7 +1224,7 @@ const TOOLS = {
     title: 'Grok',
     subtitle: 'x.ai / Built into X (formerly Twitter)',
     bestFor: 'Real-time chat powered by live data from X (Twitter). Grok is the go-to for current events, trending topics, and questions where fresh social data matters. Also known for being less filtered than other AI tools — it will engage with edgier questions others refuse. Includes Aurora image generation.',
-    strengths: ['Real-time X/Twitter data feed','Less restricted responses','Aurora image generation','Grok Voice (real-time spoken interaction)','Built into X app & grok.com'],
+    strengths: ['Real-time X/Twitter data feed','Less restricted responses','Aurora image generation','Grok Imagine Video 1.5 (image-to-video, #1 ranked)','Grok Voice (public since June 4)','Built into X app & grok.com'],
     limitations: 'SuperGrok subscription required for full features; free tier is very limited (10 prompts / 2 hrs). Can be less careful and accurate than Claude or ChatGPT. Smaller ecosystem than OpenAI or Anthropic.',
     level: '🌱 Beginner — accessible at grok.com or via X app',
     cost: 'Free (limited) · SuperGrok Lite $10/mo · SuperGrok $30/mo · SuperGrok Heavy $300/mo',
@@ -1110,7 +1303,7 @@ const observer = new IntersectionObserver((entries) => {
   entries.forEach(entry => {
     if (entry.isIntersecting) {
       const id = '#' + entry.target.id;
-      const map = ['#intro','#tiers','#table','#quadrant','#glossary'];
+      const map = ['#intro','#news','#tiers','#table','#quadrant','#glossary'];
       tabs.forEach((tab, i) => tab.classList.toggle('active', map[i] === id));
     }
   });
