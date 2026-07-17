@@ -407,8 +407,28 @@
         <span class="toggle-chevron">›</span>
       </summary>
       <div class="news-industry-inner">
-        <span class="news-updated">📅 Updated July 7, 2026</span>
+        <span class="news-updated">📅 Updated July 14, 2026</span>
         <div class="news-grid">
+
+      <div class="news-card news-card-good">
+        <div class="news-meta">
+          <span class="news-date">July 9, 2026</span>
+          <span class="news-tool">💬 ChatGPT / OpenAI</span>
+          <span class="news-badge news-badge-new">🆕 New Models</span>
+        </div>
+        <div class="news-headline">GPT-5.6 family (Sol, Terra, Luna) launches for all paid users</div>
+        <div class="news-body">OpenAI launched three new models: <strong>Sol</strong> (fast/efficient), <strong>Terra</strong> (balanced), and <strong>Luna</strong> (most capable). All three are now live for Plus, Pro, Business, and Enterprise users. Sol is available on the API at $5/$30 per 1M input/output tokens. The Realtime API also received a 30% input price cut effective July 1 — relevant if you use voice or live conversation features.</div>
+      </div>
+
+      <div class="news-card news-card-good">
+        <div class="news-meta">
+          <span class="news-date">July 8, 2026</span>
+          <span class="news-tool">⚡ Grok / xAI</span>
+          <span class="news-badge news-badge-new">🆕 New Model</span>
+        </div>
+        <div class="news-headline">Grok 4.5 is now publicly available — Opus-class for coding and agentic work</div>
+        <div class="news-body">xAI's Grok 4.5 launched publicly on July 8, available in Grok Build, Cursor, and the xAI API console (not yet available in the EU). API pricing is <strong>$2/$6 per 1M input/output tokens</strong> — competitive with Claude Sonnet 5. xAI positions it as "Opus-class" for coding and agentic tasks. Bonus: 21 multilingual Grok Voice voices with voice cloning support also went live this month.</div>
+      </div>
 
       <div class="news-card news-card-warn">
         <div class="news-meta">
@@ -707,7 +727,7 @@
               <td class="tool-name">ChatGPT<span class="tool-sub">chat.openai.com</span></td>
               <td>General chat, brainstorming, image generation, code help</td>
               <td><span class="tag">Huge ecosystem</span><span class="tag">GPTs / plugins</span><span class="tag">Image gen</span></td>
-              <td>Quality varies; hallucinations; Pro needed for best models. GPT-5.2 Thinking retired June 5 2026.</td>
+              <td>Quality varies; hallucinations; Pro needed for best models. GPT-5.2 Thinking retired June 5 2026. 🆕 GPT-5.6 family (Sol, Terra, Luna) launched July 9 — live for Plus, Pro, Business, and Enterprise.</td>
               <td><span class="tier-dot dot-beginner">🌱 Beginner</span></td>
               <td>Free / Plus $20/mo / Pro $100–200/mo</td>
             </tr>
@@ -725,7 +745,7 @@
               <td class="tool-name">Grok<span class="tool-sub">x.ai / X (Twitter)</span></td>
               <td>Real-time chat with live X/Twitter data, unfiltered Q&amp;A, current events, image generation</td>
               <td><span class="tag">Real-time X data</span><span class="tag">Less restricted</span><span class="tag">Image gen (Aurora)</span></td>
-              <td>Free tier still limited; SuperGrok required for full features. Grok 4.1 now live for all users (July 2026). Grok 4.5 in private beta at SpaceX/Tesla.</td>
+              <td>Free tier still limited; SuperGrok required for full features. Grok 4.1 live for all users. 🆕 Grok 4.5 now publicly available via xAI API at $2/$6 per 1M tokens (July 8, 2026).</td>
               <td><span class="tier-dot dot-beginner">🌱 Beginner</span></td>
               <td>Free / SuperGrok $30/mo</td>
             </tr>
@@ -1097,7 +1117,7 @@ const TOOLS = {
     family: 'OpenAI · ChatGPT Family',
     title: 'ChatGPT',
     subtitle: 'chat.openai.com',
-    bestFor: 'General-purpose AI chat, brainstorming, code help, image generation (via DALL·E), and browsing the web. The most widely used AI tool in the world with a large ecosystem of custom GPTs and plugins.',
+    bestFor: 'General-purpose AI chat, brainstorming, code help, image generation (via DALL·E), and browsing the web. The most widely used AI tool in the world with a large ecosystem of custom GPTs and plugins. 🆕 July 9, 2026: GPT-5.6 family launched — Sol (fast), Terra (balanced), Luna (most capable) — now live for all Plus, Pro, Business, and Enterprise users.',
     strengths: ['Massive user ecosystem','Custom GPTs & plugins','DALL·E image generation','Web browsing (Plus)','Voice mode'],
     limitations: 'Quality varies by model tier. Known for "hallucinating" (making things up) with confidence. Best features require the Plus plan. Claude generally outperforms on nuanced reasoning and long documents.',
     level: '🌱 Beginner — Extremely accessible',
@@ -1186,7 +1206,7 @@ const TOOLS = {
     limitations: 'Less granular control than writing code from scratch. Credit-based — complex features cost more than simple edits. Best for MVPs and prototypes rather than complex production systems. Business plan replaced Teams plan in 2026.',
     level: '⚡ Intermediate — No code needed',
     cost: 'Free (5 daily credits) · Pro $25/mo · Business $50/mo',
-    url: 'https://lovable.dev',
+    url: 'https://beknownonline.com/lovable',
   },
   'replit': {
     emoji: '⚙️',
@@ -1246,15 +1266,15 @@ const TOOLS = {
     limitations: 'Steeper learning curve than Zapier. Fewer native app integrations. Less beginner-friendly UI. Some tools only available via HTTP/API rather than a native connector.',
     level: '⚡ Intermediate',
     cost: 'Free tier · Paid from $9/mo',
-    url: 'https://www.make.com',
+    url: 'https://www.make.com/en/register?pc=beknown',
   },
   'grok': {
     emoji: '⚡',
     family: 'xAI · Grok Family',
     title: 'Grok',
     subtitle: 'x.ai / Built into X (formerly Twitter)',
-    bestFor: 'Real-time chat powered by live data from X (Twitter). Grok is the go-to for current events, trending topics, and questions where fresh social data matters. Also known for being less filtered than other AI tools — it will engage with edgier questions others refuse. 🆕 July 2026: Grok 4.1 is now live for all users (selected automatically in Auto mode). Grok Imagine — image and video generation via the Aurora model — is now complete as of July 5.',
-    strengths: ['Real-time X/Twitter data feed','Less restricted responses','Grok 4.1 now live (July 2026)','Aurora image & video generation (complete)','Grok Voice built in','Built into X app & grok.com'],
+    bestFor: 'Real-time chat powered by live data from X (Twitter). Grok is the go-to for current events, trending topics, and questions where fresh social data matters. Also known for being less filtered than other AI tools — it will engage with edgier questions others refuse. 🆕 July 2026: Grok 4.1 is live for all users (Auto mode). Grok Imagine (Aurora model) is now complete. 🆕 July 8, 2026: Grok 4.5 now publicly available via xAI API at $2/$6 per 1M tokens — positioned as Opus-class for coding and agentic work.',
+    strengths: ['Real-time X/Twitter data feed','Less restricted responses','Grok 4.1 now live (July 2026)','Grok 4.5 API public ($2/$6/1M tokens)','Aurora image & video generation (complete)','Grok Voice built in','Built into X app & grok.com'],
     limitations: 'SuperGrok subscription required for full features; free tier is very limited (10 prompts / 2 hrs). Can be less careful and accurate than Claude or ChatGPT. Smaller ecosystem than OpenAI or Anthropic.',
     level: '🌱 Beginner — accessible at grok.com or via X app',
     cost: 'Free (limited) · SuperGrok Lite $10/mo · SuperGrok $30/mo · SuperGrok Heavy $300/mo',
