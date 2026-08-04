@@ -154,6 +154,11 @@
   .news-headline { font-family: 'Oxygen', sans-serif; font-size: 15px; font-weight: 700; color: var(--black); margin-bottom: 6px; line-height: 1.3; }
   .news-body { font-size: 13.5px; color: #444; line-height: 1.65; }
   .news-updated { display: inline-flex; align-items: center; gap: 6px; background: var(--green-dark); color: white; font-size: 11px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; padding: 5px 14px; border-radius: 100px; margin-bottom: 20px; }
+  .news-subhead { display: flex; align-items: center; gap: 12px; margin: 10px 0 2px; font-family: 'Oxygen', sans-serif; }
+  .news-subhead:first-of-type { margin-top: 0; }
+  .news-subhead-label { font-size: 12px; font-weight: 700; color: var(--green-dark); letter-spacing: 0.8px; text-transform: uppercase; white-space: nowrap; }
+  .news-subhead-rule { flex: 1; height: 1px; background: var(--gray-light); }
+  .news-subhead-hint { font-size: 11px; color: var(--gray-mid); font-weight: 400; letter-spacing: 0; text-transform: none; white-space: nowrap; }
 
   /* ─── COLLAPSIBLE INDUSTRY SECTION ─── */
   .news-industry-toggle { margin-top: 28px; border: 1px solid var(--gray-light); border-radius: var(--radius-lg); background: var(--white); overflow: hidden; }
@@ -402,13 +407,25 @@
         <div class="section-label-bar"></div>
         <div>
           <h2>New &amp; Notable</h2>
-          <p>Changes from the past 7 days that actually affect your work — not just AI hype.</p>
+          <p>This week's updates first, then earlier July changes. Anything older than a month rolls off — the durable details live in each tool's card below.</p>
         </div>
         <span class="toggle-chevron">›</span>
       </summary>
       <div class="news-industry-inner">
         <span class="news-updated">📅 Updated July 28, 2026</span>
         <div class="news-grid">
+
+      <div class="news-subhead"><span class="news-subhead-label">🆕 This Week — July 21–28</span><span class="news-subhead-rule"></span><span class="news-subhead-hint">just added</span></div>
+
+      <div class="news-card news-card-feature">
+        <div class="news-meta">
+          <span class="news-date">July 28, 2026</span>
+          <span class="news-tool">🌐 Perplexity</span>
+          <span class="news-badge news-badge-new">🆕 New Platform</span>
+        </div>
+        <div class="news-headline">Perplexity's Personal Computer expands to Windows — and now has "Brain" memory</div>
+        <div class="news-body">Perplexity's agentic <strong>Personal Computer</strong> tool now runs on Windows (joining the Mac version from April), so it can act across local files, Microsoft 365, and the web in one place. Rolling out to Max &amp; Enterprise Max subscribers ($200/mo+). Earlier in July, Perplexity also shipped <strong>Brain</strong> — self-improving memory that builds a private context graph across your sessions and connectors, refreshing overnight. In testing it lifted answer correctness ~25% and recall ~16%.</div>
+      </div>
 
       <div class="news-card news-card-good">
         <div class="news-meta">
@@ -418,26 +435,6 @@
         </div>
         <div class="news-headline">Claude Opus 5 launches — near-Fable-5 performance at half the price</div>
         <div class="news-body">Anthropic released <strong>Claude Opus 5</strong>, a direct upgrade to Opus 4.8 at the <strong>same price: $5/M input · $25/M output tokens</strong>. It's now the default model on Claude Max and the strongest model on Claude Pro, with big gains in agentic coding, knowledge work, and self-verification. It comes close to flagship Fable 5 ($10/$50) on most benchmarks — so most daily work can now run on Opus 5 for half the cost. API string: <strong>claude-opus-5</strong>. Also in beta: mid-conversation tool changes and automatic API fallbacks.</div>
-      </div>
-
-      <div class="news-card news-card-good">
-        <div class="news-meta">
-          <span class="news-date">July 21, 2026</span>
-          <span class="news-tool">✨ Gemini / Google AI</span>
-          <span class="news-badge news-badge-new">🆕 New Models</span>
-        </div>
-        <div class="news-headline">Gemini 3.6 Flash &amp; 3.5 Flash-Lite ship — faster and cheaper</div>
-        <div class="news-body">Google released <strong>Gemini 3.6 Flash</strong> at <strong>$1.50/M input · $7.50/M output</strong> (down from 3.5 Flash's $9 output), using ~17% fewer output tokens per task. <strong>Gemini 3.5 Flash-Lite</strong> lands at <strong>$0.30/$2.50</strong> — the fastest model in the 3.5 series at 350 tokens/sec. Both are live in the Gemini app, Google AI Studio, and Search. A specialized <strong>Flash Cyber</strong> model is restricted to governments/partners. Note: <strong>Gemini 3.5 Pro</strong> is still in partner testing, and Google confirmed pre-training has begun on <strong>Gemini 4</strong>.</div>
-      </div>
-
-      <div class="news-card news-card-feature">
-        <div class="news-meta">
-          <span class="news-date">July 16, 2026</span>
-          <span class="news-tool">📓 Gemini Notebook</span>
-          <span class="news-badge news-badge-new">🆕 Rebrand + Feature</span>
-        </div>
-        <div class="news-headline">NotebookLM is now "Gemini Notebook" — and every notebook gets a cloud computer</div>
-        <div class="news-body">Google renamed <strong>NotebookLM → Gemini Notebook</strong> (same product, all notebooks preserved). It's now woven deeper into the Gemini app and is coming to AI Mode in Search. The big upgrade: every notebook now has a <strong>secure cloud computer</strong> that writes and runs code natively — so it can do real data analysis, charts, spreadsheets, and slide decks grounded in your own sources. Cloud computer is live for Google AI Ultra &amp; eligible Workspace plans now, rolling out to Pro users over the coming weeks.</div>
       </div>
 
       <div class="news-card news-card-feature">
@@ -450,14 +447,26 @@
         <div class="news-body">Manus launched <strong>Plan Mode</strong>: type <code>/</code> and select Plan (or tap <code>+</code> on mobile), and Manus writes a full Markdown plan — goals, steps, constraints — <em>before</em> it builds anything. You edit and approve, then it executes. Nothing ships until you confirm, and you can switch it on mid-task to scope the next phase. Free for all users on web and mobile. Separately, Manus confirmed it has <strong>joined Meta</strong> (after a regulator delay) and continues operating its existing products.</div>
       </div>
 
+      <div class="news-card news-card-good">
+        <div class="news-meta">
+          <span class="news-date">July 21, 2026</span>
+          <span class="news-tool">✨ Gemini / Google AI</span>
+          <span class="news-badge news-badge-new">🆕 New Models</span>
+        </div>
+        <div class="news-headline">Gemini 3.6 Flash &amp; 3.5 Flash-Lite ship — faster and cheaper</div>
+        <div class="news-body">Google released <strong>Gemini 3.6 Flash</strong> at <strong>$1.50/M input · $7.50/M output</strong> (down from 3.5 Flash's $9 output), using ~17% fewer output tokens per task. <strong>Gemini 3.5 Flash-Lite</strong> lands at <strong>$0.30/$2.50</strong> — the fastest model in the 3.5 series at 350 tokens/sec. Both are live in the Gemini app, Google AI Studio, and Search. A specialized <strong>Flash Cyber</strong> model is restricted to governments/partners. Note: <strong>Gemini 3.5 Pro</strong> is still in partner testing, and Google confirmed pre-training has begun on <strong>Gemini 4</strong>.</div>
+      </div>
+
+      <div class="news-subhead"><span class="news-subhead-label">Earlier in July</span><span class="news-subhead-rule"></span><span class="news-subhead-hint">kept for the month</span></div>
+
       <div class="news-card news-card-feature">
         <div class="news-meta">
-          <span class="news-date">July 28, 2026</span>
-          <span class="news-tool">🌐 Perplexity</span>
-          <span class="news-badge news-badge-new">🆕 New Platform</span>
+          <span class="news-date">July 16, 2026</span>
+          <span class="news-tool">📓 Gemini Notebook</span>
+          <span class="news-badge news-badge-new">🆕 Rebrand + Feature</span>
         </div>
-        <div class="news-headline">Perplexity's Personal Computer expands to Windows — and now has "Brain" memory</div>
-        <div class="news-body">Perplexity's agentic <strong>Personal Computer</strong> tool now runs on Windows (joining the Mac version from April), so it can act across local files, Microsoft 365, and the web in one place. Rolling out to Max &amp; Enterprise Max subscribers ($200/mo+). Earlier in July, Perplexity also shipped <strong>Brain</strong> — self-improving memory that builds a private context graph across your sessions and connectors, refreshing overnight. In testing it lifted answer correctness ~25% and recall ~16%.</div>
+        <div class="news-headline">NotebookLM is now "Gemini Notebook" — and every notebook gets a cloud computer</div>
+        <div class="news-body">Google renamed <strong>NotebookLM → Gemini Notebook</strong> (same product, all notebooks preserved). It's now woven deeper into the Gemini app and is coming to AI Mode in Search. The big upgrade: every notebook now has a <strong>secure cloud computer</strong> that writes and runs code natively — so it can do real data analysis, charts, spreadsheets, and slide decks grounded in your own sources. Cloud computer is live for Google AI Ultra &amp; eligible Workspace plans now, rolling out to Pro users over the coming weeks.</div>
       </div>
 
       <div class="news-card news-card-good">
@@ -480,64 +489,14 @@
         <div class="news-body">xAI's Grok 4.5 launched publicly on July 8, available in Grok Build, Cursor, and the xAI API console (not yet available in the EU). API pricing is <strong>$2/$6 per 1M input/output tokens</strong> — competitive with Claude Sonnet 5. xAI positions it as "Opus-class" for coding and agentic tasks. Bonus: 21 multilingual Grok Voice voices with voice cloning support also went live this month.</div>
       </div>
 
-      <div class="news-card news-card-warn">
-        <div class="news-meta">
-          <span class="news-date">June 15, 2026</span>
-          <span class="news-tool">⚙️ Zapier AI</span>
-          <span class="news-badge news-badge-cost">💰 Cost Impact</span>
-        </div>
-        <div class="news-headline">AI steps now cost up to 3–5× more by default</div>
-        <div class="news-body">Zapier switched to model-tier pricing for AI steps: <strong>Standard (1×)</strong>, <strong>Advanced (3× — new default for every AI step)</strong>, <strong>Premium (5×)</strong>. If you use AI steps in Zaps, your task count may have jumped without you changing anything. Log in and check your usage dashboard. Switch to Standard tier where your logic is simple and doesn't need heavy reasoning.</div>
-      </div>
-
       <div class="news-card news-card-good">
         <div class="news-meta">
-          <span class="news-date">June 15, 2026</span>
-          <span class="news-tool">💻 Claude / Anthropic</span>
-          <span class="news-badge news-badge-good">✅ Good News</span>
+          <span class="news-date">July 2026</span>
+          <span class="news-tool">💬 Claude / Anthropic</span>
+          <span class="news-badge news-badge-new">🆕 New Model</span>
         </div>
-        <div class="news-headline">Planned billing change paused — Claude usage still covered by your plan</div>
-        <div class="news-body">Anthropic paused the Agent SDK billing change before it took effect. The guide had previously noted this as live — it isn't. If you use Claude Code or any automated Claude workflows, your usage still draws from your subscription as before. No new charges.</div>
-      </div>
-
-      <div class="news-card news-card-feature">
-        <div class="news-meta">
-          <span class="news-date">June 22, 2026</span>
-          <span class="news-tool">📓 NotebookLM</span>
-          <span class="news-badge news-badge-new">🆕 New Feature</span>
-        </div>
-        <div class="news-headline">NotebookLM now remembers between sessions</div>
-        <div class="news-body">Memory retention is live — NotebookLM now tracks past interactions so ongoing research projects maintain continuity across sessions. Data is private to your account and can be disabled anytime. Still free. Useful if you're using NotebookLM as a running research hub for a client, launch, or project.</div>
-      </div>
-
-      <div class="news-card news-card-feature">
-        <div class="news-meta">
-          <span class="news-date">June 1–3, 2026</span>
-          <span class="news-tool">🏗️ Lovable</span>
-          <span class="news-badge news-badge-new">🆕 Major Launch</span>
-        </div>
-        <div class="news-headline">Lovable Cloud: fullstack AI apps with no external services needed</div>
-        <div class="news-body">Lovable Cloud now handles database, authentication, file storage, and AI integrations out of the box — no Supabase setup, no API key juggling. You describe the app, it ships the infrastructure. Also launched: <strong>Reusable Skills</strong> (save your recurring instructions — design systems, SEO rules, tone of voice — and they apply automatically) and a Google Cloud partnership expanding access to Claude + Gemini models inside Lovable.</div>
-      </div>
-
-      <div class="news-card news-card-feature">
-        <div class="news-meta">
-          <span class="news-date">May 29, 2026</span>
-          <span class="news-tool">🌐 Perplexity</span>
-          <span class="news-badge news-badge-new">🆕 New Platform</span>
-        </div>
-        <div class="news-headline">Perplexity Computer is now built into Microsoft 365</div>
-        <div class="news-body">Perplexity's autonomous research tool is now available inside Word, Excel, PowerPoint, Outlook, and Teams. If your clients or team live in Microsoft 365, they can now run deep multi-source research without switching tabs. No separate Perplexity account required for the basic integration.</div>
-      </div>
-
-      <div class="news-card news-card-feature">
-        <div class="news-meta">
-          <span class="news-date">June 2026</span>
-          <span class="news-tool">⚡ Grok / xAI</span>
-          <span class="news-badge news-badge-new">🆕 New Tool</span>
-        </div>
-        <div class="news-headline">Grok for Microsoft Word is free — and covers Excel &amp; PowerPoint too</div>
-        <div class="news-body">xAI launched a free Microsoft 365 add-in that brings Grok directly into Word, PowerPoint, and Excel. It drafts content, rewrites for clarity, pulls in live web research and real-time X data, and connects to SharePoint and email. Add it free from the Microsoft Marketplace — no xAI subscription required.</div>
+        <div class="news-headline">Claude Sonnet 5 launches — most agentic Sonnet yet, at introductory pricing</div>
+        <div class="news-body">Anthropic launched Claude Sonnet 5 with introductory pricing of <strong>$2/M input · $10/M output tokens through August 31, 2026</strong> (rising to $3/$15 after). It's their most capable Sonnet model — designed for autonomous planning, multi-tool use, and production workflows. Note: fast mode has been removed from Claude Opus 4.6 (June 29) and is being deprecated for Opus 4.7 on July 24.</div>
       </div>
 
       <div class="news-card news-card-good">
@@ -548,16 +507,6 @@
         </div>
         <div class="news-headline">Grok 4.1 is live for everyone — and Grok Imagine is now complete</div>
         <div class="news-body">Grok 4.1 is now rolling out to all users on grok.com, X, and the iOS/Android apps — selected automatically in Auto mode. xAI also announced on July 5 that Grok Imagine (image and video generation via the Aurora model) is complete. Bonus: the Speech-to-Text and Text-to-Speech APIs are now generally available, and a no-code Voice Agent Builder beta launched for building production voice agents in under 2 minutes.</div>
-      </div>
-
-      <div class="news-card news-card-good">
-        <div class="news-meta">
-          <span class="news-date">July 2026</span>
-          <span class="news-tool">💬 Claude / Anthropic</span>
-          <span class="news-badge news-badge-new">🆕 New Model</span>
-        </div>
-        <div class="news-headline">Claude Sonnet 5 launches — most agentic Sonnet yet, at introductory pricing</div>
-        <div class="news-body">Anthropic launched Claude Sonnet 5 with introductory pricing of <strong>$2/M input · $10/M output tokens through August 31, 2026</strong> (rising to $3/$15 after). It's their most capable Sonnet model — designed for autonomous planning, multi-tool use, and production workflows. Note: fast mode has been removed from Claude Opus 4.6 (June 29) and is being deprecated for Opus 4.7 on July 24.</div>
       </div>
 
       <div class="news-card news-card-feature">
@@ -1280,7 +1229,7 @@ const TOOLS = {
     limitations: 'Acquired by Wix (2025) — product leans toward rapid prototyping over enterprise-grade apps. Credits don\'t roll over month to month. Smaller community than Lovable or Replit.',
     level: '⚡ Intermediate',
     cost: 'Free · Starter $16/mo · Builder $40/mo · Pro $80/mo',
-    url: 'https://base44.com',
+    url: 'https://beknownonline.com/base44',
   },
   'manus': {
     emoji: '🤖',
