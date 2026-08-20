@@ -57,6 +57,7 @@
   .intro-callout-icon { font-size: 24px; flex-shrink: 0; margin-top: 2px; }
   .intro-callout p { font-size: 15px; color: #3a3a3a; line-height: 1.7; }
   .intro-callout strong { color: var(--green-dark); }
+  .gloss-link { color: var(--green-dark); text-decoration: underline; text-underline-offset: 2px; font-weight: 600; }
 
   /* ─── CLICKABLE HINT ─── */
   .click-hint { display: inline-flex; align-items: center; gap: 6px; font-size: 12px; color: var(--gray-mid); font-weight: 600; margin-bottom: 16px; }
@@ -423,8 +424,8 @@
           <span class="news-tool">⚡ Grok / xAI</span>
           <span class="news-badge news-badge-new">🆕 New Model</span>
         </div>
-        <div class="news-headline">Grok 4.6 launches — xAI's new frontier model for long-running agents</div>
-        <div class="news-body">xAI released <strong>Grok 4.6</strong>, a post-training upgrade over Grok 4.5 focused on long-running agents and more ambitious interactive/visual work. The headline price is unchanged at <strong>$2/M input · $6/M output</strong> tokens with a <strong>500K context window</strong>, but cached input rose to <strong>$0.50/M</strong> and rates double above 200K prompt tokens ($4/$12). A new <strong>xhigh</strong> reasoning-effort level joins low/medium/high. It's live today in the xAI API, Cursor, and Grok Build, and ties GPT-5.6 Sol Max at 61 on the Artificial Analysis Intelligence Index. API string: <strong>grok-4.6</strong>.</div>
+        <div class="news-headline">Grok 4.6 launches — built to stay with long, multi-step tasks</div>
+        <div class="news-body">xAI released <strong>Grok 4.6</strong> — an upgraded flagship that's especially good at long, multi-step jobs like research, working across a codebase, or turning an idea into a finished app. For everyday users, nothing changes: it's included in your current Grok plan. Builders, take note: it handles a bigger <a class="gloss-link" href="#gloss-context-window">context window</a> (500K <a class="gloss-link" href="#gloss-token">tokens</a> ≈ a small library of documents), adds a deeper "xhigh" thinking level, and its per-token <a class="gloss-link" href="#gloss-api">API</a> price stays among the lowest of the big labs (exact rates in the Grok card). Live today in the xAI API, Cursor, and Grok Build.</div>
       </div>
 
       <div class="news-card news-card-good">
@@ -433,8 +434,8 @@
           <span class="news-tool">✨ Gemini / Google AI</span>
           <span class="news-badge news-badge-new">🆕 New Model</span>
         </div>
-        <div class="news-headline">Gemini 3.7 Flash ships at half the price — $0.75/$3.75 per 1M tokens</div>
-        <div class="news-body">Google launched <strong>Gemini 3.7 Flash</strong> just three weeks after 3.6 Flash, targeting coding, agentic workflows, and knowledge work. It's available at an <strong>introductory price of $0.75/M input · $3.75/M output</strong> — half of 3.6 Flash's $1.50/$7.50 — through <strong>December 31, 2026</strong>, after which it rises to $1.50/$7.50. In the Gemini app it's rolling out to <strong>Spark (AI Pro &amp; Ultra)</strong> with improved tool use for Google Workspace apps. Live in the Gemini app, Google AI Studio, and the API.</div>
+        <div class="news-headline">Gemini 3.7 Flash ships — smarter, faster, and half the price to build with</div>
+        <div class="news-body">Google launched <strong>Gemini 3.7 Flash</strong> — its smartest "workhorse" model yet for fast answers, coding, and agent-style tasks, arriving just three weeks after the previous version. Good news: it costs about <strong>half as much per request</strong> as its predecessor through <strong>December 31, 2026</strong> — a rounding error for normal users (your AI Pro plan doesn't change), but a real saving if you build with the Gemini <a class="gloss-link" href="#gloss-api">API</a>. Exact rates live in the Gemini card. Rolling out to <strong>Spark (AI Pro &amp; Ultra)</strong> with better Google Workspace tool use.</div>
       </div>
 
       <div class="news-card news-card-feature">
@@ -444,7 +445,7 @@
           <span class="news-badge news-badge-new">🆕 New Feature</span>
         </div>
         <div class="news-headline">Replit adds MCP access, workspace regions, and automatic security scanning</div>
-        <div class="news-body">Replit shipped a wave of builder updates. A native <strong>Replit MCP Server</strong> now connects Replit to ChatGPT, Claude, or Slack so you can create, inspect, and publish apps from inside another tool. Pro builders can pick a <strong>workspace region</strong> (NA, EU, Asia), and there's a path to <strong>migrate Replit Auth apps to Clerk Auth</strong> with SSO via Okta/Entra ID (free through Oct 1, 2026). Agent now runs an automatic <strong>Semgrep security scan</strong> on the files it changes before finishing a task (Aug 7), and Enterprise admins get a beta <strong>Admin API</strong> for usage and budget reporting.</div>
+        <div class="news-body">Replit shipped a wave of builder updates. A native <strong>Replit <a class="gloss-link" href="#gloss-mcp">MCP</a> Server</strong> now connects Replit to ChatGPT, Claude, or Slack so you can create, inspect, and publish apps from inside another tool. Pro builders can pick a <strong>workspace region</strong> (NA, EU, Asia), and there's a path to <strong>migrate Replit Auth apps to Clerk Auth</strong> with SSO via Okta/Entra ID (free through Oct 1, 2026). Agent now runs an automatic <strong>Semgrep security scan</strong> on the files it changes before finishing a task (Aug 7), and Enterprise admins get a beta <strong>Admin <a class="gloss-link" href="#gloss-api">API</a></strong> for usage and budget reporting.</div>
       </div>
 
       <div class="news-card news-card-feature">
@@ -465,8 +466,8 @@
           <span class="news-tool">💬 Claude / Anthropic</span>
           <span class="news-badge news-badge-new">🆕 Pricing</span>
         </div>
-        <div class="news-headline">Claude Sonnet 5's $2/$10 pricing is now permanent — the September increase is canceled</div>
-        <div class="news-body">Anthropic announced on August 10 that Claude Sonnet 5's launch pricing of <strong>$2/M input · $10/M output tokens</strong> is now the permanent standard price. The previously scheduled increase to $3/$15 on September 1, 2026 <strong>will not happen</strong>. This is not a price cut — it's a withdrawn increase — but it locks in the lower rate for budgeting. Sonnet 5 remains Anthropic's most agentic Sonnet model and undercuts OpenAI's balanced GPT-5.6 Terra ($2.50/$15) on list price.</div>
+        <div class="news-headline">Claude Sonnet 5's lower price is locked in — the September increase is off</div>
+        <div class="news-body">Anthropic confirmed on August 10 that Claude Sonnet 5 keeps its lower launch price — the increase scheduled for September 1 <strong>is canceled</strong>. What it means for you: steady, predictable costs, whether you chat on the $20/mo Pro plan or pay per <a class="gloss-link" href="#gloss-token">token</a> through the <a class="gloss-link" href="#gloss-api">API</a>. Sonnet 5 remains Anthropic's best everyday value and undercuts OpenAI's balanced GPT-5.6 Terra. Exact rates live in the Claude card.</div>
       </div>
 
       <div class="news-card news-card-feature">
@@ -508,7 +509,7 @@
           <span class="news-badge news-badge-new">🆕 New Model</span>
         </div>
         <div class="news-headline">Claude Opus 5 launches — near-Fable-5 performance at half the price</div>
-        <div class="news-body">Anthropic released <strong>Claude Opus 5</strong>, a direct upgrade to Opus 4.8 at the <strong>same price: $5/M input · $25/M output tokens</strong>. It's now the default model on Claude Max and the strongest model on Claude Pro, with big gains in agentic coding, knowledge work, and self-verification. It comes close to flagship Fable 5 ($10/$50) on most benchmarks — so most daily work can now run on Opus 5 for half the cost. API string: <strong>claude-opus-5</strong>. Also in beta: mid-conversation tool changes and automatic API fallbacks.</div>
+        <div class="news-body">Anthropic released <strong>Claude Opus 5</strong> — a direct upgrade to Opus 4.8 at the <strong>same price</strong>. It's now the default on Claude Max and the strongest model on Claude Pro, with big gains in coding, knowledge work, and double-checking its own answers. It nearly matches the top-tier Fable 5 on most tests — so most serious work can now run on Opus 5 for half the cost. Builders: exact per-<a class="gloss-link" href="#gloss-token">token</a> <a class="gloss-link" href="#gloss-api">API</a> rates live in the Claude card.</div>
       </div>
 
       <div class="news-card news-card-feature">
@@ -528,7 +529,7 @@
           <span class="news-badge news-badge-new">🆕 New Models</span>
         </div>
         <div class="news-headline">Gemini 3.6 Flash &amp; 3.5 Flash-Lite ship — faster and cheaper</div>
-        <div class="news-body">Google released <strong>Gemini 3.6 Flash</strong> at <strong>$1.50/M input · $7.50/M output</strong> (down from 3.5 Flash's $9 output), using ~17% fewer output tokens per task. <strong>Gemini 3.5 Flash-Lite</strong> lands at <strong>$0.30/$2.50</strong> — the fastest model in the 3.5 series at 350 tokens/sec. Both are live in the Gemini app, Google AI Studio, and Search. A specialized <strong>Flash Cyber</strong> model is restricted to governments/partners. Note: <strong>Gemini 3.5 Pro</strong> is still in partner testing, and Google confirmed pre-training has begun on <strong>Gemini 4</strong>.</div>
+        <div class="news-body">Google released <strong>Gemini 3.6 Flash</strong> — cheaper to run than its predecessor and using ~17% fewer <a class="gloss-link" href="#gloss-token">tokens</a> per task — plus <strong>Gemini 3.5 Flash-Lite</strong>, the fastest model in the series for quick jobs. Both are live in the Gemini app, Google AI Studio, and Search. Still cooking: <strong>Gemini 3.5 Pro</strong> (partner testing) and <strong>Gemini 4</strong> (pre-training). Exact API rates: see the Gemini card. A specialized <strong>Flash Cyber</strong> model stays restricted to governments/partners.</div>
       </div>
 
       <div class="news-subhead"><span class="news-subhead-label">Earlier in July</span><span class="news-subhead-rule"></span><span class="news-subhead-hint">kept for the month</span></div>
@@ -550,7 +551,7 @@
           <span class="news-badge news-badge-new">🆕 New Models</span>
         </div>
         <div class="news-headline">GPT-5.6 family (Sol, Terra, Luna) launches for all paid users</div>
-        <div class="news-body">OpenAI launched three new models: <strong>Sol</strong> (fast/efficient), <strong>Terra</strong> (balanced), and <strong>Luna</strong> (most capable). All three are now live for Plus, Pro, Business, and Enterprise users. Sol is available on the API at $5/$30 per 1M input/output tokens. The Realtime API also received a 30% input price cut effective July 1 — relevant if you use voice or live conversation features.</div>
+        <div class="news-body">OpenAI launched three new models: <strong>Sol</strong> (fast/efficient), <strong>Terra</strong> (balanced), and <strong>Luna</strong> (most capable). All three are now live for Plus, Pro, Business, and Enterprise users — no plan change needed. Builders: Sol is available through the OpenAI <a class="gloss-link" href="#gloss-api">API</a> (rates in the OpenAI card), and real-time voice pricing was cut 30% back on July 1 — relevant if you build voice or live-conversation features.</div>
       </div>
 
       <div class="news-card news-card-good">
@@ -560,7 +561,7 @@
           <span class="news-badge news-badge-new">🆕 New Model</span>
         </div>
         <div class="news-headline">Grok 4.5 is now publicly available — Opus-class for coding and agentic work</div>
-        <div class="news-body">xAI's Grok 4.5 launched publicly on July 8, available in Grok Build, Cursor, and the xAI API console (not yet available in the EU). API pricing is <strong>$2/$6 per 1M input/output tokens</strong> — competitive with Claude Sonnet 5. xAI positions it as "Opus-class" for coding and agentic tasks. Bonus: 21 multilingual Grok Voice voices with voice cloning support also went live this month.</div>
+        <div class="news-body">xAI's Grok 4.5 launched publicly on July 8, available in Grok Build, Cursor, and the xAI API console (not yet available in the EU). Builder <a class="gloss-link" href="#gloss-api">API</a> pricing is <strong>$2/$6 per million tokens</strong> — competitive with Claude Sonnet 5 (and a rounding error at everyday scale). xAI positions it as "Opus-class" for coding and agentic tasks. Bonus: 21 multilingual Grok Voice voices with voice cloning support also went live this month.</div>
       </div>
 
       <div class="news-card news-card-good">
@@ -570,7 +571,7 @@
           <span class="news-badge news-badge-new">🆕 New Model</span>
         </div>
         <div class="news-headline">Claude Sonnet 5 launches — most agentic Sonnet yet, at introductory pricing</div>
-        <div class="news-body">Anthropic launched Claude Sonnet 5 at <strong>$2/M input · $10/M output tokens</strong> — their most capable Sonnet model, designed for autonomous planning, multi-tool use, and production workflows. 🆕 Update (Aug 10, 2026): that $2/$10 pricing is now <strong>permanent</strong> — the planned September 1 increase to $3/$15 was canceled. Note: fast mode was removed from Claude Opus 4.6 (June 29) and deprecated for Opus 4.7 on July 24.</div>
+        <div class="news-body">Anthropic launched Claude Sonnet 5 at a value price — their most capable Sonnet yet, designed for autonomous planning, multi-tool use, and production workflows. 🆕 Update (Aug 10, 2026): that price is now <strong>permanent</strong> — the planned September 1 increase is canceled. Exact per-<a class="gloss-link" href="#gloss-token">token</a> rates: see the Claude card. Note: fast mode was removed from Claude Opus 4.6 (June 29) and deprecated for Opus 4.7 on July 24.</div>
       </div>
 
       <div class="news-card news-card-good">
@@ -754,6 +755,10 @@
         <p>Click any row for full details on that tool.</p>
       </div>
     </div>
+    <div class="intro-callout" style="margin-bottom: 24px;">
+      <div class="intro-callout-icon">💡</div>
+      <p><strong>Tokens 101:</strong> AI tools charge by the <a class="gloss-link" href="#gloss-token">token</a> — roughly ¾ of a word, and a million tokens is about 1,500 pages of text. The per-<a class="gloss-link" href="#gloss-token">token</a> rates you see below work out to fractions of a cent per reply, so they only really matter if you're building your own app with an <a class="gloss-link" href="#gloss-api">API</a>. For everyday use, the monthly plan price is what counts. <a class="gloss-link" href="#glossary">Full glossary →</a></p>
+    </div>
     <div class="table-wrapper">
       <div class="table-scroll">
         <table>
@@ -774,7 +779,7 @@
               <td class="tool-name">Claude.ai Chat<span class="tool-sub">claude.ai</span></td>
               <td>Writing, strategy, copy editing, long documents</td>
               <td><span class="tag">Best reasoning</span><span class="tag">1M context (Opus 5)</span><span class="tag">Nuanced writing</span></td>
-              <td>No internet by default; can't act on your computer. 🆕 Claude Opus 5 now live (July 24) — same $5/$25 price as Opus 4.8, default on Claude Max. Sonnet 5 also live at $2/$10 — pricing made permanent Aug 10 (no Sept increase).</td>
+              <td>No internet by default; can't act on your computer. 🆕 Claude Opus 5 now live (July 24) — same price as Opus 4.8, default on Claude Max. Sonnet 5's value price is now permanent (no Sept increase).</td>
               <td><span class="tier-dot dot-beginner">🌱 Beginner</span></td>
               <td>Free / Pro $20/mo</td>
             </tr>
@@ -818,7 +823,7 @@
               <td class="tool-name">Grok<span class="tool-sub">x.ai / X (Twitter)</span></td>
               <td>Real-time chat with live X/Twitter data, unfiltered Q&amp;A, current events, image generation</td>
               <td><span class="tag">Real-time X data</span><span class="tag">Less restricted</span><span class="tag">Image gen (Aurora)</span></td>
-              <td>Free tier still limited; SuperGrok required for full features. Grok 4.1 live for all users. 🆕 Grok 4.6 (Aug 12) is xAI's new flagship at $2/$6 per 1M tokens (500K context, new xhigh reasoning); 4.5 also on the API at $2/$6.</td>
+              <td>Free tier still limited; SuperGrok required for full features. 🆕 Grok 4.6 (Aug 12) is xAI's new flagship — sharp with long, multi-step tasks. Same $30/mo plan pricing; API rates for builders are in the Grok card.</td>
               <td><span class="tier-dot dot-beginner">🌱 Beginner</span></td>
               <td>Free / SuperGrok $30/mo</td>
             </tr>
@@ -854,7 +859,7 @@
               <td class="tool-name">Gemini<span class="tool-sub">gemini.google.com</span></td>
               <td>Everyday AI chat, Google Workspace integration</td>
               <td><span class="tag">Google integration</span><span class="tag">1M token context</span><span class="tag">Multimodal</span><span class="tag">3.7 Flash (Aug 2026)</span></td>
-              <td>Less nuanced reasoning than Claude; ecosystem lock-in. 🆕 Gemini 3.7 Flash ($0.75/$3.75 intro, half of 3.6) shipped Aug 13 through Dec 31; 3.6 Flash ($1.50/$7.50) &amp; 3.5 Flash-Lite ($0.30/$2.50) shipped July 21; 3.5 Pro still in testing.</td>
+              <td>Less nuanced reasoning than Claude; ecosystem lock-in. 🆕 Gemini 3.7 Flash shipped Aug 13 — faster and about half the API cost of the previous version through Dec 31; 3.5 Pro still in testing. API rates: see the Gemini card.</td>
               <td><span class="tier-dot dot-beginner">🌱 Beginner</span></td>
               <td>Free / AI Pro $19.99/mo</td>
             </tr>
@@ -916,7 +921,7 @@
               <td class="tool-name">Zapier AI<span class="tool-sub">zapier.com</span></td>
               <td>Connecting apps and using AI to make decisions in automations</td>
               <td><span class="tag">6,000+ integrations</span><span class="tag">AI steps</span><span class="tag">No-code</span></td>
-              <td>AI steps now tiered (Jun 15): Standard 1×, Advanced 3× (default), Premium 5× — watch usage costs</td>
+              <td>AI steps priced in three tiers (Standard/Advanced/Premium) — higher tiers cost more per AI step, so keep an eye on usage costs</td>
               <td><span class="tier-dot dot-intermediate">⚡ Intermediate</span></td>
               <td>Free tier / From $19.99/mo</td>
             </tr>
@@ -1107,21 +1112,21 @@
       </div>
     </div>
     <div class="glossary-grid">
-      <div class="glossary-card"><div class="glossary-term"><span class="gterm-icon">🤖</span> LLM</div><div class="glossary-def">Large Language Model. The AI "brain" behind most chat tools. Examples: GPT-4, Claude 3, Gemini. They predict and generate text based on your input.</div></div>
-      <div class="glossary-card"><div class="glossary-term"><span class="gterm-icon">🎛️</span> Model</div><div class="glossary-def">The specific version of an AI. Claude Sonnet vs. Opus, GPT-4o vs. GPT-3.5. Bigger models = more capable but slower and costlier.</div></div>
-      <div class="glossary-card"><div class="glossary-term"><span class="gterm-icon">📝</span> Prompt</div><div class="glossary-def">The instruction or question you type to the AI. Better prompts = better results. Think of it as how you talk to the tool.</div></div>
-      <div class="glossary-card"><div class="glossary-term"><span class="gterm-icon">🔑</span> API</div><div class="glossary-def">Application Programming Interface. A way for developers to connect AI models directly into their own apps or workflows. Requires coding or automation tools.</div></div>
-      <div class="glossary-card"><div class="glossary-term"><span class="gterm-icon">🪙</span> Token</div><div class="glossary-def">How AI measures text. Roughly 1 token = 1 word (or part of a word). API costs are often charged per token used. More tokens = more cost.</div></div>
-      <div class="glossary-card"><div class="glossary-term"><span class="gterm-icon">📏</span> Context Window</div><div class="glossary-def">How much text the AI can "see" and remember at once in one conversation. Claude and Gemini lead here with 100K–1M token windows.</div></div>
-      <div class="glossary-card"><div class="glossary-term"><span class="gterm-icon">🤝</span> MCP</div><div class="glossary-def">Model Context Protocol. A standard that lets AI connect to external tools and services — like your Google Drive, Slack, or ad accounts — so it can read and act on real data.</div></div>
-      <div class="glossary-card"><div class="glossary-term"><span class="gterm-icon">🕵️</span> Agent / Agentic AI</div><div class="glossary-def">An AI that doesn't just answer questions — it takes actions. Agents can browse the web, write files, click buttons, or complete multi-step tasks on your behalf.</div></div>
-      <div class="glossary-card"><div class="glossary-term"><span class="gterm-icon">🖥️</span> Computer Use</div><div class="glossary-def">A capability that lets an AI see and control a computer screen — clicking, typing, navigating — as if it were a human at the keyboard.</div></div>
-      <div class="glossary-card"><div class="glossary-term"><span class="gterm-icon">🛠️</span> Skill / System Prompt</div><div class="glossary-def">Hidden instructions that tell an AI how to behave before you ever type a message. Used to give AI a role, set rules, or load context automatically.</div></div>
-      <div class="glossary-card"><div class="glossary-term"><span class="gterm-icon">🌡️</span> Temperature</div><div class="glossary-def">A setting that controls how "creative" vs. "precise" the AI is. Low temperature = consistent, factual. High temperature = more surprising, varied output.</div></div>
-      <div class="glossary-card"><div class="glossary-term"><span class="gterm-icon">🔮</span> Hallucination</div><div class="glossary-def">When an AI makes up something that sounds plausible but isn't true. All LLMs do this. Always verify important facts, especially with ChatGPT and older models.</div></div>
-      <div class="glossary-card"><div class="glossary-term"><span class="gterm-icon">🔓</span> RAG</div><div class="glossary-def">Retrieval-Augmented Generation. A technique where AI pulls from your own documents or database before answering — reducing hallucinations. NotebookLM uses this.</div></div>
-      <div class="glossary-card"><div class="glossary-term"><span class="gterm-icon">⚡</span> Fine-tuning</div><div class="glossary-def">Training an existing AI model on your own data to make it better at your specific tasks. Requires technical setup. Usually done via API.</div></div>
-      <div class="glossary-card"><div class="glossary-term"><span class="gterm-icon">🔄</span> Multimodal</div><div class="glossary-def">An AI that can work with more than just text — images, audio, video, documents. ChatGPT, Claude, and Gemini are all multimodal.</div></div>
+      <div class="glossary-card"><div class="glossary-term" id="gloss-llm"><span class="gterm-icon">🤖</span> LLM</div><div class="glossary-def">Large Language Model. The AI "brain" behind most chat tools. Examples: GPT-4, Claude 3, Gemini. They predict and generate text based on your input.</div></div>
+      <div class="glossary-card"><div class="glossary-term" id="gloss-model"><span class="gterm-icon">🎛️</span> Model</div><div class="glossary-def">The specific version of an AI. Claude Sonnet vs. Opus, GPT-4o vs. GPT-3.5. Bigger models = more capable but slower and costlier.</div></div>
+      <div class="glossary-card"><div class="glossary-term" id="gloss-prompt"><span class="gterm-icon">📝</span> Prompt</div><div class="glossary-def">The instruction or question you type to the AI. Better prompts = better results. Think of it as how you talk to the tool.</div></div>
+      <div class="glossary-card"><div class="glossary-term" id="gloss-api"><span class="gterm-icon">🔑</span> API</div><div class="glossary-def">Application Programming Interface. A way for developers to connect AI models directly into their own apps or workflows. Requires coding or automation tools.</div></div>
+      <div class="glossary-card"><div class="glossary-term" id="gloss-token"><span class="gterm-icon">🪙</span> Token</div><div class="glossary-def">How AI measures text. Roughly 1 token = 1 word (or part of a word). API costs are often charged per token used. More tokens = more cost.</div></div>
+      <div class="glossary-card"><div class="glossary-term" id="gloss-context-window"><span class="gterm-icon">📏</span> Context Window</div><div class="glossary-def">How much text the AI can "see" and remember at once in one conversation. Claude and Gemini lead here with 100K–1M token windows.</div></div>
+      <div class="glossary-card"><div class="glossary-term" id="gloss-mcp"><span class="gterm-icon">🤝</span> MCP</div><div class="glossary-def">Model Context Protocol. A standard that lets AI connect to external tools and services — like your Google Drive, Slack, or ad accounts — so it can read and act on real data.</div></div>
+      <div class="glossary-card"><div class="glossary-term" id="gloss-agent"><span class="gterm-icon">🕵️</span> Agent / Agentic AI</div><div class="glossary-def">An AI that doesn't just answer questions — it takes actions. Agents can browse the web, write files, click buttons, or complete multi-step tasks on your behalf.</div></div>
+      <div class="glossary-card"><div class="glossary-term" id="gloss-computer-use"><span class="gterm-icon">🖥️</span> Computer Use</div><div class="glossary-def">A capability that lets an AI see and control a computer screen — clicking, typing, navigating — as if it were a human at the keyboard.</div></div>
+      <div class="glossary-card"><div class="glossary-term" id="gloss-skill"><span class="gterm-icon">🛠️</span> Skill / System Prompt</div><div class="glossary-def">Hidden instructions that tell an AI how to behave before you ever type a message. Used to give AI a role, set rules, or load context automatically.</div></div>
+      <div class="glossary-card"><div class="glossary-term" id="gloss-temperature"><span class="gterm-icon">🌡️</span> Temperature</div><div class="glossary-def">A setting that controls how "creative" vs. "precise" the AI is. Low temperature = consistent, factual. High temperature = more surprising, varied output.</div></div>
+      <div class="glossary-card"><div class="glossary-term" id="gloss-hallucination"><span class="gterm-icon">🔮</span> Hallucination</div><div class="glossary-def">When an AI makes up something that sounds plausible but isn't true. All LLMs do this. Always verify important facts, especially with ChatGPT and older models.</div></div>
+      <div class="glossary-card"><div class="glossary-term" id="gloss-rag"><span class="gterm-icon">🔓</span> RAG</div><div class="glossary-def">Retrieval-Augmented Generation. A technique where AI pulls from your own documents or database before answering — reducing hallucinations. NotebookLM uses this.</div></div>
+      <div class="glossary-card"><div class="glossary-term" id="gloss-finetuning"><span class="gterm-icon">⚡</span> Fine-tuning</div><div class="glossary-def">Training an existing AI model on your own data to make it better at your specific tasks. Requires technical setup. Usually done via API.</div></div>
+      <div class="glossary-card"><div class="glossary-term" id="gloss-multimodal"><span class="gterm-icon">🔄</span> Multimodal</div><div class="glossary-def">An AI that can work with more than just text — images, audio, video, documents. ChatGPT, Claude, and Gemini are all multimodal.</div></div>
     </div>
   </section>
 
@@ -1154,7 +1159,7 @@ const TOOLS = {
     family: 'Anthropic · Claude Family',
     title: 'Claude.ai Chat',
     subtitle: 'claude.ai',
-    bestFor: 'Writing, strategic thinking, copy editing, summarizing long documents, and nuanced Q&A. Claude is the gold standard for reading comprehension, tone-matching, and working through complex ideas in conversation. Current flagship is Claude Opus 5 (launched July 24, 2026) — a direct upgrade to Opus 4.8 at the same $5/$25 per 1M token price, now the default on Claude Max and strongest model on Claude Pro. It comes close to frontier Fable 5 performance at half the cost, with big gains in agentic coding, knowledge work, and self-verification. 🆕 July 2026: Claude Sonnet 5 is also live — the most agentic Sonnet model yet, at $2/M input and $10/M output tokens. That pricing was made permanent on August 10, 2026 (the planned September 1 increase to $3/$15 was canceled).',
+    bestFor: 'Writing, strategic thinking, copy editing, summarizing long documents, and nuanced Q&A. Claude is the gold standard for reading comprehension, tone-matching, and working through complex ideas in conversation. Current flagship is Claude Opus 5 (launched July 24, 2026) — a direct upgrade to Opus 4.8 at the same $5/$25 per 1M token price, now the default on Claude Max and strongest model on Claude Pro. It comes close to frontier Fable 5 performance at half the cost, with big gains in agentic coding, knowledge work, and self-verification. 🆕 July 2026: Claude Sonnet 5 is also live — the most agentic Sonnet model yet, at $2/M input and $10/M output tokens — a fraction of a cent per typical reply. That pricing was made permanent on August 10, 2026 (the planned September 1 increase to $3/$15 was canceled).',
     strengths: ['Best-in-class reasoning','1M token context (Opus 5)','Nuanced, human-like writing','Excellent instruction following','Image & document understanding'],
     limitations: 'No live internet access by default. Cannot click, navigate, or take actions on your computer. Not ideal for real-time data like stock prices or breaking news.',
     level: '🌱 Beginner — Great starting point',
@@ -1238,7 +1243,7 @@ const TOOLS = {
     family: 'Google AI Family',
     title: 'Gemini',
     subtitle: 'gemini.google.com',
-    bestFor: 'Everyday AI tasks with deep Google Workspace integration. Gemini works inside Gmail, Google Docs, Slides, and Sheets — making it a natural fit if your team lives in Google. Also great for multimodal tasks (images, documents, audio). 🆕 August 13, 2026: Gemini 3.7 Flash ships at an introductory $0.75/$3.75 per 1M tokens (half of 3.6 Flash) through Dec 31, 2026 — Google\'s most intelligent workhorse model yet for coding and agents, rolling out to Spark (AI Pro &amp; Ultra). 🆕 July 21, 2026: Gemini 3.6 Flash shipped at $1.50/$7.50 per 1M tokens (down from 3.5 Flash\'s $9 output) using ~17% fewer output tokens, plus Gemini 3.5 Flash-Lite at $0.30/$2.50. Gemini 3.5 Pro is still in partner testing, and pre-training has begun on Gemini 4.',
+    bestFor: 'Everyday AI tasks with deep Google Workspace integration. Gemini works inside Gmail, Google Docs, Slides, and Sheets — making it a natural fit if your team lives in Google. Also great for multimodal tasks (images, documents, audio). 🆕 August 13, 2026: Gemini 3.7 Flash ships at an introductory $0.75/$3.75 per 1M tokens (half of 3.6 Flash) through Dec 31, 2026 — under a cent per typical reply — Google\'s most intelligent workhorse model yet for coding and agents, rolling out to Spark (AI Pro &amp; Ultra). 🆕 July 21, 2026: Gemini 3.6 Flash shipped at $1.50/$7.50 per 1M tokens (down from 3.5 Flash\'s $9 output) using ~17% fewer output tokens, plus Gemini 3.5 Flash-Lite at $0.30/$2.50. Gemini 3.5 Pro is still in partner testing, and pre-training has begun on Gemini 4.',
     strengths: ['Built into Google Workspace','1 million token context','Multimodal (text, image, audio)','Google ecosystem deep integration','Free tier is generous'],
     limitations: 'Reasoning depth is generally below Claude and GPT-5 for complex tasks. Heavily tied to the Google ecosystem. Feels less "conversational" than Claude.',
     level: '🌱 Beginner — Ideal for Google users',
@@ -1346,7 +1351,7 @@ const TOOLS = {
     family: 'xAI · Grok Family',
     title: 'Grok',
     subtitle: 'x.ai / Built into X (formerly Twitter)',
-    bestFor: 'Real-time chat powered by live data from X (Twitter). Grok is the go-to for current events, trending topics, and questions where fresh social data matters. Also known for being less filtered than other AI tools — it will engage with edgier questions others refuse. 🆕 August 12, 2026: Grok 4.6 is xAI\'s new flagship — a post-training upgrade over 4.5 tuned for long-running agents and interactive/visual work, at the same $2/$6 per 1M token headline price (500K context, new xhigh reasoning level). 🆕 July 8, 2026: Grok 4.5 also available via xAI API at $2/$6 per 1M tokens — positioned as Opus-class for coding and agentic work.',
+    bestFor: 'Real-time chat powered by live data from X (Twitter). Grok is the go-to for current events, trending topics, and questions where fresh social data matters. Also known for being less filtered than other AI tools — it will engage with edgier questions others refuse. 🆕 August 12, 2026: Grok 4.6 is xAI\'s new flagship — a post-training upgrade over 4.5 tuned for long-running agents and interactive/visual work, at the same $2/$6 per 1M token headline price (500K context, new xhigh reasoning level) — roughly a cent or two per long reply. 🆕 July 8, 2026: Grok 4.5 also available via xAI API at $2/$6 per 1M tokens — positioned as Opus-class for coding and agentic work.',
     strengths: ['Real-time X/Twitter data feed','Less restricted responses','Grok 4.1 live for all users (July 2026)','Grok 4.6 flagship (Aug 12, 2026)','4.5 API public ($2/$6/1M tokens)','Aurora image & video generation (complete)','Grok Voice built in','Built into X app & grok.com'],
     limitations: 'SuperGrok subscription required for full features; free tier is very limited (10 prompts / 2 hrs). Can be less careful and accurate than Claude or ChatGPT. Smaller ecosystem than OpenAI or Anthropic.',
     level: '🌱 Beginner — accessible at grok.com or via X app',
