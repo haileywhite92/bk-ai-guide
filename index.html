@@ -1420,11 +1420,53 @@ document.getElementById('modalOverlay').addEventListener('close', function() {
   document.body.style.overflow = '';
 });
 
-// ─── Nav scroll & active tab ───
-function navTo(id) {
-  const el = document.querySelector(id);
-  if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+// ─── In-page navigation ───
+// All glossary links and nav buttons use this path instead of relying only on
+// the browser's native anchor handling. It also focuses the destination for
+// keyboard and screen-reader users, and supports Back/Forward navigation.
+function scrollToTarget(targetId, updateUrl = true) {
+  const id = String(targetId || '').replace(/^#/, '');
+  if (!id) return false;
+
+  const target = document.getElementById(id);
+  if (!target) return false;
+
+  const hash = '#' + id;
+  if (updateUrl && window.location.hash !== hash) {
+    window.history.pushState(null, '', hash);
+  }
+
+  const behavior = window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth';
+  target.scrollIntoView({ behavior, block: 'start' });
+
+  // Make non-interactive section targets focusable without adding them to the
+  // tab order, so readers receive a clear destination after following a link.
+  if (!target.hasAttribute('tabindex')) target.setAttribute('tabindex', '-1');
+  target.focus({ preventScroll: true });
+  return true;
 }
+
+function navTo(id) {
+  scrollToTarget(id, true);
+}
+
+document.querySelectorAll('a[href^="#"]').forEach(link => {
+  link.addEventListener('click', event => {
+    if (scrollToTarget(link.getAttribute('href'), true)) event.preventDefault();
+  });
+});
+
+let hashRestoreFrame = 0;
+function restoreHashTarget() {
+  window.cancelAnimationFrame(hashRestoreFrame);
+  hashRestoreFrame = window.requestAnimationFrame(() => {
+    if (window.location.hash) scrollToTarget(window.location.hash, false);
+  });
+}
+
+window.addEventListener('popstate', restoreHashTarget);
+window.addEventListener('hashchange', restoreHashTarget);
+if (window.location.hash) restoreHashTarget();
 
 const tabs = document.querySelectorAll('.nav-tab');
 const observer = new IntersectionObserver((entries) => {
